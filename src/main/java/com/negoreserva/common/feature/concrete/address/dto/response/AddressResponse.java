@@ -13,6 +13,8 @@ public record AddressResponse(
         String number,
         String zipCode,
         String complement,
+        String province,
+        String municipality,
         Double latitude,
         Double longitude
 ) {
@@ -27,6 +29,8 @@ public record AddressResponse(
                 address.getNumber(),
                 address.getZipCode(),
                 address.getComplement(),
+                address.getProvince(),
+                address.getMunicipality(),
                 address.getLatitude(),
                 address.getLongitude()
         );

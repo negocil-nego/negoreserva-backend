@@ -1,6 +1,7 @@
 package com.negoreserva.common.config;
 
 import com.negoreserva.common.feature.concrete.catalog.component.CatalogSeeder;
+import com.negoreserva.common.feature.concrete.province.component.ProvinceMunicipalitySeeder;
 import com.negoreserva.common.feature.concrete.category.component.CategorySeeder;
 import com.negoreserva.common.feature.concrete.org_permission.component.OrgPermissionSeeder;
 import com.negoreserva.common.feature.concrete.org_role.component.OrgRoleSeeder;
@@ -39,10 +40,12 @@ public class SeederRunner implements CommandLineRunner {
     private final OrgRoleSeeder orgRoleSeeder;
     private final CatalogSeeder catalogSeeder;
     private final ProductSeeder productSeeder;
+    private final ProvinceMunicipalitySeeder provinceMunicipalitySeeder;
     private final UserSeeder userSeeder;
 
     @Override
     public void run(String @NonNull ... args) {
+        provinceMunicipalitySeeder.seed();
         var users  = userSeeder.seed();
         var organizations = organizationSeeder.seed();
 

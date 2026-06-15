@@ -17,6 +17,8 @@ import com.negoreserva.common.feature.concrete.organization.service.Organization
 import com.negoreserva.common.feature.general.register.util.ExpiredGenerator;
 import com.negoreserva.common.feature.general.register.util.OtpGenerator;
 import com.negoreserva.common.feature.concrete.user.service.UserService;
+import com.negoreserva.common.feature.concrete.address.model.Address;
+import com.negoreserva.common.feature.concrete.address.repository.AddressRepo;
 import com.negoreserva.common.feature.concrete.category.repository.CategoryRepo;
 import com.negoreserva.common.feature.concrete.category.model.Category;
 import jakarta.servlet.http.HttpServletResponse;
@@ -38,6 +40,7 @@ public class RegisterOrganizationFacade {
     private final TokenFacade tokenFacade;
     private final UserService userService;
     private final CategoryRepo categoryRepo;
+    private final AddressRepo addressRepo;
 
     @Transactional
     public CreateAccountResponse createAccount(CreateAccountOrganizationRequest request, HttpServletResponse response) {
@@ -64,6 +67,17 @@ public class RegisterOrganizationFacade {
         
         var categories = categoryRepo.findByUuidIn(categoryIds);
         organization.setCategories(categories);
+
+        if (request.province() != null && !request.province().isBlank()) {
+            var address = Address.builder()
+                    .country("Angola")
+                    .province(request.province())
+                    .municipality(request.municipality())
+                    .build();
+            address = addressRepo.save(address);
+            organization.setAddresses(List.of(address));
+        }
+
         organizationService.save(organization);
 
         var expiredAt = ExpiredGenerator.otpExpired3Minutes();

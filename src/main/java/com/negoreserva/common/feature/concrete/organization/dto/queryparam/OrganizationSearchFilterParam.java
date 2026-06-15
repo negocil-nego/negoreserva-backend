@@ -13,4 +13,6 @@ import java.util.UUID;
 public class OrganizationSearchFilterParam {
     private String q;
     private List<UUID> categoriesUuid;
+    private String province;
+    private String municipality;
 }

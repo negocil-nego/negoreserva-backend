@@ -15,14 +15,16 @@ type UpdateDataResponse {
 
 type AddressResponse {
     uuid: ID!
-    country: String!
-    state: String!
-    city: String!
+    country: String
+    state: String
+    city: String
     neighborhood: String
-    street: String!
+    street: String
     number: String
     zipCode: String
     complement: String
+    province: String
+    municipality: String
     latitude: Float
     longitude: Float
 }

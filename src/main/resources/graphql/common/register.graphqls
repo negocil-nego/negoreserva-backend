@@ -34,6 +34,8 @@ input CreateAccountOrganizationInput {
     password: String!
     confirm: String!
     categories: [String!]!
+    province: String
+    municipality: String
 }
 
 input CreateAccountClientInput {

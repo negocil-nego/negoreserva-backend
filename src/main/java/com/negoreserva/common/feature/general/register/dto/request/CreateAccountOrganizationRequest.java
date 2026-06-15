@@ -43,7 +43,15 @@ public record CreateAccountOrganizationRequest(
 
         @Schema(description = "Category UUIDs for the organization")
         @NotEmpty(message = "At least one category is required")
-        List<String> categories
+        List<String> categories,
+
+        @Schema(description = "Province value", example = "luanda")
+        @Size(max = 50)
+        String province,
+
+        @Schema(description = "Municipality value", example = "talatona")
+        @Size(max = 50)
+        String municipality
 
 ) {
 

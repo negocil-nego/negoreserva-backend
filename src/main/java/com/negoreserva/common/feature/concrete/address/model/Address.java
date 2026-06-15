@@ -22,22 +22,18 @@ import java.util.List;
 @SuperBuilder(toBuilder = true)
 @EqualsAndHashCode(callSuper = true)
 public class Address extends ConcreteModel {
-    @NotBlank
     @Size(max = 100)
     private String country;
 
-    @NotBlank
     @Size(max = 100)
     private String state;
 
-    @NotBlank
     @Size(max = 100)
     private String city;
 
     @Size(max = 100)
     private String neighborhood;
 
-    @NotBlank
     @Size(max = 255)
     private String street;
 
@@ -50,6 +46,12 @@ public class Address extends ConcreteModel {
     @Size(max = 255)
     private String complement;
 
+    @Size(max = 50)
+    private String province;
+
+    @Size(max = 50)
+    private String municipality;
+
     private Double latitude;
 
     private Double longitude;
@@ -59,10 +61,10 @@ public class Address extends ConcreteModel {
     private List<OrganizationAddress> organizationAddresses = new ArrayList<>();
 
     public AddressResponse toResponse() {
-        return new AddressResponse(uuid, country, state, city, neighborhood, street, number, zipCode, complement, latitude, longitude);
+        return new AddressResponse(uuid, country, state, city, neighborhood, street, number, zipCode, complement, province, municipality, latitude, longitude);
     }
 
     public AddressRequest toAddressRequest() {
-        return new AddressRequest(country, state, city, neighborhood, street, number, zipCode, complement, latitude, longitude);
+        return new AddressRequest(country, state, city, neighborhood, street, number, zipCode, complement, province, municipality, latitude, longitude);
     }
 }

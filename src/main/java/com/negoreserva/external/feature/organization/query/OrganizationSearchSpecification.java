@@ -1,5 +1,6 @@
 package com.negoreserva.external.feature.organization.query;
 
+import com.negoreserva.common.feature.concrete.address.model.Address;
 import com.negoreserva.common.feature.concrete.category.model.Category;
 import com.negoreserva.common.feature.concrete.organization.dto.queryparam.OrganizationSearchFilterParam;
 import com.negoreserva.common.feature.concrete.organization.enums.OrganizationStatus;
@@ -39,6 +40,18 @@ public class OrganizationSearchSpecification implements Specification<Organizati
         Optional.ofNullable(filter.getCategoriesUuid()).filter(l -> !l.isEmpty()).ifPresent(uuids -> {
             Join<Organization, Category> categoryJoin = root.join("categories", JoinType.INNER);
             predicates.add(categoryJoin.get("uuid").in(uuids));
+            query.distinct(true);
+        });
+
+        Optional.ofNullable(filter.getProvince()).filter(s -> !s.isBlank()).ifPresent(province -> {
+            Join<Organization, Address> addressJoin = root.join("addresses", JoinType.LEFT);
+            predicates.add(cb.equal(addressJoin.get("province"), province));
+            query.distinct(true);
+        });
+
+        Optional.ofNullable(filter.getMunicipality()).filter(s -> !s.isBlank()).ifPresent(municipality -> {
+            Join<Organization, Address> addressJoin = root.join("addresses", JoinType.LEFT);
+            predicates.add(cb.equal(addressJoin.get("municipality"), municipality));
             query.distinct(true);
         });
 

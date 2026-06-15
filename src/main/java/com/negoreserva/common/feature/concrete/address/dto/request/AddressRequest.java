@@ -5,18 +5,14 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public record AddressRequest(
-        @NotBlank
         @Size(max = 100)
         String country,
-        @NotBlank
         @Size(max = 100)
         String state,
-        @NotBlank
         @Size(max = 100)
         String city,
         @Size(max = 100)
         String neighborhood,
-        @NotBlank
         @Size(max = 255)
         String street,
         @Size(max = 20)
@@ -25,6 +21,10 @@ public record AddressRequest(
         String zipCode,
         @Size(max = 255)
         String complement,
+        @Size(max = 50)
+        String province,
+        @Size(max = 50)
+        String municipality,
         Double latitude,
         Double longitude
 ) {
@@ -38,6 +38,8 @@ public record AddressRequest(
                 .number(number)
                 .zipCode(zipCode)
                 .complement(complement)
+                .province(province)
+                .municipality(municipality)
                 .latitude(latitude)
                 .longitude(longitude)
                 .build();
