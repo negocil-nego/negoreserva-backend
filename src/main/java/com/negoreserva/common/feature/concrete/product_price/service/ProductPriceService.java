@@ -17,6 +17,7 @@ public class ProductPriceService extends ConcreteService<ProductPrice> {
         this.repository = repository;
     }
 
+    @Override
     public ProductPrice findByUuid(UUID uuid) {
         return repository.findByUuid(uuid).orElseThrow(() -> new ProductPriceNotFoundException(uuid));
     }

@@ -11,5 +11,6 @@ import java.util.UUID;
 @Repository
 public interface MunicipalityRepo extends ConcreteRepository<Municipality> {
     Optional<Municipality> findByUuid(UUID uuid);
-    List<Municipality> findByProvinceValue(String provinceValue);
+    Optional<Municipality> findByValue(String value);
+    List<Municipality> findByProvinceUuid(UUID provinceUuid);
 }

@@ -11,6 +11,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 import java.util.List;
+import java.util.UUID;
 
 @Schema(description = "Request for organization account creation")
 public record CreateAccountOrganizationRequest(
@@ -45,13 +46,16 @@ public record CreateAccountOrganizationRequest(
         @NotEmpty(message = "At least one category is required")
         List<String> categories,
 
+        @Schema(description = "Address of company")
+        String address,
+
         @Schema(description = "Province value", example = "luanda")
         @Size(max = 50)
-        String province,
+        UUID provinceUuid,
 
         @Schema(description = "Municipality value", example = "talatona")
         @Size(max = 50)
-        String municipality
+        UUID municipalityUuid
 
 ) {
 

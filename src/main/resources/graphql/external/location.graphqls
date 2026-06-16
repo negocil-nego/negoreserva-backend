@@ -1,4 +1,4 @@
 extend type Query {
     pubListProvince: [ProvinceResponse!]!
-    pubListMunicipalityByProvince(provinceValue: String!): [MunicipalityResponse!]!
+    pubListMunicipalityByProvince(provinceUuid: ID!): [MunicipalityResponse!]!
 }

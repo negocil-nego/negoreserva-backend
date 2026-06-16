@@ -22,7 +22,7 @@ import java.util.UUID;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(ProvinceRouteNamed.PATH)
-@Tag(name = "Admin - Province", description = "Endpoints for province management")
+@Tag(name = "Admin - Province", description = "Endpoints for provinceUuid management")
 public class AdminProvinceController {
 
     private final AdminProvinceService service;
@@ -40,33 +40,33 @@ public class AdminProvinceController {
     }
 
     @GetMapping(ProvinceRouteNamed.FIND_BY_VALUE)
-    @Operation(summary = "Get province by value")
+    @Operation(summary = "Get provinceUuid by value")
     public ResponseEntity<ProvinceResponse> findByValue(@PathVariable String value) {
         return ResponseEntity.ok(ProvinceResponse.of(service.findByValue(value)));
     }
 
     @GetMapping("/{uuid}")
-    @Operation(summary = "Get province by uuid")
+    @Operation(summary = "Get provinceUuid by uuid")
     public ResponseEntity<ProvinceResponse> findByUuid(@PathVariable UUID uuid) {
         return ResponseEntity.ok(ProvinceResponse.of(service.findByUuid(uuid)));
     }
 
     @PostMapping
-    @Operation(summary = "Create province")
+    @Operation(summary = "Create provinceUuid")
     public ResponseEntity<ProvinceResponse> save(@RequestBody @Valid ProvinceRequest provinceDto) {
         Province province = service.save(provinceDto.toModel());
         return new ResponseEntity<>(ProvinceResponse.of(province), HttpStatus.CREATED);
     }
 
     @PutMapping("/{uuid}")
-    @Operation(summary = "Update province")
+    @Operation(summary = "Update provinceUuid")
     public ResponseEntity<ProvinceResponse> update(@PathVariable UUID uuid, @RequestBody @Valid ProvinceRequest provinceDto) {
         Province province = service.update(uuid, provinceDto.toModel());
         return new ResponseEntity<>(ProvinceResponse.of(province), HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping("/{uuid}")
-    @Operation(summary = "Delete province by uuid")
+    @Operation(summary = "Delete provinceUuid by uuid")
     public ResponseEntity<Void> deleteByUuid(@PathVariable UUID uuid) {
         service.deleteByUuid(uuid);
         return ResponseEntity.noContent().build();

@@ -15,6 +15,6 @@ public class ProvinceGraphql {
 
     @QueryMapping
     public List<ProvinceResponse> pubListProvince() {
-        return service.findAllProvinceResponses();
+        return service.findAllProvinceResponses().stream().map(ProvinceResponse::of).toList();
     }
 }

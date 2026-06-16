@@ -1,5 +1,6 @@
 package com.negoreserva.common.feature.concrete.municipality.model;
 
+import com.negoreserva.common.feature.concrete.municipality.dto.response.MunicipalityResponse;
 import com.negoreserva.common.feature.concrete.province.model.Province;
 import com.negoreserva.common.feature.core.model.ConcreteModel;
 import com.negoreserva.common.variable.EntityVariable;
@@ -18,7 +19,8 @@ import lombok.experimental.SuperBuilder;
 @Table(name = EntityVariable.MUNICIPALITY)
 public class Municipality extends ConcreteModel {
     @NotBlank
-    @Size(max = 50)
+    @Column(unique = true)
+    @Size(max = 255)
     private String value;
 
     @NotBlank
@@ -29,4 +31,8 @@ public class Municipality extends ConcreteModel {
     @JoinColumn(name = "province_id", nullable = false)
     @ToString.Exclude
     private Province province;
+
+    public MunicipalityResponse toResponse() {
+        return new MunicipalityResponse(uuid, value, label, province.toResponse());
+    }
 }

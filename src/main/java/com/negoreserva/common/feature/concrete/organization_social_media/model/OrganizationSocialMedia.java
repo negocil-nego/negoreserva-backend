@@ -1,5 +1,6 @@
 package com.negoreserva.common.feature.concrete.organization_social_media.model;
 
+import com.negoreserva.common.feature.concrete.organization.dto.response.OrganizationResponse;
 import com.negoreserva.common.feature.concrete.organization.model.Organization;
 import com.negoreserva.common.feature.concrete.organization_social_media.dto.response.OrganizationSocialMediaResponse;
 import com.negoreserva.common.feature.core.model.ConcreteModel;
@@ -35,7 +36,7 @@ public class OrganizationSocialMedia extends ConcreteModel {
                 youtube,
                 tiktok,
                 linkedin,
-                organization.toResponse()
+                OrganizationResponse.of(organization)
         );
     }
 }

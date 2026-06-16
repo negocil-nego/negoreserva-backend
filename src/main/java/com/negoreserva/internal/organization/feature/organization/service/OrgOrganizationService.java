@@ -50,6 +50,7 @@ public class OrgOrganizationService extends ConcreteService<Organization> {
         return profile.applyUseCase();
     }
 
+    @Override
     public Organization findByUuid(UUID uuid) {
         return organizationRepository.findByUuid(uuid).orElseThrow(() -> new OrganizationNotFoundException(uuid));
     }

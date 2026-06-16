@@ -6,6 +6,8 @@ type OrganizationResponse {
     description: String
     phone: String!
     address: String
+    province: String
+    municipality: String
     logo: String
     image: String
     video: String

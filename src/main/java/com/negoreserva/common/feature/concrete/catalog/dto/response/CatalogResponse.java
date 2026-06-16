@@ -30,7 +30,7 @@ public record CatalogResponse(
                 imageUrl,
                 catalog.getSlug(),
                 catalog.getType(),
-                catalog.getOrganization().toResponse()
+                OrganizationResponse.of(catalog.getOrganization())
         );
     }
 }

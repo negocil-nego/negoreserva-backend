@@ -15,11 +15,10 @@ public class AddressService extends ConcreteService<Address> {
     }
 
     public Address findOrCreate(Address address) {
-        return repository.findByStreetAndNumberAndCityAndState(
-                address.getStreet(),
-                address.getNumber(),
-                address.getCity(),
-                address.getState()
+        return repository.findByComplementAndProvinceAndMunicipality(
+                address.getComplement(),
+                address.getProvince(),
+                address.getMunicipality()
         ).orElseGet(() -> save(address));
     }
 }

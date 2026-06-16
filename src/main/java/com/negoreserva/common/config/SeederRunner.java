@@ -3,6 +3,7 @@ package com.negoreserva.common.config;
 import com.negoreserva.common.feature.concrete.address.component.AddressSeeder;
 import com.negoreserva.common.feature.concrete.catalog.component.CatalogSeeder;
 import com.negoreserva.common.feature.concrete.category.component.CategorySeeder;
+import com.negoreserva.common.feature.concrete.municipality.component.MunicipalitySeeder;
 import com.negoreserva.common.feature.concrete.org_permission.component.OrgPermissionSeeder;
 import com.negoreserva.common.feature.concrete.org_role.component.OrgRoleSeeder;
 import com.negoreserva.common.feature.concrete.organization.component.OrganizationSeeder;
@@ -11,7 +12,7 @@ import com.negoreserva.common.feature.concrete.product.component.ProductSeeder;
 import com.negoreserva.common.feature.concrete.product_file.component.ProductFileSeeder;
 import com.negoreserva.common.feature.concrete.product_price.component.ProductPriceSeeder;
 import com.negoreserva.common.feature.concrete.product_tag_info.component.ProductTagInfoSeeder;
-import com.negoreserva.common.feature.concrete.province.component.ProvinceMunicipalitySeeder;
+import com.negoreserva.common.feature.concrete.province.component.ProvinceSeeder;
 import com.negoreserva.common.feature.concrete.user.component.UserSeeder;
 import com.negoreserva.common.feature.pivot.catalog_products.component.CatalogProductsSeeder;
 import com.negoreserva.common.feature.pivot.organization_address.component.OrganizationAddressSeeder;
@@ -31,15 +32,17 @@ public class SeederRunner implements CommandLineRunner {
     private final OrganizationCategorySeeder organizationCategorySeeder;
     private final OrganizationAddressSeeder organizationAddressSeeder;
     private final UserOrganizationSeeder userOrganizationSeeder;
+    private final CatalogProductsSeeder catalogProductsSeeder;
     private final ProductTagInfoSeeder productTagInfoSeeder;
+    private final MunicipalitySeeder municipalitySeeder;
     private final ProductPriceSeeder productPriceSeeder;
     private final ProductFileSeeder productFileSeeder;
-    private final CatalogProductsSeeder catalogProductsSeeder;
-    private final ProvinceMunicipalitySeeder provinceMunicipalitySeeder;
+    private final ProvinceSeeder provinceSeeder;
+
     private final OrgPermissionSeeder orgPermissionSeeder;
-    private final OrgRoleSeeder orgRoleSeeder;
     private final OrganizationSeeder organizationSeeder;
     private final CategorySeeder categorySeeder;
+    private final OrgRoleSeeder orgRoleSeeder;
     private final CatalogSeeder catalogSeeder;
     private final ProductSeeder productSeeder;
     private final AddressSeeder addressSeeder;
@@ -47,11 +50,16 @@ public class SeederRunner implements CommandLineRunner {
 
     @Override
     public void run(String @NonNull ... args) {
-        provinceMunicipalitySeeder.seed();
+        var provinces = provinceSeeder.seed();
+
+        municipalitySeeder.setProvinces(provinces);
+        var municipalities = municipalitySeeder.seed();
 
         var users  = userSeeder.seed();
         var organizations = organizationSeeder.seed();
 
+        addressSeeder.setMunicipalities(municipalities);
+        addressSeeder.setProvinces(provinces);
         var addresses = addressSeeder.seed();
 
         organizationAddressSeeder.setOrganizations(organizations);

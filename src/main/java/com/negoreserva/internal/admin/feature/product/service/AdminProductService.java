@@ -52,6 +52,7 @@ public class AdminProductService extends ConcreteService<Product> {
         return productRepository.findByName(name).orElseThrow(() -> new ProductNameNotFoundException(name));
     }
 
+    @Override
     public Product findByUuid(UUID uuid) {
         return productRepository.findByUuid(uuid).orElseThrow(() -> new ProductNotFoundException(uuid));
     }

@@ -2,6 +2,8 @@ package com.negoreserva.common.feature.general.register.service;
 
 import com.negoreserva.common.component.CryptoFacade;
 import com.negoreserva.common.component.TokenFacade;
+import com.negoreserva.common.feature.concrete.municipality.service.MunicipalityService;
+import com.negoreserva.common.feature.concrete.province.service.ProvinceService;
 import com.negoreserva.common.feature.core.enums.OtpVerificationType;
 import com.negoreserva.common.feature.general.sms.model.SmsCreateAccountOtpVerification;
 import com.negoreserva.common.feature.general.sms.service.SmsCreateAccountOtpVerificationDispatcher;
@@ -20,7 +22,6 @@ import com.negoreserva.common.feature.concrete.user.service.UserService;
 import com.negoreserva.common.feature.concrete.address.model.Address;
 import com.negoreserva.common.feature.concrete.address.repository.AddressRepo;
 import com.negoreserva.common.feature.concrete.category.repository.CategoryRepo;
-import com.negoreserva.common.feature.concrete.category.model.Category;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,8 @@ public class RegisterOrganizationFacade {
     private final UserOtpVerificationFacade userOtpVerificationFacade;
     private final UserOrganizationService userOrganizationService;
     private final OrganizationService organizationService;
+    private final MunicipalityService municipalityService;
+    private final ProvinceService provinceService;
     private final CryptoFacade cryptoFacade;
     private final TokenFacade tokenFacade;
     private final UserService userService;
@@ -68,15 +71,14 @@ public class RegisterOrganizationFacade {
         var categories = categoryRepo.findByUuidIn(categoryIds);
         organization.setCategories(categories);
 
-        if (request.province() != null && !request.province().isBlank()) {
-            var address = Address.builder()
-                    .country("Angola")
-                    .province(request.province())
-                    .municipality(request.municipality())
-                    .build();
-            address = addressRepo.save(address);
-            organization.setAddresses(List.of(address));
-        }
+        var province = provinceService.findByUuid(request.provinceUuid());
+        var municipality = municipalityService.findByUuid(request.municipalityUuid());
+
+        var address = Address.builder().province(province).municipality(municipality).complement(request.address()).build();
+
+        address = addressRepo.save(address);
+        organization.setAddresses(List.of(address));
+
 
         organizationService.save(organization);
 

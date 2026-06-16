@@ -5,8 +5,6 @@ import com.negoreserva.common.contract.SearchableEntity;
 import com.negoreserva.common.contract.Sluggable;
 import com.negoreserva.common.feature.concrete.address.model.Address;
 import com.negoreserva.common.feature.concrete.category.model.Category;
-import com.negoreserva.common.feature.concrete.organization.dto.request.OrganizationRequest;
-import com.negoreserva.common.feature.concrete.organization.dto.response.OrganizationResponse;
 import com.negoreserva.common.feature.concrete.organization.enums.OrganizationStatus;
 import com.negoreserva.common.feature.concrete.organization_social_media.model.OrganizationSocialMedia;
 import com.negoreserva.common.feature.concrete.organization_update_data.model.OrganizationUpdateData;
@@ -149,9 +147,5 @@ public class Organization extends ConcreteModel implements Sluggable, Searchable
         email = UniqueFieldUtil.fieldDelete(email, id);
         name = UniqueFieldUtil.fieldDelete(name, id);
         slug = UniqueFieldUtil.fieldDelete(slug, id);
-    }
-
-    public OrganizationResponse toResponse() {
-        return new OrganizationResponse(uuid, name, slug, email, description, phone, address, rating, image, logo, video, isHighlight);
     }
 }

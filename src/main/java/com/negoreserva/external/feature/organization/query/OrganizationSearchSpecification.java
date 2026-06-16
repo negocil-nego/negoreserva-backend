@@ -45,13 +45,13 @@ public class OrganizationSearchSpecification implements Specification<Organizati
 
         Optional.ofNullable(filter.getProvince()).filter(s -> !s.isBlank()).ifPresent(province -> {
             Join<Organization, Address> addressJoin = root.join("addresses", JoinType.LEFT);
-            predicates.add(cb.equal(addressJoin.get("province"), province));
+            predicates.add(cb.equal(addressJoin.get("provinceUuid"), province));
             query.distinct(true);
         });
 
         Optional.ofNullable(filter.getMunicipality()).filter(s -> !s.isBlank()).ifPresent(municipality -> {
             Join<Organization, Address> addressJoin = root.join("addresses", JoinType.LEFT);
-            predicates.add(cb.equal(addressJoin.get("municipality"), municipality));
+            predicates.add(cb.equal(addressJoin.get("municipalityUuid"), municipality));
             query.distinct(true);
         });
 

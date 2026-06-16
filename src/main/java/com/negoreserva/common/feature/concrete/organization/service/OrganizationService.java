@@ -23,13 +23,14 @@ public class OrganizationService extends ConcreteService<Organization> {
         this.userService = userService;
     }
 
+    @Override
     public Organization findByUuid(UUID uuid) {
         return repository.findByUuid(uuid).orElseThrow( () -> new OrganizationNotFoundException(uuid));
     }
 
     public Organization findBy(Authentication authentication) {
-        var usecase = new OrgOrganizationUseCase(authentication, userService);
-        return usecase.applyUseCase();
+        var because = new OrgOrganizationUseCase(authentication, userService);
+        return because.applyUseCase();
     }
 
     @Transactional

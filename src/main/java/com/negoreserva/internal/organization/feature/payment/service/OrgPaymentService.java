@@ -44,6 +44,7 @@ public class OrgPaymentService extends ConcreteService<Payment> {
         return OrgPaymentPaginate.of(page);
     }
 
+    @Override
     public Payment findByUuid(UUID uuid) {
         return orgPaymentRepo.findByUuid(uuid).orElseThrow(() -> new PaymentNotFoundException(uuid));
     }

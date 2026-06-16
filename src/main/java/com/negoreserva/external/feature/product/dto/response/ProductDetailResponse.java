@@ -39,7 +39,7 @@ public record ProductDetailResponse (
                 product.getName(),
                 product.getDescription(),
                 product.getImage(),
-                product.getOrganization().toResponse(),
+                OrganizationResponse.of(product.getOrganization()),
                 files,
                 tags,
                 prices

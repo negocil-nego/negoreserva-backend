@@ -48,6 +48,7 @@ public class AdminCategoryService extends ConcreteService<Category> {
         return repository.findByName(name).orElseThrow(() -> new CategoryNameNotFoundException(name));
     }
 
+    @Override
     public Category findByUuid(UUID uuid) {
         return repository.findByUuid(uuid).orElseThrow(() -> new CategoryNotFoundException(uuid));
     }

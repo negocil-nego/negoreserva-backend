@@ -41,33 +41,36 @@ public class AdminOrganizationController {
     @GetMapping(AdminOrganizationRouteNamed.FIND_BY_NAME)
     @Operation(summary = "Get organization by name")
     public ResponseEntity<OrganizationResponse> findByName(@PathVariable String name) {
-        return ResponseEntity.ok(service.findByName(name).toResponse());
+        var organization = service.findByName(name);
+        return ResponseEntity.ok(OrganizationResponse.of(organization));
     }
 
     @GetMapping(AdminOrganizationRouteNamed.FIND_BY_PHONE)
     @Operation(summary = "Get organization by phone")
     public ResponseEntity<OrganizationResponse> findByPhone(@PathVariable String phone) {
-        return ResponseEntity.ok(service.findByPhone(phone).toResponse());
+        var organization = service.findByPhone(phone);
+        return ResponseEntity.ok(OrganizationResponse.of(organization));
     }
 
     @GetMapping("/{uuid}")
     @Operation(summary = "Get organization by uuid")
     public ResponseEntity<OrganizationResponse> findByUuid(@PathVariable UUID uuid) {
-        return ResponseEntity.ok(service.findByUuid(uuid).toResponse());
+        var organization = service.findByUuid(uuid);
+        return ResponseEntity.ok(OrganizationResponse.of(organization));
     }
 
     @PostMapping
     @Operation(summary = "Create organization")
     public ResponseEntity<OrganizationResponse> save(@RequestBody @Valid OrganizationRequest organizationDto) {
         var organization = service.save(organizationDto.toModel());
-        return new ResponseEntity<>(organization.toResponse(), HttpStatus.CREATED);
+        return new ResponseEntity<>(OrganizationResponse.of(organization), HttpStatus.CREATED);
     }
 
     @PutMapping("/{uuid}")
     @Operation(summary = "Update organization")
     public ResponseEntity<OrganizationResponse> update(@PathVariable UUID uuid, @RequestBody @Valid OrganizationRequest organizationDto) {
         var organization = service.update(uuid, organizationDto.toModel());
-        return new ResponseEntity<>(organization.toResponse(), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(OrganizationResponse.of(organization), HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping("/{uuid}")

@@ -25,16 +25,19 @@ public class OrgOrganizationResolver {
 
     @MutationMapping
     public OrganizationResponse orgOrganizationUpdate(@Argument OrganizationEditProfileRequest request, Authentication authentication) {
-        return organizationService.update(request, authentication).toResponse();
+        var organization = organizationService.update(request, authentication);
+        return OrganizationResponse.of(organization);
     }
 
     @MutationMapping
     public OrganizationResponse orgOrganizationUpdateSocialMedia(@Argument OrganizationSocialMediaEditRequest request, Authentication authentication) {
-        return organizationService.updateSocialMedia(request, authentication).toResponse();
+        var organization =  organizationService.updateSocialMedia(request, authentication);
+        return OrganizationResponse.of(organization);
     }
 
     @MutationMapping
     public OrganizationResponse orgOrganizationUpdateAddress(@Argument OrganizationAddressEditRequest request, Authentication authentication) {
-        return organizationService.updateAddress(request, authentication).toResponse();
+        var organization =  organizationService.updateAddress(request, authentication);
+        return OrganizationResponse.of(organization);
     }
 }

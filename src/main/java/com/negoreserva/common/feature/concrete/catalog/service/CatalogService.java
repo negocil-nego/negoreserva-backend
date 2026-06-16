@@ -23,6 +23,7 @@ public class CatalogService extends ConcreteService<Catalog> {
         this.repository = repository;
     }
 
+    @Override
     public Catalog findByUuid(UUID uuid) {
         return repository.findByUuid(uuid).orElseThrow(NotFoundException::new);
     }

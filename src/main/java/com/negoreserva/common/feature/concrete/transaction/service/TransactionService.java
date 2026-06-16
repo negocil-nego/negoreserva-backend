@@ -25,6 +25,7 @@ public class TransactionService extends ConcreteService<Transaction> {
         return TransactionPaginate.of(page);
     }
 
+    @Override
     public Transaction findByUuid(UUID uuid) {
         return repository.findByUuid(uuid).orElseThrow(() -> new TransactionNotFoundException(uuid));
     }

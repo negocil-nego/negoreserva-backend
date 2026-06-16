@@ -71,6 +71,7 @@ public class OrgProductService extends ConcreteService<Product> {
         return OrgProductPaginate.of(page);
     }
 
+    @Override
     public Product findByUuid(UUID uuid) {
         return productRepository.findByUuid(uuid).orElseThrow(() -> new ProductNotFoundException(uuid));
     }

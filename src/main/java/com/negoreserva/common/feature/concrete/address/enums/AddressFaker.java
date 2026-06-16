@@ -1,6 +1,9 @@
 package com.negoreserva.common.feature.concrete.address.enums;
 
 import com.negoreserva.common.feature.concrete.address.model.Address;
+import com.negoreserva.common.feature.concrete.municipality.enums.MunicipalityFaker;
+import com.negoreserva.common.feature.concrete.province.enums.ProvinceFaker;
+import com.negoreserva.common.feature.concrete.province.model.Province;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -13,79 +16,51 @@ import java.util.random.RandomGenerator;
 public enum AddressFaker {
     ACME(
             Address.builder()
-                    .country("United States")
-                    .state("New York")
-                    .city("New York")
-                    .neighborhood("Manhattan")
-                    .street("123 Main Street")
-                    .number("10001")
-                    .zipCode("10001")
+                    .province(ProvinceFaker.LUANDA.getProvince())
+                    .municipality(MunicipalityFaker.TALATONA.getMunicipality())
+                    .complement("Project nova vida")
                     .build()
     ),
     TECHCORP(
             Address.builder()
-                    .country("United States")
-                    .state("California")
-                    .city("San Francisco")
-                    .neighborhood("SoMa")
-                    .street("456 Tech Avenue")
-                    .number("94102")
-                    .zipCode("94102")
+                    .province(ProvinceFaker.HUAMBO.getProvince())
+                    .municipality(MunicipalityFaker.HUAMBO.getMunicipality())
+                    .complement("Bairro dos Queimados")
                     .build()
     ),
     GLOBAL(
             Address.builder()
-                    .country("United States")
-                    .state("Illinois")
-                    .city("Chicago")
-                    .neighborhood("Loop")
-                    .street("789 Business Blvd")
-                    .number("60601")
-                    .zipCode("60601")
+                    .province(ProvinceFaker.BENGUELA.getProvince())
+                    .municipality(MunicipalityFaker.BENGUELA.getMunicipality())
+                    .complement("Quioxe")
                     .build()
     ),
     POUSADA_RECANTO(
             Address.builder()
-                    .country("Brasil")
-                    .state("MG")
-                    .city("Monte Verde")
-                    .neighborhood("Zona Rural")
-                    .street("Estrada das Montanhas")
-                    .number("Km 15")
-                    .zipCode("37550-000")
+                    .province(ProvinceFaker.HUILA.getProvince())
+                    .municipality(MunicipalityFaker.LUBANGO.getMunicipality())
+                    .complement("Lubango")
                     .build()
     ),
     PENSAO_FAMILIAR(
             Address.builder()
-                    .country("Brasil")
-                    .state("MG")
-                    .city("Ouro Preto")
-                    .neighborhood("Centro")
-                    .street("Rua do Imperador")
-                    .number("450")
-                    .zipCode("35400-000")
+                    .province(ProvinceFaker.NAMIBE.getProvince())
+                    .municipality(MunicipalityFaker.TOMBUA.getMunicipality())
+                    .complement("Tombua")
                     .build()
     ),
     RESTAURANT_SABER(
             Address.builder()
-                    .country("Brasil")
-                    .state("SP")
-                    .city("São Paulo")
-                    .neighborhood("Jardins")
-                    .street("Avenida Paulista")
-                    .number("1500")
-                    .zipCode("01310-100")
+                    .province(ProvinceFaker.LUNDA_SUL.getProvince())
+                    .municipality(MunicipalityFaker.CACOLO.getMunicipality())
+                    .complement("Cacolo")
                     .build()
     ),
     LOJA_BAIRRO(
             Address.builder()
-                    .country("Brasil")
-                    .state("SP")
-                    .city("São Paulo")
-                    .neighborhood("Consolação")
-                    .street("Rua Augusta")
-                    .number("890")
-                    .zipCode("01301-001")
+                    .province(ProvinceFaker.MALANJE.getProvince())
+                    .municipality(MunicipalityFaker.CALANDULA.getMunicipality())
+                    .complement("Calandula")
                     .build()
     );
 

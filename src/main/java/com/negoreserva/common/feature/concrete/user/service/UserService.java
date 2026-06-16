@@ -41,6 +41,7 @@ public class UserService extends ConcreteService<User> {
         return repository.findByUuid(UUID.fromString(uuid)).orElseThrow(() -> new UserNotFoundException(uuid));
     }
 
+    @Override
     public User findByUuid(UUID uuid) {
         return repository.findByUuid(uuid).orElseThrow(() -> new UserNotFoundException(uuid));
     }

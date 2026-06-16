@@ -22,17 +22,21 @@ public class AdminOrganizationResolver {
 
     @QueryMapping
     public OrganizationResponse adminFindByUuidOrganization(@Argument String uuid) {
-        return service.findByUuid(UUID.fromString(uuid)).toResponse();
+        var organization = service.findByUuid(UUID.fromString(uuid));
+        return OrganizationResponse.of(organization);
     }
 
     @QueryMapping
     public OrganizationResponse adminFindByNameOrganization(@Argument String name) {
-        return service.findByName(name).toResponse();
+        var organization = service.findByName(name);
+        return OrganizationResponse.of(organization);
+
     }
 
     @QueryMapping
     public OrganizationResponse adminFindByPhoneOrganization(@Argument String phone) {
-        return service.findByPhone(phone).toResponse();
+        var organization = service.findByPhone(phone);
+        return OrganizationResponse.of(organization);
     }
 
     @QueryMapping
@@ -47,12 +51,14 @@ public class AdminOrganizationResolver {
 
     @MutationMapping
     public OrganizationResponse adminSaveOrganization(@Argument @Valid OrganizationRequest organizationRequest) {
-        return service.save(organizationRequest.toModel()).toResponse();
+        var organization = service.save(organizationRequest.toModel());
+        return OrganizationResponse.of(organization);
     }
 
     @MutationMapping
     public OrganizationResponse adminUpdateOrganization(@Argument String uuid, @Argument @Valid OrganizationRequest organizationRequest) {
-        return service.update(UUID.fromString(uuid), organizationRequest.toModel()).toResponse();
+        var organization = service.update(UUID.fromString(uuid), organizationRequest.toModel());
+        return OrganizationResponse.of(organization);
     }
 
     @MutationMapping

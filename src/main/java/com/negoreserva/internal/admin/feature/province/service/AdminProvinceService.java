@@ -43,6 +43,7 @@ public class AdminProvinceService extends ConcreteService<Province> {
         return ProvincePaginate.of(page);
     }
 
+    @Override
     public Province findByUuid(UUID uuid) {
         return repository.findByUuid(uuid).orElseThrow(() -> new ProvinceNotFoundException(uuid));
     }

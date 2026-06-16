@@ -1,6 +1,7 @@
 package com.negoreserva.common.feature.concrete.province.model;
 
 import com.negoreserva.common.feature.concrete.municipality.model.Municipality;
+import com.negoreserva.common.feature.concrete.province.dto.response.ProvinceResponse;
 import com.negoreserva.common.feature.core.model.ConcreteModel;
 import com.negoreserva.common.variable.EntityVariable;
 import jakarta.persistence.*;
@@ -21,7 +22,7 @@ import java.util.List;
 @Table(name = EntityVariable.PROVINCE)
 public class Province extends ConcreteModel {
     @NotBlank
-    @Size(max = 50)
+    @Size(max = 255)
     @Column(unique = true)
     private String value;
 
@@ -32,4 +33,8 @@ public class Province extends ConcreteModel {
     @ToString.Exclude
     @OneToMany(mappedBy = "province", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Municipality> municipalities = new ArrayList<>();
+
+    public ProvinceResponse toResponse() {
+        return new ProvinceResponse(uuid, value, label);
+    }
 }

@@ -40,7 +40,7 @@ public class MunicipalityFilterSpecification implements Specification<Municipali
         });
 
         Optional.ofNullable(filter.getProvinceId()).ifPresent(id ->
-            predicates.add(cb.equal(root.get("province").get("id"), id))
+            predicates.add(cb.equal(root.get("provinceUuid").get("id"), id))
         );
 
         return cb.and(predicates.toArray(new Predicate[0]));

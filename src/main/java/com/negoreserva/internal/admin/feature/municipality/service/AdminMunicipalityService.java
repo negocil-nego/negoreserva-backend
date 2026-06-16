@@ -43,6 +43,7 @@ public class AdminMunicipalityService extends ConcreteService<Municipality> {
         return MunicipalityPaginate.of(page);
     }
 
+    @Override
     public Municipality findByUuid(UUID uuid) {
         return repository.findByUuid(uuid).orElseThrow(() -> new MunicipalityNotFoundException(uuid));
     }

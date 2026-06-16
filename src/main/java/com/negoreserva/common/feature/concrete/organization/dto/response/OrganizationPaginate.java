@@ -36,7 +36,7 @@ public class OrganizationPaginate extends PageResponse<OrganizationResponse> {
 
     public static OrganizationPaginate of(Page<Organization> page) {
         return new OrganizationPaginate(
-                page.getContent().stream().map(Organization::toResponse).toList(),
+                page.getContent().stream().map(OrganizationResponse::of).toList(),
                 page.isEmpty(),
                 page.isFirst(),
                 page.isLast(),

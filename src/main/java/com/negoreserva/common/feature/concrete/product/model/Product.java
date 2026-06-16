@@ -3,6 +3,7 @@ package com.negoreserva.common.feature.concrete.product.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.negoreserva.common.contract.SearchableEntity;
 import com.negoreserva.common.contract.Sluggable;
+import com.negoreserva.common.feature.concrete.organization.dto.response.OrganizationResponse;
 import com.negoreserva.common.feature.concrete.organization.model.Organization;
 import com.negoreserva.common.feature.concrete.product.dto.request.ProductRequest;
 import com.negoreserva.common.feature.concrete.product.dto.response.ProductResponse;
@@ -98,7 +99,8 @@ public class Product extends ConcreteModel implements Sluggable, SearchableEntit
     }
 
     public ProductResponse toResponse() {
-        return new ProductResponse(uuid, name, slug, description, image, organization.toResponse());
+        var response = OrganizationResponse.of(organization);
+        return new ProductResponse(uuid, name, slug, description, image, response);
     }
 
     public ProductRequest toProductRequest() {

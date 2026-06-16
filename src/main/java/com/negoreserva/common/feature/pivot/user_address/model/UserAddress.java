@@ -1,11 +1,15 @@
-package com.negoreserva.common.feature.pivot.organization_address.model;
+package com.negoreserva.common.feature.pivot.user_address.model;
 
-import com.negoreserva.common.feature.concrete.organization.model.Organization;
-import com.negoreserva.common.feature.concrete.address.model.Address;
-import com.negoreserva.common.variable.EntityPivotVariable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.negoreserva.common.feature.concrete.address.model.Address;
+import com.negoreserva.common.feature.concrete.organization.model.Organization;
+import com.negoreserva.common.feature.concrete.user.model.User;
+import com.negoreserva.common.variable.EntityPivotVariable;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
@@ -13,13 +17,13 @@ import lombok.*;
 @AllArgsConstructor
 @Builder(toBuilder = true)
 @Table(
-    name = EntityPivotVariable.ORGANIZATION_ADDRESS,
+    name = EntityPivotVariable.USER_ADDRESS,
     uniqueConstraints = {@UniqueConstraint(
-        name = "uk_organization_address",
-        columnNames = {"address_id", "organization_id"}
+        name = "uk_user_address",
+        columnNames = {"address_id", "user_id"}
     )}
 )
-public class OrganizationAddress {
+public class UserAddress {
     @Id
     @JsonIgnore
     @Column(updatable = false, nullable = false)
@@ -31,6 +35,6 @@ public class OrganizationAddress {
     private Address address;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "organization_id", nullable = false)
-    private Organization organization;
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }

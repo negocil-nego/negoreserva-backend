@@ -34,7 +34,8 @@ public class OrgOrganizationController {
     @GetMapping(OrgOrganizationRouteNamed.UPDATE)
     @Operation(summary = "Edit organization")
     public ResponseEntity<OrganizationResponse> orOrganizationUpdate(@RequestBody @Valid OrganizationEditProfileRequest request, Authentication authentication) {
-        return ResponseEntity.ok(organizationService.update(request, authentication).toResponse());
+        var organization = organizationService.update(request, authentication);
+        return ResponseEntity.ok(OrganizationResponse.of(organization));
     }
 
     @PostMapping(value = OrgOrganizationRouteNamed.UPDATE_IMAGE, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
@@ -43,7 +44,8 @@ public class OrgOrganizationController {
             @RequestPart("file") MultipartFile file,
             Authentication authentication
     ) {
-        return ResponseEntity.ok(organizationService.updateImageOrganization(file, authentication).toResponse());
+        var organization = organizationService.updateImageOrganization(file, authentication);
+        return ResponseEntity.ok(OrganizationResponse.of(organization));
     }
 
     @PostMapping(value = OrgOrganizationRouteNamed.UPDATE_VIDEO, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
@@ -52,7 +54,8 @@ public class OrgOrganizationController {
             @RequestPart("file") MultipartFile file,
             Authentication authentication
     ) {
-        return ResponseEntity.ok(organizationService.updateVideoOrganization(file, authentication).toResponse());
+        var organization = organizationService.updateVideoOrganization(file, authentication);
+        return ResponseEntity.ok(OrganizationResponse.of(organization));
     }
 
     @PostMapping(value = OrgOrganizationRouteNamed.UPDATE_LOGO, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
@@ -61,6 +64,7 @@ public class OrgOrganizationController {
             @RequestPart("file") MultipartFile file,
             Authentication authentication
     ) {
-        return ResponseEntity.ok(organizationService.updateLogoOrganization(file, authentication).toResponse());
+        var organization = organizationService.updateLogoOrganization(file, authentication);
+        return ResponseEntity.ok(OrganizationResponse.of(organization));
     }
 }

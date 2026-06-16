@@ -53,6 +53,7 @@ public class AdminOrganizationService extends ConcreteService<Organization> {
         return repository.findByPhone(phone).orElseThrow(() -> new OrganizationPhoneNotFoundException(phone));
     }
 
+    @Override
     public Organization findByUuid(UUID uuid) {
         return repository.findByUuid(uuid).orElseThrow(() -> new OrganizationNotFoundException(uuid));
     }

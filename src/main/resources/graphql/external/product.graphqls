@@ -1,3 +1,28 @@
+type ProductFileGetOrgResponse {
+    uuid: ID!
+    title: String
+    description: String
+    url: String
+    type: String
+    isPrimary: Boolean
+}
+
+type ProductTagInfoGetOrgResponse {
+    uuid: ID!
+    icon: String
+    title: String
+    value: String
+}
+
+type ProductPriceGetOrgResponse {
+    uuid: ID!
+    type: String
+    value: Float
+    order: Int
+    isPrimary: Boolean
+    unit: Int
+}
+
 type ProductDetailResponse {
     uuid: String!
     name: String!

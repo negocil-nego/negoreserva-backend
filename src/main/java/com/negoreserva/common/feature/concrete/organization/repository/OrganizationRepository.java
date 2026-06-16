@@ -18,7 +18,6 @@ public interface OrganizationRepository extends SearchableRepository<Organizatio
             countQuery = "SELECT COUNT(DISTINCT o) FROM Organization o JOIN o.categories c WHERE o.status = :status AND c.id IN :categoryIds"
     )
     Page<Organization> findAllByStatusAndCategoriesIdIn(OrganizationStatus status, List<Long> categoryIds, Pageable pageable);
-    Page<Organization> findAllByStatus(OrganizationStatus status, Pageable pageable);
     Optional<Organization> findByPhone(String phone);
     Optional<Organization> findBySlug(String slug);
     Optional<Organization> findByName(String name);

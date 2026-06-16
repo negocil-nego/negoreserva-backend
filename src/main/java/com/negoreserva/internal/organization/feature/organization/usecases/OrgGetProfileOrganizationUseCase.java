@@ -3,6 +3,7 @@ package com.negoreserva.internal.organization.feature.organization.usecases;
 import com.negoreserva.common.contract.UseCase;
 import com.negoreserva.common.exception.UnauthorizedException;
 import com.negoreserva.common.feature.concrete.address.dto.response.AddressResponse;
+import com.negoreserva.common.feature.concrete.organization.dto.response.OrganizationResponse;
 import com.negoreserva.common.feature.concrete.organization_update_data.model.OrganizationUpdateData;
 import com.negoreserva.common.feature.concrete.organization_social_media.dto.response.OrganizationSocialMediaDetailResponse;
 import com.negoreserva.common.feature.concrete.user.exception.notfound.UserNotFoundException;
@@ -69,7 +70,7 @@ public class OrgGetProfileOrganizationUseCase implements UseCase<OrgOrganization
 
             return new OrgOrganizationProfile(
                     userResponse,
-                    organization.toResponse(),
+                    OrganizationResponse.of(organization),
                     updateInfoData,
                     addresses,
                     socialMedia
@@ -93,7 +94,7 @@ public class OrgGetProfileOrganizationUseCase implements UseCase<OrgOrganization
 
             return new OrgOrganizationProfile(
                     userResponse,
-                    organization.toResponse(),
+                    OrganizationResponse.of(organization),
                     updateInfoData,
                     addresses,
                     socialMedia

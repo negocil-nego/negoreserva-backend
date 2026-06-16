@@ -48,6 +48,7 @@ public class PlanService extends ConcreteService<Plan> {
         return repository.findByName(name).orElseThrow(() -> new PlanNameNotFoundException(name));
     }
 
+    @Override
     public Plan findByUuid(UUID uuid) {
         return repository.findByUuid(uuid).orElseThrow(() -> new PlanNotFoundException(uuid));
     }

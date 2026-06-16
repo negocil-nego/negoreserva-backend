@@ -56,6 +56,7 @@ public class OrgUserService extends ConcreteService<User> {
         return paginate(PageRequest.of(pageNumber, pageSize), authentication);
     }
 
+    @Override
     public User findByUuid(UUID uuid) {
         return repository.findByUuid(uuid).orElseThrow(NotFoundException::new);
     }

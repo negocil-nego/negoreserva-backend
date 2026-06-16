@@ -44,6 +44,7 @@ public class OrgRoleService extends ConcreteService<OrgRole> {
         return paginate(PageRequest.of(pageNumber, pageSize));
     }
 
+    @Override
     public OrgRole findByUuid(UUID uuid) {
         return repository.findByUuid(uuid).orElseThrow(NotFoundException::new);
     }

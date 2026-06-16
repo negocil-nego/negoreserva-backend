@@ -8,6 +8,7 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
@@ -15,7 +16,7 @@ public class MunicipalityGraphql {
     private final MunicipalityService service;
 
     @QueryMapping
-    public List<MunicipalityResponse> pubListMunicipalityByProvince(@Argument String provinceValue) {
-        return service.findByProvinceValue(provinceValue);
+    public List<MunicipalityResponse> pubListMunicipalityByProvince(@Argument UUID provinceUuid) {
+        return service.findByProvince(provinceUuid).stream().map(MunicipalityResponse::of).toList();
     }
 }

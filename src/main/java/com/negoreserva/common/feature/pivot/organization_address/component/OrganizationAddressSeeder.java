@@ -17,19 +17,18 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrganizationAddressSeeder {
     private final OrganizationAddressService organizationAddressService;
-    private final List<OrganizationAddress> items = new ArrayList<>();
 
-    @Setter
-    private List<Organization> organizations;
-
-    @Setter
-    private List<Address> addresses;
+    @Setter private List<Organization> organizations;
+    @Setter private List<Address> addresses;
 
     @Transactional
-    public void seed() {
+    public List<OrganizationAddress> seed() {
+        final List<OrganizationAddress> items = new ArrayList<>();
         for (var data : OrganizationAddressData.values()) {
+            var ads = data.getAddress();
+
             var address = addresses.stream()
-                    .filter(it -> it.getZipCode().equals(data.getAddress().getZipCode()))
+                    .filter(it -> it.getComplement().equals(data.getAddress().getComplement()) && it.getProvince().getValue().equals(ads.getProvince().getValue()))
                     .findFirst()
                     .orElse(null);
 
@@ -46,5 +45,6 @@ public class OrganizationAddressSeeder {
 
             items.add(organizationAddressService.findOrCreate(item));
         }
+        return items;
     }
 }

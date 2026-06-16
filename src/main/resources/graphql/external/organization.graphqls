@@ -1,63 +1,3 @@
-type ProductFileGetOrgResponse {
-    uuid: ID!
-    title: String
-    description: String
-    url: String
-    type: String
-    isPrimary: Boolean
-}
-
-type ProductGetOrganizationResponse {
-    uuid: ID!
-    name: String!
-    slug: String!
-    price: Float
-    description: String
-    type: String
-    image: String
-}
-
-type ProductTagInfoGetOrgResponse {
-    uuid: ID!
-    icon: String
-    title: String
-    value: String
-}
-
-type ProductPriceGetOrgResponse {
-    uuid: ID!
-    type: String
-    value: Float!
-    order: Int
-    isPrimary: Boolean
-    unit: Int
-}
-
-type GetOrganizationProductFileResponse {
-    product: ProductGetOrganizationResponse!
-    files: [ProductFileGetOrgResponse!]!
-    tags: [ProductTagInfoGetOrgResponse!]!
-    prices: [ProductPriceGetOrgResponse!]!
-}
-
-type GetOrganizationResponse {
-    organization: OrganizationResponse!
-    categories: [CategoryResponse!]!
-    products: [GetOrganizationProductFileResponse!]!
-}
-
-type GetOrganizationPaginate {
-    content: [GetOrganizationResponse!]!
-    empty: Boolean!
-    first: Boolean!
-    last: Boolean!
-    number: Int!
-    numberOfElements: Int!
-    size: Int!
-    totalElements: Int!
-    totalPages: Int!
-}
-
 type CatalogResponse {
     uuid: ID!
     name: String!
@@ -88,8 +28,6 @@ type OrganizationDetailResponse {
 }
 
 extend type Query {
-    pubPaginateGetOrganization(paginateRequest: PaginateRequest): GetOrganizationPaginate!
-    pubPaginateGetOrganizationByCategories(categoryUuids: [ID!]!, paginateRequest: PaginateRequest): GetOrganizationPaginate!
     pubOrganizationDetail(uuidOrSlug: String): OrganizationDetailResponse
     pubSearchOrganization(q: String!, paginateRequest: PaginateRequest): OrganizationPaginate!
     pubSearchOrganizationFilter(filter: OrganizationSearchFilterParamInput!, paginateRequest: PaginateRequest): OrganizationPaginate!

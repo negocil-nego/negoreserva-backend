@@ -3,6 +3,8 @@ package com.negoreserva.common.feature.core.service;
 import com.negoreserva.common.contract.SearchableEntity;
 import com.negoreserva.common.contract.Sluggable;
 import com.negoreserva.common.exception.NotFoundException;
+import com.negoreserva.common.feature.concrete.product.exception.notfound.ProductNotFoundException;
+import com.negoreserva.common.feature.concrete.product.model.Product;
 import com.negoreserva.common.feature.core.model.CommonModel;
 import com.negoreserva.common.feature.core.repository.CommonRepository;
 import lombok.AllArgsConstructor;
@@ -17,6 +19,10 @@ import java.util.UUID;
 abstract public class CommonService<T extends CommonModel> {
 
     private CommonRepository<T> repository;
+
+    public T findByUuid(UUID uuid) {
+        return repository.findByUuid(uuid).orElseThrow(() -> new NotFoundException(uuid));
+    }
 
     public Page<T> findAll(Pageable pageable) { return repository.findAll(pageable); }
 

@@ -24,6 +24,7 @@ public class ProductService extends ConcreteService<Product> {
         this.productRepository = productRepository;
     }
 
+    @Override
     public Product findByUuid(UUID uuid) {
         return productRepository.findByUuid(uuid).orElseThrow(() -> new ProductNotFoundException(uuid));
     }

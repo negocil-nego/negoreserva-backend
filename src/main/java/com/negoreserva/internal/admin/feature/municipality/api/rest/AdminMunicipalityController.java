@@ -24,7 +24,7 @@ import java.util.UUID;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(MunicipalityRouteNamed.PATH)
-@Tag(name = "Admin - Municipality", description = "Endpoints for municipality management")
+@Tag(name = "Admin - Municipality", description = "Endpoints for municipalityUuid management")
 public class AdminMunicipalityController {
 
     private final AdminMunicipalityService service;
@@ -43,13 +43,13 @@ public class AdminMunicipalityController {
     }
 
     @GetMapping("/{uuid}")
-    @Operation(summary = "Get municipality by uuid")
+    @Operation(summary = "Get municipalityUuid by uuid")
     public ResponseEntity<MunicipalityResponse> findByUuid(@PathVariable UUID uuid) {
         return ResponseEntity.ok(MunicipalityResponse.of(service.findByUuid(uuid)));
     }
 
     @PostMapping
-    @Operation(summary = "Create municipality")
+    @Operation(summary = "Create municipalityUuid")
     public ResponseEntity<MunicipalityResponse> save(@RequestBody @Valid MunicipalityRequest municipalityDto) {
         var province = provinceRepo.findByUuid(municipalityDto.provinceUuid())
                 .orElseThrow(() -> new ProvinceNotFoundException(municipalityDto.provinceUuid()));
@@ -60,7 +60,7 @@ public class AdminMunicipalityController {
     }
 
     @PutMapping("/{uuid}")
-    @Operation(summary = "Update municipality")
+    @Operation(summary = "Update municipalityUuid")
     public ResponseEntity<MunicipalityResponse> update(@PathVariable UUID uuid, @RequestBody @Valid MunicipalityRequest municipalityDto) {
         var existing = service.findByUuid(uuid);
         existing.setValue(municipalityDto.value());
@@ -73,7 +73,7 @@ public class AdminMunicipalityController {
     }
 
     @DeleteMapping("/{uuid}")
-    @Operation(summary = "Delete municipality by uuid")
+    @Operation(summary = "Delete municipalityUuid by uuid")
     public ResponseEntity<Void> deleteByUuid(@PathVariable UUID uuid) {
         service.deleteByUuid(uuid);
         return ResponseEntity.noContent().build();

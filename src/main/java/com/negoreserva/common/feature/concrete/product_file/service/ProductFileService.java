@@ -37,6 +37,7 @@ public class ProductFileService extends ConcreteService<ProductFile> {
         return paginate(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
     }
 
+    @Override
     public ProductFile findByUuid(UUID uuid) {
         return repository.findByUuid(uuid).orElseThrow(() -> new ProductFileNotFoundException(uuid));
     }

@@ -33,6 +33,7 @@ public class OrgPermissionService extends ConcreteService<OrgPermission> {
         return paginate(PageRequest.of(pageNumber, pageSize));
     }
 
+    @Override
     public OrgPermission findByUuid(UUID uuid) {
         return repository.findByUuid(uuid).orElseThrow(NotFoundException::new);
     }
