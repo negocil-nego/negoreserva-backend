@@ -35,12 +35,12 @@ public enum CatalogFaker {
     PENSAO_REFEICOES(Catalog.builder().name("Refeições Caseiras").description("Café da manhã, almoço e jantar caseiros.").type(CatalogType.FOOD).organization(OrganizationFaker.PENSAO_FAMILIAR.getOrganization()).build()),
 
     // --- RESTAURANTE SABOR & ARTE ---
-    RESTAURANTE_CARDAPIO(Catalog.builder().name("Cardápio Executivo").description("Pratos elaborados para almoço e jantar.").type(CatalogType.FOOD).organization(OrganizationFaker.RESTAURANTE_SABOR.getOrganization()).build()),
-    RESTAURANTE_VINHOS(Catalog.builder().name("Carta de Vinhos").description("Seleção especial de vinhos nacionais e importados.").type(CatalogType.DRIK).organization(OrganizationFaker.RESTAURANTE_SABOR.getOrganization()).build()),
+    RESTAURANTE_CARDAPIO(Catalog.builder().name("Cardápio Executivo").description("Pratos elaborados para almoço e jantar.").type(CatalogType.FOOD).organization(OrganizationFaker.RESTAURANT_SABER.getOrganization()).build()),
+    RESTAURANTE_VINHOS(Catalog.builder().name("Carta de Vinhos").description("Seleção especial de vinhos nacionais e importados.").type(CatalogType.DRIK).organization(OrganizationFaker.RESTAURANT_SABER.getOrganization()).build()),
 
     // --- LOJA DO BAIRRO ---
-    LOJA_PRODUTOS(Catalog.builder().name("Produtos da Semana").description("Ofertas e novidades em produtos.").organization(OrganizationFaker.LOJA_BAIRRO.getOrganization()).build()),
-    LOJA_HORTIFRUTI(Catalog.builder().name("Hortifrúti Fresco").description("Frutas, verduras e legumes fresquinhos.").type(CatalogType.FOOD).organization(OrganizationFaker.LOJA_BAIRRO.getOrganization()).build());
+    LOJA_PRODUTOS(Catalog.builder().name("Produtos da Semana").description("Ofertas e novidades em produtos.").organization(OrganizationFaker.LOJA_BAIRR0.getOrganization()).build()),
+    LOJA_HORTIFRUTI(Catalog.builder().name("Hortifrúti Fresco").description("Frutas, verduras e legumes fresquinhos.").type(CatalogType.FOOD).organization(OrganizationFaker.LOJA_BAIRR0.getOrganization()).build());
 
     private final Catalog catalog;
 

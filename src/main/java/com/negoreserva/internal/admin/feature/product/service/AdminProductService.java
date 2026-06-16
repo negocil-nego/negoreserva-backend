@@ -85,14 +85,4 @@ public class AdminProductService extends ConcreteService<Product> {
         return productRepository.save(item);
     }
 
-    public Product saveOrUpdate(Product product) {
-        return productRepository.findByName(product.getName()).map(it -> {
-            product.setId(it.getId());
-            return save(product);
-        }).orElseGet(() -> save(product));
-    }
-
-    public Product findOrCreate(Product product) {
-        return productRepository.findByName(product.getName()).orElseGet(() -> save(product));
-    }
 }

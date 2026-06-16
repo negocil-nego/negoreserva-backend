@@ -60,14 +60,4 @@ public class AdminCategoryService extends ConcreteService<Category> {
         return repository.save(item);
     }
 
-    public Category saveOrUpdate(Category category) {
-        return repository.findByName(category.getName()).map(it -> {
-            category.setId(it.getId());
-            return save(category);
-        }).orElseGet(() -> save(category));
-    }
-
-    public Category findOrCreate(Category category) {
-        return repository.findByName(category.getName()).orElseGet(() -> repository.save(category));
-    }
 }

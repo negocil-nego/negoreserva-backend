@@ -1,0 +1,64 @@
+type ProvinceResponse {
+    uuid: ID!
+    value: String!
+    label: String!
+}
+
+type ProvincePaginate {
+    content: [ProvinceResponse]!
+    empty: Boolean
+    first: Boolean
+    last: Boolean
+    number: Int
+    numberOfElements: Int
+    size: Int
+    totalElements: Int
+    totalPages: Int
+}
+
+input ProvinceRequest {
+    value: String!
+    label: String!
+}
+
+input ProvinceFilterQueryParamInput {
+    field: String = "ALL"
+    search: String
+    pageSize: Int = 10
+    pageNumber: Int = 0
+}
+
+type MunicipalityResponse {
+    uuid: ID!
+    value: String!
+    label: String!
+    provinceUuid: ID!
+    provinceValue: String!
+    provinceLabel: String!
+}
+
+type MunicipalityPaginate {
+    content: [MunicipalityResponse]!
+    empty: Boolean
+    first: Boolean
+    last: Boolean
+    number: Int
+    numberOfElements: Int
+    size: Int
+    totalElements: Int
+    totalPages: Int
+}
+
+input MunicipalityRequest {
+    value: String!
+    label: String!
+    provinceUuid: ID!
+}
+
+input MunicipalityFilterQueryParamInput {
+    field: String = "ALL"
+    search: String
+    pageSize: Int = 10
+    pageNumber: Int = 0
+    provinceUuid: ID
+}

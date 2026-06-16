@@ -49,7 +49,7 @@ public enum OrganizationSocialMediaData {
             "https://linkedin.com/company/pensaofamiliar"
     ),
     RESTAURANTE_SABOR(
-            OrganizationFaker.RESTAURANTE_SABOR.getOrganization(),
+            OrganizationFaker.RESTAURANT_SABER.getOrganization(),
             "https://facebook.com/saborearterestaurante",
             "https://instagram.com/saborearterestaurante",
             "https://youtube.com/@saborearterestaurante",
@@ -57,7 +57,7 @@ public enum OrganizationSocialMediaData {
             "https://linkedin.com/company/saborearterestaurante"
     ),
     LOJA_BAIRRO(
-            OrganizationFaker.LOJA_BAIRRO.getOrganization(),
+            OrganizationFaker.LOJA_BAIRR0.getOrganization(),
             "https://facebook.com/lojadobairro",
             "https://instagram.com/lojadobairro",
             "https://youtube.com/@lojadobairro",

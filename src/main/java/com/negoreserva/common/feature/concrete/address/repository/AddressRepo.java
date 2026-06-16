@@ -8,8 +8,15 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.jspecify.annotations.Nullable;
+
 @Repository
 public interface AddressRepo extends ConcreteRepository<Address> {
-    List<Address> findByUuidIn(List<UUID> uuids);
-    Optional<Address> findByZipCode(String zipCode);
+
+    Optional<Address> findByStreetAndNumberAndCityAndState(
+            @Nullable String street,
+            @Nullable String number,
+            @Nullable String city,
+            @Nullable String state
+    );
 }

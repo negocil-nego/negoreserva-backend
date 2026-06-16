@@ -62,14 +62,4 @@ public class PlanService extends ConcreteService<Plan> {
         return repository.save(item);
     }
 
-    public Plan saveOrUpdate(Plan plan) {
-        return repository.findByName(plan.getName()).map(it -> {
-            plan.setId(it.getId());
-            return save(plan);
-        }).orElseGet(() -> save(plan));
-    }
-
-    public Plan findOrCreate(Plan plan) {
-        return repository.findByName(plan.getName()).orElseGet(() -> repository.save(plan));
-    }
 }

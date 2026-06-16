@@ -9,7 +9,7 @@ public class AddressAlreadyExistsException extends RuntimeException {
         super("Address already exists");
     }
 
-    public AddressAlreadyExistsException(String zipCode) {
-        super("Address already exists with zipCode %s".formatted(zipCode));
+    public AddressAlreadyExistsException(String message) {
+        super(message);
     }
 }

@@ -55,6 +55,10 @@ public class OrganizationSearchSpecification implements Specification<Organizati
             query.distinct(true);
         });
 
+        Optional.ofNullable(filter.getIsHighlight()).ifPresent(isHighlight -> {
+            predicates.add(cb.equal(root.get("isHighlight"), isHighlight));
+        });
+
         return cb.and(predicates.toArray(new Predicate[0]));
     }
 }

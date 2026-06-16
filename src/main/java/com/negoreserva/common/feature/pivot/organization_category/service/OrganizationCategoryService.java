@@ -8,22 +8,17 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class OrganizationCategoryService {
     private final OrganizationCategoryRepo organizationCategoryRepo;
 
-    public boolean existsByOrganizationAndCategory(Organization organization, Category category) {
-        return organizationCategoryRepo.existsByOrganizationAndCategory(organization, category);
-    }
-
-    public OrganizationCategory save(OrganizationCategory organizationCategory) {
-        return organizationCategoryRepo.save(organizationCategory);
+    public OrganizationCategoryService(OrganizationCategoryRepo organizationCategoryRepo) {
+        this.organizationCategoryRepo = organizationCategoryRepo;
     }
 
     public OrganizationCategory findOrCreate(OrganizationCategory organizationCategory) {
         return organizationCategoryRepo.findByOrganizationAndCategory(
                 organizationCategory.getOrganization(),
                 organizationCategory.getCategory()
-        ).orElseGet(() -> save(organizationCategory));
+        ).orElseGet(() -> organizationCategoryRepo.save(organizationCategory));
     }
 }

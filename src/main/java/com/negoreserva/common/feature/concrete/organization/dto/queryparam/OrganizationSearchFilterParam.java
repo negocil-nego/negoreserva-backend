@@ -15,4 +15,5 @@ public class OrganizationSearchFilterParam {
     private List<UUID> categoriesUuid;
     private String province;
     private String municipality;
+    private Boolean isHighlight;
 }

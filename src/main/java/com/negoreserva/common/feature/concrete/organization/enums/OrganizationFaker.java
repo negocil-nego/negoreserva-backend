@@ -20,6 +20,7 @@ public enum OrganizationFaker {
             .logo("https://img.icons8.com/ios/50/homeadvisor.png")
             .image("https://images.unsplash.com/photo-1657998241530-2112ddce927d?q=600&w=600")
             .rating(4)
+            .isHighlight(true)
             .status(OrganizationStatus.VISIBLE)
             .build()),
 
@@ -44,6 +45,7 @@ public enum OrganizationFaker {
             .logo("https://img.icons8.com/plasticine/100/hotel-room.png")
             .image("https://images.unsplash.com/photo-1692153142886-9881d0457b82?q=600&w=600")
             .rating(3)
+            .isHighlight(true)
             .status(OrganizationStatus.VISIBLE)
             .build()),
 
@@ -71,7 +73,7 @@ public enum OrganizationFaker {
             .status(OrganizationStatus.VISIBLE)
             .build()),
 
-    RESTAURANTE_SABOR(Organization.builder()
+    RESTAURANT_SABER(Organization.builder()
             .name("Restaurante Sabor & Arte")
             .email("contato@saborearte.com.br")
             .description("Gastronomia contemporânea brasileira com ingredientes frescos e sazonais, premiado como um dos melhores restaurantes da cidade. Nosso chef executivo renomado cria pratos únicos que combinam tradição e inovação, utilizando produtos orgânicos de produtores locais. O ambiente sofisticado e aconchegante, com decoração assinada e vista panorâmica, é perfeito para jantares românticos, encontros de negócios e celebrações especiais. Harmonização com vinhos selecionados e sobremesas artesanais imperdíveis.")
@@ -83,7 +85,7 @@ public enum OrganizationFaker {
             .status(OrganizationStatus.VISIBLE)
             .build()),
 
-    LOJA_BAIRRO(Organization.builder()
+    LOJA_BAIRR0(Organization.builder()
             .name("Loja do Bairro")
             .email("vendas@lojadobairro.com.br")
             .description("Sua loja de conveniência e variedades completa, referência no bairro há mais de 20 anos. Oferecemos uma ampla gama de produtos que vão desde mantimentos básicos e hortifrúti fresquinho até itens especiais importados, artigos para casa, brinquedos e presentes. Com atendimento amigo e personalizado, preços justos e entrega gratuita no bairro, somos a escolha certa para quem valoriza qualidade, proximidade e confiança. Trabalhamos com produtos artesanais de pequenos produtores da região.")
@@ -92,6 +94,7 @@ public enum OrganizationFaker {
             .logo("https://img.icons8.com/color/48/shop.png")
             .image("https://images.unsplash.com/photo-1604719312566-8912e9227c6a?q=600&w=600")
             .rating(4)
+            .isHighlight(true)
             .status(OrganizationStatus.VISIBLE)
             .build());
 

@@ -50,6 +50,16 @@ public class Product extends ConcreteModel implements Sluggable, SearchableEntit
     @Size(max = 2000)
     private String image;
 
+    @Builder.Default
+    private Boolean isPromotion = false;
+
+
+    @NotNull
+    @PositiveOrZero
+    @Builder.Default
+    @Column(name = "position_order")
+    private Integer order = 0;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "organization_id")
     private Organization organization;

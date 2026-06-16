@@ -12,15 +12,34 @@ import java.util.random.RandomGenerator;
 @Getter
 @AllArgsConstructor
 public enum RoleData {
-    ADMIN(Role.builder().code("ADMIN").name("Administrator").description("System administrator").roleType(RoleType.ADMIN).build()),
-
-    ADMIN_CLIENT(Role.builder().code("ADMIN_CLIENT").name("Administrator client").description("System administrator of client").roleType(RoleType.CLIENT).build()),
-    CLIENT(Role.builder().code("CLIENT").name("Client").description("Regular client").roleType(RoleType.CLIENT).build());
+    ADMIN(
+            Role.builder()
+                    .name("Administrator")
+                    .code("ADMIN")
+                    .type(RoleType.SYSTEM)
+                    .build()
+    ),
+    USER(
+            Role.builder()
+                    .name("User")
+                    .code("USER")
+                    .type(RoleType.SYSTEM)
+                    .build()
+    ),
+    PROVIDER(
+            Role.builder()
+                    .name("Provider")
+                    .code("PROVIDER")
+                    .type(RoleType.ORGANIZATION)
+                    .build()
+    );
 
     private final Role role;
 
     public static List<Role> listRoles() {
-        return Arrays.stream(RoleData.values()).map(RoleData::getRole).toList();
+        return Arrays.stream(RoleData.values())
+                .map(RoleData::getRole)
+                .toList();
     }
 
     public static Role random() {

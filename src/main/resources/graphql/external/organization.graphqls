@@ -102,6 +102,7 @@ input OrganizationSearchFilterParamInput {
     categoriesUuid: [ID!]
     province: String
     municipality: String
+    isHighlight: Boolean
 }
 
 type CatalogPaginate {

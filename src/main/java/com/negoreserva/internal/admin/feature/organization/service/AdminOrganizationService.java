@@ -10,7 +10,6 @@ import com.negoreserva.common.feature.concrete.organization.repository.Organizat
 import com.negoreserva.common.feature.core.dto.request.PaginateRequest;
 import com.negoreserva.common.feature.concrete.organization.model.Organization;
 import com.negoreserva.common.feature.core.service.ConcreteService;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -67,8 +66,4 @@ public class AdminOrganizationService extends ConcreteService<Organization> {
         return repository.save(item);
     }
 
-    @Transactional
-    public Organization findOrCreate(Organization organization) {
-        return repository.findByName(organization.getName()).orElseGet(() -> save(organization));
-    }
 }

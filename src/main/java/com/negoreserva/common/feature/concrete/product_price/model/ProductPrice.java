@@ -38,7 +38,7 @@ public class ProductPrice extends ConcreteModel {
     @NotNull
     @Positive
     @Builder.Default
-    @Column(name = "price_order")
+    @Column(name = "position_order")
     private Integer order = 1;
 
     @NotNull

@@ -1,6 +1,6 @@
 package com.negoreserva.common.feature.pivot.organization_address.enums;
 
-import com.negoreserva.common.feature.concrete.address.enums.AddressData;
+import com.negoreserva.common.feature.concrete.address.enums.AddressFaker;
 import com.negoreserva.common.feature.concrete.address.model.Address;
 import com.negoreserva.common.feature.concrete.organization.enums.OrganizationFaker;
 import com.negoreserva.common.feature.concrete.organization.model.Organization;
@@ -10,9 +10,13 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum OrganizationAddressData {
-    GLOBAL_NEW_YORK(OrganizationFaker.GLOBAL.getOrganization(), AddressData.NEW_YORK.getAddress()),
-    TECHCORP_SAN_FRANCISCO(OrganizationFaker.TECHCORP.getOrganization(), AddressData.SAN_FRANCISCO.getAddress()),
-    ACME_CHICAGO(OrganizationFaker.ACME.getOrganization(), AddressData.CHICAGO.getAddress());
+    ACME_ADDRESS(OrganizationFaker.ACME.getOrganization(), AddressFaker.ACME.getAddress()),
+    TECHCORP_ADDRESS(OrganizationFaker.TECHCORP.getOrganization(), AddressFaker.TECHCORP.getAddress()),
+    GLOBAL_ADDRESS(OrganizationFaker.GLOBAL.getOrganization(), AddressFaker.GLOBAL.getAddress()),
+    POUSADA_RECANTO_ADDRESS(OrganizationFaker.POUSADA_RECANTO.getOrganization(), AddressFaker.POUSADA_RECANTO.getAddress()),
+    PENSAO_FAMILIAR_ADDRESS(OrganizationFaker.PENSAO_FAMILIAR.getOrganization(), AddressFaker.PENSAO_FAMILIAR.getAddress()),
+    RESTAURANT_SABER_ADDRESS(OrganizationFaker.RESTAURANT_SABER.getOrganization(), AddressFaker.RESTAURANT_SABER.getAddress()),
+    LOJA_BAIRRO_ADDRESS(OrganizationFaker.LOJA_BAIRR0.getOrganization(), AddressFaker.LOJA_BAIRRO.getAddress());
 
     private final Organization organization;
     private final Address address;

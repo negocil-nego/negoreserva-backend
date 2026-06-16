@@ -25,11 +25,11 @@ public enum OrganizationCategoryData {
 
     PENSAO_BED_BREAKFAST(OrganizationFaker.PENSAO_FAMILIAR.getOrganization(), CategoryFaker.BED_AND_BREAKFAST.getCategory()),
 
-    RESTAURANTE_SABOR_CATEGORY(OrganizationFaker.RESTAURANTE_SABOR.getOrganization(), CategoryFaker.RESTAURANT.getCategory()),
-    RESTAURANTE_BOTEQUIM(OrganizationFaker.RESTAURANTE_SABOR.getOrganization(), CategoryFaker.BOTEQUIM.getCategory()),
+    RESTAURANTE_SABOR_CATEGORY(OrganizationFaker.RESTAURANT_SABER.getOrganization(), CategoryFaker.RESTAURANT.getCategory()),
+    RESTAURANTE_BOTEQUIM(OrganizationFaker.RESTAURANT_SABER.getOrganization(), CategoryFaker.BOTEQUIM.getCategory()),
 
-    LOJA_SHOP(OrganizationFaker.LOJA_BAIRRO.getOrganization(), CategoryFaker.SHOP.getCategory()),
-    LOJA_TOURISM(OrganizationFaker.LOJA_BAIRRO.getOrganization(), CategoryFaker.TOURISM_BOOKING.getCategory());
+    LOJA_SHOP(OrganizationFaker.LOJA_BAIRR0.getOrganization(), CategoryFaker.SHOP.getCategory()),
+    LOJA_TOURISM(OrganizationFaker.LOJA_BAIRR0.getOrganization(), CategoryFaker.TOURISM_BOOKING.getCategory());
 
     private final Organization organization;
     private final Category category;

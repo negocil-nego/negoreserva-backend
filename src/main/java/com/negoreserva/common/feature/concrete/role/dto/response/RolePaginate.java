@@ -9,17 +9,9 @@ import java.util.List;
 
 @NoArgsConstructor
 public class RolePaginate extends PageResponse<RoleResponse> {
-
     public RolePaginate(
-            List<RoleResponse> content,
-            boolean empty,
-            boolean first,
-            boolean last,
-            int number,
-            int numberOfElements,
-            int size,
-            long totalElements,
-            int totalPages
+            List<RoleResponse> content, boolean empty, boolean first, boolean last,
+            int number, int numberOfElements, int size, long totalElements, int totalPages
     ) {
         super(content, empty, first, last, number, numberOfElements, size, totalElements, totalPages);
     }
@@ -27,14 +19,9 @@ public class RolePaginate extends PageResponse<RoleResponse> {
     public static RolePaginate of(Page<Role> page) {
         return new RolePaginate(
                 page.getContent().stream().map(Role::toResponse).toList(),
-                page.isEmpty(),
-                page.isFirst(),
-                page.isLast(),
-                page.getNumber(),
-                page.getNumberOfElements(),
-                page.getSize(),
-                page.getTotalElements(),
-                page.getTotalPages()
+                page.isEmpty(), page.isFirst(), page.isLast(),
+                page.getNumber(), page.getNumberOfElements(), page.getSize(),
+                page.getTotalElements(), page.getTotalPages()
         );
     }
 }

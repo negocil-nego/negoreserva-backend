@@ -77,6 +77,10 @@ public class Organization extends ConcreteModel implements Sluggable, Searchable
     @Builder.Default
     private Integer rating = 0;
 
+    @PositiveOrZero
+    @Builder.Default
+    private Integer weight = 0;
+
     @Size(max = 2048)
     private String image;
 
@@ -85,6 +89,9 @@ public class Organization extends ConcreteModel implements Sluggable, Searchable
 
     @Size(max = 2048)
     private String video;
+
+    @Builder.Default
+    private Boolean isHighlight = false;
 
     @Builder.Default
     @Enumerated(EnumType.STRING)
@@ -145,10 +152,6 @@ public class Organization extends ConcreteModel implements Sluggable, Searchable
     }
 
     public OrganizationResponse toResponse() {
-        return new OrganizationResponse(uuid, name, slug, email, description, phone, address, rating, image, logo, video);
-    }
-
-    public OrganizationRequest toOrganizationCreateRequest() {
-        return new OrganizationRequest(name, email, description, phone, address, rating);
+        return new OrganizationResponse(uuid, name, slug, email, description, phone, address, rating, image, logo, video, isHighlight);
     }
 }

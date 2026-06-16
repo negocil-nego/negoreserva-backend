@@ -33,15 +33,12 @@ public class RoleFilterSpecification implements Specification<Role> {
             if (filter.getField() == RoleFilterQueryParamType.ALL) {
                 predicates.add(cb.or(
                     cb.like(cb.lower(root.get("name")), ("%" + search + "%")),
-                    cb.like(cb.lower(root.get("code")), ("%" + search + "%")),
-                    cb.like(cb.lower(root.get("description")), ("%" + search + "%"))
+                    cb.like(cb.lower(root.get("code")), ("%" + search + "%"))
                 ));
             } else if (filter.getField() == RoleFilterQueryParamType.NAME) {
                 predicates.add(cb.like(cb.lower(root.get("name")), ("%" + search + "%")));
             } else if (filter.getField() == RoleFilterQueryParamType.CODE) {
                 predicates.add(cb.like(cb.lower(root.get("code")), ("%" + search + "%")));
-            } else if (filter.getField() == RoleFilterQueryParamType.DESCRIPTION) {
-                predicates.add(cb.like(cb.lower(root.get("description")), ("%" + search + "%")));
             }
         });
 

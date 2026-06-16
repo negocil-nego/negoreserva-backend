@@ -10,6 +10,7 @@ type OrganizationResponse {
     image: String
     video: String
     rating: Int
+    isHighlight: Boolean
 }
 
 type OrganizationPaginate {

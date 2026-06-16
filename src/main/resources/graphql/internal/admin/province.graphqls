@@ -1,0 +1,12 @@
+extend type Query {
+    adminPaginateProvince(paginateRequest: PaginateRequest): ProvincePaginate!
+    adminPaginateProvinceFilter(filter: ProvinceFilterQueryParamInput): ProvincePaginate!
+    adminFindByUuidProvince(uuid: ID!): ProvinceResponse
+    adminFindByValueProvince(value: String!): ProvinceResponse
+}
+
+extend type Mutation {
+    adminSaveProvince(provinceRequest: ProvinceRequest!): ProvinceResponse
+    adminUpdateProvince(uuid: ID!, provinceRequest: ProvinceRequest!): ProvinceResponse
+    adminDeleteByUuidProvince(uuid: ID!): Boolean
+}

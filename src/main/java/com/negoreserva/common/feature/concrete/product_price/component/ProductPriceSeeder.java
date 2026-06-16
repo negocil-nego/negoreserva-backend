@@ -2,7 +2,7 @@ package com.negoreserva.common.feature.concrete.product_price.component;
 
 import com.negoreserva.common.feature.concrete.product.model.Product;
 import com.negoreserva.common.feature.concrete.product_price.model.ProductPrice;
-import com.negoreserva.internal.admin.feature.product_price.enums.ProductPriceData;
+import com.negoreserva.common.feature.concrete.product_price.enums.ProductPriceData;
 import com.negoreserva.common.feature.concrete.product_price.service.ProductPriceService;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;

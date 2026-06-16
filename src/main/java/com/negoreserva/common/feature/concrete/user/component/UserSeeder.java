@@ -3,7 +3,7 @@ package com.negoreserva.common.feature.concrete.user.component;
 import com.negoreserva.common.feature.concrete.user.model.User;
 import com.negoreserva.common.feature.concrete.user.service.UserService;
 import com.negoreserva.common.util.PasswordEncoderGenerator;
-import com.negoreserva.internal.admin.feature.user.enums.UserFaker;
+import com.negoreserva.common.feature.concrete.user.enums.UserFaker;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Component;

@@ -13,5 +13,6 @@ public record OrganizationResponse(
         Integer rating,
         String image,
         String logo,
-        String video
+        String video,
+        Boolean isHighlight
 ) { }

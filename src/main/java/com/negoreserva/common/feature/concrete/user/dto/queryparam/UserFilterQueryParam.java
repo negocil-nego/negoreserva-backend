@@ -1,6 +1,6 @@
 package com.negoreserva.common.feature.concrete.user.dto.queryparam;
 
-import com.negoreserva.internal.admin.feature.user.enums.UserFilterQueryParamType;
+import com.negoreserva.common.feature.concrete.user.enums.UserFilterQueryParamType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

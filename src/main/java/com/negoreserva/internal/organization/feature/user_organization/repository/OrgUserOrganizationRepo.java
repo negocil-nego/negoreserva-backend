@@ -6,7 +6,5 @@ import com.negoreserva.common.feature.pivot.user_organization.model.UserOrganiza
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface OrgUserOrganizationRepo extends JpaRepository<UserOrganization, Long> {
-    boolean existsByUser(User user);
     boolean existsByUserAndOrganization(User user, Organization organization);
-    long countByUser(User user);
 }

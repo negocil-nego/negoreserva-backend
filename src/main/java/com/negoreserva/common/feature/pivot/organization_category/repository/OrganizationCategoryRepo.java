@@ -8,6 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface OrganizationCategoryRepo extends JpaRepository<OrganizationCategory, Long> {
-    boolean existsByOrganizationAndCategory(Organization organization, Category category);
     Optional<OrganizationCategory> findByOrganizationAndCategory(Organization organization, Category category);
 }

@@ -10,6 +10,5 @@ import java.util.Optional;
 
 @Repository
 public interface OrganizationAddressRepo extends JpaRepository<OrganizationAddress, Long> {
-    boolean existsByOrganizationAndAddress(Organization organization, Address address);
     Optional<OrganizationAddress> findByOrganizationAndAddress(Organization organization, Address address);
 }

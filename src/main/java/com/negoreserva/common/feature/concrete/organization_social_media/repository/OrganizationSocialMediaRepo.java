@@ -10,7 +10,6 @@ import java.util.UUID;
 
 @Repository
 public interface OrganizationSocialMediaRepo extends ConcreteRepository<OrganizationSocialMedia> {
-    Optional<OrganizationSocialMedia> findByOrganization(Organization organization);
     boolean existsByOrganization(Organization organization);
     Optional<OrganizationSocialMedia> findByUuid(UUID uuid);
 }

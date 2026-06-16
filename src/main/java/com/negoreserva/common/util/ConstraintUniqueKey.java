@@ -10,5 +10,4 @@ public final class ConstraintUniqueKey {
     public final static String ORGANIZATION_PHONE= "uk_organization_phone";
 
     public final static String CATEGORY_NAME = "uk_category_name";
-    public final static String CATALOG_NAME = "uk_catalog_name";
 }

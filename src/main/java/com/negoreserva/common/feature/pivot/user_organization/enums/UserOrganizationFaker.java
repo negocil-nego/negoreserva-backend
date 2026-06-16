@@ -1,10 +1,8 @@
 package com.negoreserva.common.feature.pivot.user_organization.enums;
 
 import com.negoreserva.common.feature.concrete.organization.enums.OrganizationFaker;
-import com.negoreserva.common.feature.concrete.organization.model.Organization;
-import com.negoreserva.common.feature.concrete.user.model.User;
 import com.negoreserva.common.feature.pivot.user_organization.model.UserOrganization;
-import com.negoreserva.internal.admin.feature.user.enums.UserFaker;
+import com.negoreserva.common.feature.concrete.user.enums.UserFaker;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -49,14 +47,14 @@ public enum UserOrganizationFaker {
     ANA_RESTAURANTE(UserOrganization.builder()
             .type(UserOrganizationType.CREATED)
             .active(true)
-            .organization(OrganizationFaker.RESTAURANTE_SABOR.getOrganization())
+            .organization(OrganizationFaker.RESTAURANT_SABER.getOrganization())
             .user(UserFaker.ANA.getUser())
             .build()
     ),
     CARLOS_LOJA(UserOrganization.builder()
             .type(UserOrganizationType.CREATED)
             .active(true)
-            .organization(OrganizationFaker.LOJA_BAIRRO.getOrganization())
+            .organization(OrganizationFaker.LOJA_BAIRR0.getOrganization())
             .user(UserFaker.CARLOS.getUser())
             .build()
     );

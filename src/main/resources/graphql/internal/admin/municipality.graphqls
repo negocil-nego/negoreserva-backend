@@ -1,0 +1,11 @@
+extend type Query {
+    adminPaginateMunicipality(paginateRequest: PaginateRequest): MunicipalityPaginate!
+    adminPaginateMunicipalityFilter(filter: MunicipalityFilterQueryParamInput): MunicipalityPaginate!
+    adminFindByUuidMunicipality(uuid: ID!): MunicipalityResponse
+}
+
+extend type Mutation {
+    adminSaveMunicipality(municipalityRequest: MunicipalityRequest!): MunicipalityResponse
+    adminUpdateMunicipality(uuid: ID!, municipalityRequest: MunicipalityRequest!): MunicipalityResponse
+    adminDeleteByUuidMunicipality(uuid: ID!): Boolean
+}

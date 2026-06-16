@@ -1,15 +1,3 @@
-type ProvinceResponse {
-    uuid: ID!
-    value: String!
-    label: String!
-}
-
-type MunicipalityResponse {
-    uuid: ID!
-    value: String!
-    label: String!
-}
-
 extend type Query {
     pubListProvince: [ProvinceResponse!]!
     pubListMunicipalityByProvince(provinceValue: String!): [MunicipalityResponse!]!

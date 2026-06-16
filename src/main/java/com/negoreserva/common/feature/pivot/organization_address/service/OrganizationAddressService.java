@@ -8,22 +8,17 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class OrganizationAddressService {
     private final OrganizationAddressRepo organizationAddressRepo;
 
-    public boolean existsByOrganizationAndAddress(Organization organization, Address address) {
-        return organizationAddressRepo.existsByOrganizationAndAddress(organization, address);
-    }
-
-    public OrganizationAddress save(OrganizationAddress organizationAddress) {
-        return organizationAddressRepo.save(organizationAddress);
+    public OrganizationAddressService(OrganizationAddressRepo organizationAddressRepo) {
+        this.organizationAddressRepo = organizationAddressRepo;
     }
 
     public OrganizationAddress findOrCreate(OrganizationAddress organizationAddress) {
         return organizationAddressRepo.findByOrganizationAndAddress(
                 organizationAddress.getOrganization(),
                 organizationAddress.getAddress()
-        ).orElseGet(() -> save(organizationAddress));
+        ).orElseGet(() -> organizationAddressRepo.save(organizationAddress));
     }
 }

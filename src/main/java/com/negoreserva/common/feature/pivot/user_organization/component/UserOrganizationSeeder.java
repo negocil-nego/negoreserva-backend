@@ -26,7 +26,7 @@ public class UserOrganizationSeeder {
             UserOrganization userOrganization = uof.getUserOrganization();
 
             var findOrganization = organizations.stream().filter(it -> it.getName().equals(userOrganization.getOrganization().getName())).findFirst();
-            var findUser = users.stream().filter(it -> it.getUsername().equals(userOrganization.getUser().getUsername())).findFirst();
+            var findUser = users.stream().filter(it -> it.getEmail().equals(userOrganization.getUser().getEmail())).findFirst();
 
             if(findOrganization.isPresent() && findUser.isPresent()) {
                 userOrganization.setOrganization(findOrganization.get());

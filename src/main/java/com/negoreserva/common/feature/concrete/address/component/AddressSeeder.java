@@ -2,7 +2,7 @@ package com.negoreserva.common.feature.concrete.address.component;
 
 import com.negoreserva.common.feature.concrete.address.model.Address;
 import com.negoreserva.common.feature.concrete.address.service.AddressService;
-import com.negoreserva.common.feature.concrete.address.enums.AddressData;
+import com.negoreserva.common.feature.concrete.address.enums.AddressFaker;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Component;
 
@@ -20,8 +20,8 @@ public class AddressSeeder {
     @Transactional
     public List<Address> seed() {
         List<Address> items = new ArrayList<>();
-        for (AddressData addressData : AddressData.values()) {
-            items.add(addressService.findOrCreate(addressData.getAddress()));
+        for (AddressFaker faker : AddressFaker.values()) {
+            items.add(addressService.findOrCreate(faker.getAddress()));
         }
         return items;
     }

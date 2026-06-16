@@ -1,24 +1,18 @@
 package com.negoreserva.common.feature.concrete.payment.service;
 
 import com.negoreserva.common.enums.StoragePathNamed;
-import com.negoreserva.common.feature.concrete.payment.dto.response.PaymentPaginate;
 import com.negoreserva.common.feature.concrete.payment.enums.PaymentMethod;
-import com.negoreserva.common.feature.concrete.payment.exception.notfound.PaymentNotFoundException;
 import com.negoreserva.common.feature.concrete.payment.repository.PaymentRepo;
 import com.negoreserva.common.feature.concrete.payment.model.Payment;
 import com.negoreserva.common.feature.concrete.payment_file_receipt.model.PaymentFileReceipt;
 import com.negoreserva.common.feature.concrete.payment_file_receipt.repository.PaymentFileReceiptRepo;
-import com.negoreserva.common.feature.concrete.product.model.Product;
 import com.negoreserva.common.feature.concrete.product.service.ProductService;
-import com.negoreserva.common.feature.concrete.product_price.model.ProductPrice;
 import com.negoreserva.common.feature.concrete.product_price.service.ProductPriceService;
 import com.negoreserva.common.feature.concrete.transaction.model.Transaction;
 import com.negoreserva.common.feature.concrete.transaction.repository.TransactionRepo;
-import com.negoreserva.common.feature.concrete.user.model.User;
 import com.negoreserva.common.feature.concrete.user.service.UserService;
 import com.negoreserva.common.feature.core.service.ConcreteService;
 import com.negoreserva.common.feature.general.storage.service.StorageService;
-import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,15 +48,6 @@ public class PaymentService extends ConcreteService<Payment> {
         this.storageService = storageService;
         this.paymentFileReceiptRepo = paymentFileReceiptRepo;
         this.transactionRepo = transactionRepo;
-    }
-
-    public PaymentPaginate paginate(Pageable pageable) {
-        var page = repository.findAll(pageable);
-        return PaymentPaginate.of(page);
-    }
-
-    public Payment findByUuid(UUID uuid) {
-        return repository.findByUuid(uuid).orElseThrow(() -> new PaymentNotFoundException(uuid));
     }
 
     @Transactional
