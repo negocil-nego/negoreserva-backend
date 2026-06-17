@@ -1,7 +1,9 @@
 package com.negoreserva.common.feature.concrete.organization.dto.response;
 
+import com.negoreserva.common.feature.concrete.category.dto.response.CategoryResponse;
 import com.negoreserva.common.feature.concrete.organization.model.Organization;
 
+import java.util.List;
 import java.util.UUID;
 
 public record OrganizationResponse(
@@ -18,11 +20,14 @@ public record OrganizationResponse(
         String image,
         String logo,
         String video,
-        Boolean isHighlight
+        Boolean isHighlight,
+        List<CategoryResponse> categories
 ) {
 
     public static OrganizationResponse of(Organization organization) {
         var addresses = organization.getAddresses();
+
+        var categories = organization.getCategories().stream().map(CategoryResponse::of).toList();
 
         var address = addresses.stream().filter(a -> addresses.size() == 1 || a.isDefault()).findFirst();
         var municipality = address.map(a -> a.getMunicipality().getLabel()).orElse("");
@@ -42,7 +47,8 @@ public record OrganizationResponse(
                 organization.getImage(),
                 organization.getLogo(),
                 organization.getVideo(),
-                organization.getIsHighlight()
+                organization.getIsHighlight(),
+                categories
         );
     }
 }

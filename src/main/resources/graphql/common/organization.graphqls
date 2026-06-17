@@ -13,6 +13,7 @@ type OrganizationResponse {
     video: String
     rating: Int
     isHighlight: Boolean
+    categories: [CategoryResponse]
 }
 
 type OrganizationPaginate {
