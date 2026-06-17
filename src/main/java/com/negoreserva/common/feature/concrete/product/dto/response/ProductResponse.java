@@ -11,5 +11,6 @@ public record ProductResponse(
         String slug,
         String description,
         String image,
+        BigDecimal price,
         OrganizationResponse organization
 ) { }

@@ -4,6 +4,7 @@ type ProductResponse {
     slug: String!
     description: String
     image: String
+    price: Float!
     organization: OrganizationResponse
 }
 

@@ -54,6 +54,10 @@ public class Product extends ConcreteModel implements Sluggable, SearchableEntit
     @Builder.Default
     private Boolean isPromotion = false;
 
+    @NotNull
+    @Builder.Default
+    private BigDecimal price = BigDecimal.ZERO;
+
 
     @NotNull
     @PositiveOrZero
@@ -100,7 +104,7 @@ public class Product extends ConcreteModel implements Sluggable, SearchableEntit
 
     public ProductResponse toResponse() {
         var response = OrganizationResponse.of(organization);
-        return new ProductResponse(uuid, name, slug, description, image, response);
+        return new ProductResponse(uuid, name, slug, description, image, price, response);
     }
 
     public ProductRequest toProductRequest() {
