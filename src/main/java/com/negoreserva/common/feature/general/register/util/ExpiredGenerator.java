@@ -16,6 +16,11 @@ public final class ExpiredGenerator {
         return now.plus(5, ChronoUnit.MINUTES);
     }
 
+    public static Instant deleteAccountExpired5Minutes() {
+        Instant now = Instant.now();
+        return now.plus(5, ChronoUnit.MINUTES);
+    }
+
     public static Instant forgetPasswordExpired30Minutes() {
         Instant now = Instant.now();
         return now.plus(30, ChronoUnit.MINUTES);

@@ -2,6 +2,7 @@ package com.negoreserva.common.variable;
 
 public final class EntityVariable {
     public final static String FORGET_PASSWORD = "TB_USER_FORGET_PASSWORD";
+    public final static String USER_DELETE_ACCOUNT = "TB_USER_DELETE_ACCOUNT";
     public final static String ORGANIZATION = "TB_ORGANIZATIONS";
     public final static String PRODUCT_FILE = "TB_PRODUCT_FILES";
     public final static String PRODUCT = "TB_PRODUCTS";

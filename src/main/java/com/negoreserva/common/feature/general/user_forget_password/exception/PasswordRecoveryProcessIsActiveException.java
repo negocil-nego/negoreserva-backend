@@ -9,4 +9,8 @@ public class PasswordRecoveryProcessIsActiveException extends RuntimeException {
     public PasswordRecoveryProcessIsActiveException() {
         super("The password recovery process is active");
     }
+
+    public PasswordRecoveryProcessIsActiveException(String message) {
+        super(message);
+    }
 }

@@ -1,0 +1,19 @@
+input UserDeleteAccountRequest {
+    input: String!
+}
+
+input UserDeleteAccountConfirmRequest {
+    input: String!
+    code: String!
+    password: String!
+}
+
+type UserDeleteAccountResponse {
+    input: String
+    expiredAt: String
+}
+
+extend type Mutation {
+    pubSendMessageDeleteAccount(request: UserDeleteAccountRequest!): UserDeleteAccountResponse
+    pubConfirmDeleteAccount(request: UserDeleteAccountConfirmRequest!): Boolean
+}
