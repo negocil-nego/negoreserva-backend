@@ -8,15 +8,13 @@ import java.util.UUID;
 public record MunicipalityResponse(
         UUID uuid,
         String value,
-        String label,
-        ProvinceResponse province
+        String label
 ) {
     public static MunicipalityResponse of(Municipality municipality) {
         return new MunicipalityResponse(
                 municipality.getUuid(),
                 municipality.getValue(),
-                municipality.getLabel(),
-                municipality.getProvince().toResponse()
+                municipality.getLabel()
         );
     }
 }

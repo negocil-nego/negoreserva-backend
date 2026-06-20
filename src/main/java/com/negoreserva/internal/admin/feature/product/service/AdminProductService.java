@@ -29,16 +29,16 @@ public class AdminProductService extends ConcreteService<Product> {
         this.productRepository = productRepository;
     }
 
-    public ProductPaginate paginate(Pageable pageable) {
+    public ProductPaginate findAll(Pageable pageable) {
         var page = productRepository.findAll(pageable);
         return ProductPaginate.of(page);
     }
 
-    public ProductPaginate paginate(PaginateRequest paginateRequest) {
-        return paginate(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
+    public ProductPaginate findAll(PaginateRequest paginateRequest) {
+        return findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
     }
 
-    public ProductPaginate paginate(ProductFilterQueryParam filter) {
+    public ProductPaginate findAll(ProductFilterQueryParam filter) {
         var pageRequest = PageRequest.of(
                 Optional.of(filter.getPageNumber()).orElse(0),
                 Optional.of(filter.getPageSize()).orElse(10)

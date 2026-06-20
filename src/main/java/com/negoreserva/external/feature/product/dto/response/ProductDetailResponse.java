@@ -12,6 +12,7 @@ import java.util.UUID;
 public record ProductDetailResponse (
         UUID uuid,
         String name,
+        String slug,
         String description,
         String image,
         OrganizationResponse organization,
@@ -37,6 +38,7 @@ public record ProductDetailResponse (
         return new ProductDetailResponse(
                 product.getUuid(),
                 product.getName(),
+                product.getSlug(),
                 product.getDescription(),
                 product.getImage(),
                 OrganizationResponse.of(product.getOrganization()),

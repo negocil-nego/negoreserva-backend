@@ -24,16 +24,16 @@ public class AdminMunicipalityService extends ConcreteService<Municipality> {
         this.repository = repository;
     }
 
-    public MunicipalityPaginate paginate(Pageable pageable) {
+    public MunicipalityPaginate findAll(Pageable pageable) {
         var page = repository.findAll(pageable);
         return MunicipalityPaginate.of(page);
     }
 
-    public MunicipalityPaginate paginate(PaginateRequest paginateRequest) {
-        return paginate(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
+    public MunicipalityPaginate findAll(PaginateRequest paginateRequest) {
+        return this.findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
     }
 
-    public MunicipalityPaginate paginate(MunicipalityFilterQueryParam filter) {
+    public MunicipalityPaginate findAll(MunicipalityFilterQueryParam filter) {
         var pageRequest = PageRequest.of(
                 Optional.of(filter.getPageNumber()).orElse(0),
                 Optional.of(filter.getPageSize()).orElse(10)

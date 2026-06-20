@@ -28,13 +28,13 @@ public class ProductFileService extends ConcreteService<ProductFile> {
         this.productService = productService;
     }
 
-    public ProductFilePaginate paginate(Pageable pageable) {
+    public ProductFilePaginate findAll(Pageable pageable) {
         var page = repository.findAll(pageable);
         return ProductFilePaginate.of(page);
     }
 
-    public ProductFilePaginate paginate(PaginateRequest paginateRequest) {
-        return paginate(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
+    public ProductFilePaginate findAll(PaginateRequest paginateRequest) {
+        return this.findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
     }
 
     @Override

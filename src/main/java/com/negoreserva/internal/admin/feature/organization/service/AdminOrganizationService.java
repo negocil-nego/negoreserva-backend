@@ -26,16 +26,16 @@ public class AdminOrganizationService extends ConcreteService<Organization> {
         this.repository = repository;
     }
 
-    public OrganizationPaginate paginate(Pageable pageable) {
+    public OrganizationPaginate findAll(Pageable pageable) {
         var page = repository.findAll(pageable);
         return OrganizationPaginate.of(page);
     }
 
-    public OrganizationPaginate paginate(PaginateRequest paginateRequest) {
-        return paginate(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
+    public OrganizationPaginate findAll(PaginateRequest paginateRequest) {
+        return this.findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
     }
 
-    public OrganizationPaginate paginate(OrganizationFilterQueryParam filter) {
+    public OrganizationPaginate findAll(OrganizationFilterQueryParam filter) {
         var pageRequest = PageRequest.of(
                 Optional.of(filter.getPageNumber()).orElse(0),
                 Optional.of(filter.getPageSize()).orElse(10)

@@ -30,13 +30,13 @@ public class AdminProvinceController {
     @GetMapping
     @Operation(summary = "Get all provinces")
     public ResponseEntity<ProvincePaginate> findAll(@ParameterObject Pageable page) {
-        return ResponseEntity.ok(service.paginate(page));
+        return ResponseEntity.ok(service.findAll(page));
     }
 
     @GetMapping(ProvinceRouteNamed.FILTER)
     @Operation(summary = "Get provinces by filter")
     public ResponseEntity<ProvincePaginate> findByFilter(@ParameterObject @ModelAttribute ProvinceFilterQueryParam filter) {
-        return ResponseEntity.ok(service.paginate(filter));
+        return ResponseEntity.ok(service.findAll(filter));
     }
 
     @GetMapping(ProvinceRouteNamed.FIND_BY_VALUE)

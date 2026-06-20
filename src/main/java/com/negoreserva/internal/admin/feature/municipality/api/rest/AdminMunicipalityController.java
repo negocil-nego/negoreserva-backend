@@ -33,13 +33,13 @@ public class AdminMunicipalityController {
     @GetMapping
     @Operation(summary = "Get all municipalities")
     public ResponseEntity<MunicipalityPaginate> findAll(@ParameterObject Pageable page) {
-        return ResponseEntity.ok(service.paginate(page));
+        return ResponseEntity.ok(service.findAll(page));
     }
 
     @GetMapping(MunicipalityRouteNamed.FILTER)
     @Operation(summary = "Get municipalities by filter")
     public ResponseEntity<MunicipalityPaginate> findByFilter(@ParameterObject @ModelAttribute MunicipalityFilterQueryParam filter) {
-        return ResponseEntity.ok(service.paginate(filter));
+        return ResponseEntity.ok(service.findAll(filter));
     }
 
     @GetMapping("/{uuid}")

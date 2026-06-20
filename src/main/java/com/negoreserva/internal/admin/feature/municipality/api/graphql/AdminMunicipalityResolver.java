@@ -34,12 +34,12 @@ public class AdminMunicipalityResolver {
 
     @QueryMapping
     public MunicipalityPaginate adminPaginateMunicipality(@Argument PaginateRequest paginateRequest) {
-        return service.paginate(paginateRequest);
+        return service.findAll(paginateRequest);
     }
 
     @QueryMapping
     public MunicipalityPaginate adminPaginateMunicipalityFilter(@Argument MunicipalityFilterQueryParam filter) {
-        return service.paginate(filter);
+        return service.findAll(filter);
     }
 
     @MutationMapping

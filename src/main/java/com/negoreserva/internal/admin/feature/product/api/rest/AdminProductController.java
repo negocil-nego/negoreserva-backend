@@ -29,13 +29,13 @@ public class AdminProductController {
     @GetMapping
     @Operation(summary = "Get all products")
     public ResponseEntity<ProductPaginate> findAll(@ParameterObject Pageable page) {
-        return ResponseEntity.ok(service.paginate(page));
+        return ResponseEntity.ok(service.findAll(page));
     }
 
     @GetMapping(ProductRouteNamed.FILTER)
     @Operation(summary = "Get products by filter")
     public ResponseEntity<ProductPaginate> findByFilter(@ParameterObject @ModelAttribute ProductFilterQueryParam filter) {
-        return ResponseEntity.ok(service.paginate(filter));
+        return ResponseEntity.ok(service.findAll(filter));
     }
 
     @GetMapping(ProductRouteNamed.FIND_BY_NAME)

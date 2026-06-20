@@ -31,13 +31,13 @@ public class OrgPaymentService extends ConcreteService<Payment> {
     }
 
     @Transactional(readOnly = true)
-    public OrgPaymentPaginate paginate(Pageable pageable) {
+    public OrgPaymentPaginate findAll(Pageable pageable) {
         var page = orgPaymentRepo.findAll(pageable);
         return OrgPaymentPaginate.of(page);
     }
 
     @Transactional(readOnly = true)
-    public OrgPaymentPaginate paginate(PaymentFilterQueryParam filter) {
+    public OrgPaymentPaginate findAll(PaymentFilterQueryParam filter) {
         var pageRequest = PageRequest.of(Optional.of(filter.getPageNumber()).orElse(0), Optional.of(filter.getPageSize()).orElse(10));
         var spec = new PaymentFilterSpecification(filter);
         var page = orgPaymentRepo.findAll(spec, pageRequest);

@@ -1,0 +1,50 @@
+
+type AddressResponse {
+    uuid: ID!
+    complement: String
+    province: ProvinceResponse!
+    municipality: MunicipalityResponse!
+    latitude: Float
+    longitude: Float
+}
+
+type AddressPaginate {
+    items: [AddressResponse!]!
+    totalElements: Int!
+    totalPages: Int!
+    pageNumber: Int!
+    pageSize: Int!
+}
+
+input PaginateRequestInput {
+    pageNumber: Int!
+    pageSize: Int!
+}
+
+input AddressFilterQueryParamInput {
+    field: String = "ALL"
+    pageNumber: Int = 0
+    pageSize: Int = 10
+    search: String
+}
+
+input AddressRequestInput {
+    street: String!
+    number: String
+    complement: String
+    neighborhood: String
+    zipCode: String
+    municipalityUuid: ID!
+}
+
+extend  type Query {
+    adminFindByUuidAddress(uuid: ID!): AddressResponse
+    adminPaginateAddress(paginateRequest: PaginateRequestInput!): AddressPaginate
+    adminPaginateAddressFilter(filter: AddressFilterQueryParamInput!): AddressPaginate
+}
+
+extend type Mutation {
+    adminSaveAddress(planRequest: AddressRequestInput!): AddressResponse
+    adminUpdateAddress(uuid: ID!, planRequest: AddressRequestInput!): AddressResponse
+    adminDeleteByUuidAddress(uuid: ID!): Boolean!
+}

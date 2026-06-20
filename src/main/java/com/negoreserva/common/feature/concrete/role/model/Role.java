@@ -6,8 +6,6 @@ import com.negoreserva.common.feature.core.model.ConcreteModel;
 import com.negoreserva.common.variable.EntityVariable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -32,14 +30,11 @@ public class Role extends ConcreteModel {
     @Column(unique = true)
     private String code;
 
-    @Enumerated(EnumType.STRING)
-    private RoleType type;
-
     public RoleResponse toResponse() {
-        return new RoleResponse(uuid, name, code, type);
+        return new RoleResponse(uuid, name, code);
     }
 
     public RoleRequest toRequest() {
-        return new RoleRequest(name, code, type);
+        return new RoleRequest(name, code);
     }
 }

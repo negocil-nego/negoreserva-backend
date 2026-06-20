@@ -1,12 +1,12 @@
 package com.negoreserva.internal.admin.feature.plain.api.rest;
 
-import com.negoreserva.internal.admin.feature.plan.dto.queryparam.PlanFilterQueryParam;
-import com.negoreserva.internal.admin.feature.plan.dto.response.PlanPaginate;
+import com.negoreserva.internal.admin.feature.plain.dto.queryparam.PlanFilterQueryParam;
+import com.negoreserva.internal.admin.feature.plain.dto.response.PlanPaginate;
 import com.negoreserva.internal.admin.feature.plan.dto.response.PlanResponse;
-import com.negoreserva.internal.admin.feature.plan.dto.request.PlanRequest;
-import com.negoreserva.common.feature.concrete.plan.service.PlanService;
-import com.negoreserva.common.feature.concrete.plan.model.Plan;
-import com.negoreserva.common.feature.concrete.plan.util.PlanRouteNamed;
+import com.negoreserva.internal.admin.feature.plain.dto.request.PlanRequest;
+import com.negoreserva.internal.admin.feature.plain.service.PlanService;
+import com.negoreserva.internal.admin.feature.plain.model.Plan;
+import com.negoreserva.internal.admin.feature.plain.util.PlanRouteNamed;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -30,13 +30,13 @@ public class AdminPlanController {
     @GetMapping
     @Operation(summary = "Get all plans")
     public ResponseEntity<PlanPaginate> findAll(@ParameterObject Pageable page) {
-        return ResponseEntity.ok(service.paginate(page));
+        return ResponseEntity.ok(service.findAll(page));
     }
 
     @GetMapping(PlanRouteNamed.FILTER)
     @Operation(summary = "Get plans by filter")
     public ResponseEntity<PlanPaginate> findByFilter(@ParameterObject @ModelAttribute PlanFilterQueryParam filter) {
-        return ResponseEntity.ok(service.paginate(filter));
+        return ResponseEntity.ok(service.findAll(filter));
     }
 
     @GetMapping(PlanRouteNamed.FIND_BY_NAME)

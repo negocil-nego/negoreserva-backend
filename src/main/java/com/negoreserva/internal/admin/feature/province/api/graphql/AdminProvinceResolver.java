@@ -34,12 +34,12 @@ public class AdminProvinceResolver {
 
     @QueryMapping
     public ProvincePaginate adminPaginateProvince(@Argument PaginateRequest paginateRequest) {
-        return service.paginate(paginateRequest);
+        return service.findAll(paginateRequest);
     }
 
     @QueryMapping
     public ProvincePaginate adminPaginateProvinceFilter(@Argument ProvinceFilterQueryParam filter) {
-        return service.paginate(filter);
+        return service.findAll(filter);
     }
 
     @MutationMapping

@@ -29,13 +29,13 @@ public class AdminOrganizationController {
     @GetMapping
     @Operation(summary = "Get all organizations")
     public ResponseEntity<OrganizationPaginate> findAll(@ParameterObject Pageable page) {
-        return ResponseEntity.ok(service.paginate(page));
+        return ResponseEntity.ok(service.findAll(page));
     }
 
     @GetMapping(AdminOrganizationRouteNamed.FILTER)
     @Operation(summary = "Get organizations by filter")
     public ResponseEntity<OrganizationPaginate> findByFilter(@ParameterObject @ModelAttribute OrganizationFilterQueryParam filter) {
-        return ResponseEntity.ok(service.paginate(filter));
+        return ResponseEntity.ok(service.findAll(filter));
     }
 
     @GetMapping(AdminOrganizationRouteNamed.FIND_BY_NAME)

@@ -1,10 +1,10 @@
 package com.negoreserva.internal.admin.feature.plain.api.graphql;
 
-import com.negoreserva.internal.admin.feature.plan.dto.queryparam.PlanFilterQueryParam;
-import com.negoreserva.internal.admin.feature.plan.dto.request.PlanRequest;
-import com.negoreserva.internal.admin.feature.plan.dto.response.PlanPaginate;
-import com.negoreserva.internal.admin.feature.plan.dto.response.PlanResponse;
-import com.negoreserva.common.feature.concrete.plan.service.PlanService;
+import com.negoreserva.internal.admin.feature.plain.dto.queryparam.PlanFilterQueryParam;
+import com.negoreserva.internal.admin.feature.plain.dto.request.PlanRequest;
+import com.negoreserva.internal.admin.feature.plain.dto.response.PlanPaginate;
+import com.negoreserva.internal.admin.feature.plain.dto.response.PlanResponse;
+import com.negoreserva.internal.admin.feature.plain.service.PlanService;
 import com.negoreserva.common.feature.core.dto.request.PaginateRequest;
 import jakarta.validation.Valid;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -29,12 +29,12 @@ public class AdminPlanResolver {
 
     @QueryMapping
     public PlanPaginate adminPaginatePlan(@Argument PaginateRequest paginateRequest) {
-        return service.paginate(paginateRequest);
+        return service.findAll(paginateRequest);
     }
 
     @QueryMapping
     public PlanPaginate adminPaginatePlanFilter(@Argument PlanFilterQueryParam filter) {
-        return service.paginate(filter);
+        return service.findAll(filter);
     }
 
     @MutationMapping

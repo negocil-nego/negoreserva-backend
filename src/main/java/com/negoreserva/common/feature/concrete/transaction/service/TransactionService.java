@@ -20,7 +20,7 @@ public class TransactionService extends ConcreteService<Transaction> {
         this.repository = repository;
     }
 
-    public TransactionPaginate paginate(Pageable pageable) {
+    public TransactionPaginate findAll(Pageable pageable) {
         var page = repository.findAll(pageable);
         return TransactionPaginate.of(page);
     }

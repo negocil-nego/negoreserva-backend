@@ -4,7 +4,7 @@ import com.negoreserva.common.feature.concrete.category.dto.queryparam.CategoryF
 import com.negoreserva.common.feature.concrete.category.dto.response.CategoryPaginate;
 import com.negoreserva.common.feature.concrete.category.exception.notfound.CategoryNameNotFoundException;
 import com.negoreserva.common.feature.concrete.category.exception.notfound.CategoryNotFoundException;
-import com.negoreserva.internal.admin.feature.category.query.CategoryFilterSpecification;
+import com.negoreserva.common.feature.concrete.category.dto.query.CategoryFilterSpecification;
 import com.negoreserva.common.feature.concrete.category.repository.CategoryRepo;
 import com.negoreserva.common.feature.concrete.category.model.Category;
 import com.negoreserva.common.feature.core.dto.request.PaginateRequest;
@@ -25,16 +25,16 @@ public class AdminCategoryService extends ConcreteService<Category> {
         this.repository = repository;
     }
 
-    public CategoryPaginate paginate(Pageable pageable) {
+    public CategoryPaginate findAll(Pageable pageable) {
         var page = repository.findAll(pageable);
         return CategoryPaginate.of(page);
     }
 
-    public CategoryPaginate paginate(PaginateRequest paginateRequest) {
-        return paginate(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
+    public CategoryPaginate findAll(PaginateRequest paginateRequest) {
+        return this.findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
     }
 
-    public CategoryPaginate paginate(CategoryFilterQueryParam filter) {
+    public CategoryPaginate findAll(CategoryFilterQueryParam filter) {
         var pageRequest = PageRequest.of(
                 Optional.of(filter.getPageNumber()).orElse(0),
                 Optional.of(filter.getPageSize()).orElse(10)

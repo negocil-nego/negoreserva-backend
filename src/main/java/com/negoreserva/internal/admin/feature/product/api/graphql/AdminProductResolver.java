@@ -34,12 +34,12 @@ public class AdminProductResolver {
 
     @QueryMapping
     public ProductPaginate adminPaginateProduct(@Argument PaginateRequest paginateRequest) {
-        return service.paginate(paginateRequest);
+        return service.findAll(paginateRequest);
     }
 
     @QueryMapping
     public ProductPaginate adminPaginateProductFilter(@Argument ProductFilterQueryParam filter) {
-        return service.paginate(filter);
+        return service.findAll(filter);
     }
 
     @MutationMapping

@@ -30,13 +30,13 @@ public class AdminCategoryController {
     @GetMapping
     @Operation(summary = "Get all categories")
     public ResponseEntity<CategoryPaginate> findAll(@ParameterObject Pageable page) {
-        return ResponseEntity.ok(service.paginate(page));
+        return ResponseEntity.ok(service.findAll(page));
     }
 
     @GetMapping(CategoryRouteNamed.FILTER)
     @Operation(summary = "Get categories by filter")
     public ResponseEntity<CategoryPaginate> findByFilter(@ParameterObject @ModelAttribute CategoryFilterQueryParam filter) {
-        return ResponseEntity.ok(service.paginate(filter));
+        return ResponseEntity.ok(service.findAll(filter));
     }
 
     @GetMapping(CategoryRouteNamed.FIND_BY_NAME)

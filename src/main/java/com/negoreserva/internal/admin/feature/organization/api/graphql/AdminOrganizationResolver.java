@@ -41,12 +41,12 @@ public class AdminOrganizationResolver {
 
     @QueryMapping
     public OrganizationPaginate adminPaginateOrganization(@Argument PaginateRequest paginateRequest) {
-        return service.paginate(paginateRequest);
+        return service.findAll(paginateRequest);
     }
 
     @QueryMapping
     public OrganizationPaginate adminPaginateOrganizationFilter(@Argument OrganizationFilterQueryParam filter) {
-        return service.paginate(filter);
+        return service.findAll(filter);
     }
 
     @MutationMapping

@@ -29,12 +29,12 @@ public class AdminCategoryResolver {
 
     @QueryMapping
     public CategoryPaginate adminPaginateCategory(@Argument PaginateRequest paginateRequest) {
-        return service.paginate(paginateRequest);
+        return service.findAll(paginateRequest);
     }
 
     @QueryMapping
     public CategoryPaginate adminPaginateCategoryFilter(@Argument CategoryFilterQueryParam filter) {
-        return service.paginate(filter);
+        return service.findAll(filter);
     }
 
     @MutationMapping

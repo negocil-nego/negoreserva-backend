@@ -3,8 +3,6 @@ package com.negoreserva.common.feature.core.service;
 import com.negoreserva.common.contract.SearchableEntity;
 import com.negoreserva.common.contract.Sluggable;
 import com.negoreserva.common.exception.NotFoundException;
-import com.negoreserva.common.feature.concrete.product.exception.notfound.ProductNotFoundException;
-import com.negoreserva.common.feature.concrete.product.model.Product;
 import com.negoreserva.common.feature.core.model.CommonModel;
 import com.negoreserva.common.feature.core.repository.CommonRepository;
 import lombok.AllArgsConstructor;

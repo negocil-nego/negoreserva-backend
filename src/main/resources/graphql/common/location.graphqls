@@ -1,40 +1,8 @@
-type ProvinceResponse {
-    uuid: ID!
-    value: String!
-    label: String!
-}
-
-type ProvincePaginate {
-    content: [ProvinceResponse]!
-    empty: Boolean
-    first: Boolean
-    last: Boolean
-    number: Int
-    numberOfElements: Int
-    size: Int
-    totalElements: Int
-    totalPages: Int
-}
-
-input ProvinceRequest {
-    value: String!
-    label: String!
-}
-
-input ProvinceFilterQueryParamInput {
-    field: String = "ALL"
-    search: String
-    pageSize: Int = 10
-    pageNumber: Int = 0
-}
 
 type MunicipalityResponse {
     uuid: ID!
     value: String!
     label: String!
-    provinceUuid: ID!
-    provinceValue: String!
-    provinceLabel: String!
 }
 
 type MunicipalityPaginate {

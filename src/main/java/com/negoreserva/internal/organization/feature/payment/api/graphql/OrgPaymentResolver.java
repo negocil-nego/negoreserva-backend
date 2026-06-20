@@ -30,14 +30,14 @@ public class OrgPaymentResolver {
 
     @QueryMapping
     public OrgPaymentPaginate orgPaginatePayment(@Argument PaginateRequest paginateRequest) {
-        return service.paginate(
+        return service.findAll(
                 org.springframework.data.domain.PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize())
         );
     }
 
     @QueryMapping
     public OrgPaymentPaginate orgPaginatePaymentFilter(@Argument PaymentFilterQueryParam filter) {
-        return service.paginate(filter);
+        return service.findAll(filter);
     }
 
     @MutationMapping

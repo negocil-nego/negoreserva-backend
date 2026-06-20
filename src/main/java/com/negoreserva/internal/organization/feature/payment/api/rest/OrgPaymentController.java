@@ -29,13 +29,13 @@ public class OrgPaymentController {
     @GetMapping
     @Operation(summary = "Get all payments")
     public ResponseEntity<OrgPaymentPaginate> findAll(@ParameterObject Pageable page) {
-        return ResponseEntity.ok(service.paginate(page));
+        return ResponseEntity.ok(service.findAll(page));
     }
 
     @GetMapping(OrgPaymentRouteNamed.FILTER)
     @Operation(summary = "Get payments by filter")
     public ResponseEntity<OrgPaymentPaginate> findByFilter(@ParameterObject @ModelAttribute PaymentFilterQueryParam filter) {
-        return ResponseEntity.ok(service.paginate(filter));
+        return ResponseEntity.ok(service.findAll(filter));
     }
 
     @GetMapping("/{uuid}")

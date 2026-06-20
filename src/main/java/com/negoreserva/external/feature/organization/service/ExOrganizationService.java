@@ -1,6 +1,5 @@
 package com.negoreserva.external.feature.organization.service;
 
-import com.negoreserva.common.feature.concrete.category.repository.CategoryRepo;
 import com.negoreserva.common.feature.concrete.organization.exception.notfound.OrganizationNotFoundException;
 import com.negoreserva.common.feature.concrete.organization.exception.notfound.OrganizationSlugNotFoundException;
 import com.negoreserva.common.feature.concrete.organization.dto.queryparam.OrganizationSearchFilterParam;
@@ -19,8 +18,8 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class ExOrganizationService {
+
     private final OrganizationRepository organizationRepository;
-    private final CategoryRepo categoryRepo;
 
     public Organization findByUuid(UUID uuid) {
         return organizationRepository.findByUuid(uuid).orElseThrow(() -> new OrganizationNotFoundException(uuid));

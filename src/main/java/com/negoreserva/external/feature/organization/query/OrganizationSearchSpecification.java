@@ -5,6 +5,7 @@ import com.negoreserva.common.feature.concrete.category.model.Category;
 import com.negoreserva.common.feature.concrete.organization.dto.queryparam.OrganizationSearchFilterParam;
 import com.negoreserva.common.feature.concrete.organization.enums.OrganizationStatus;
 import com.negoreserva.common.feature.concrete.organization.model.Organization;
+import com.negoreserva.common.feature.concrete.product.model.Product;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Join;
@@ -32,6 +33,16 @@ public class OrganizationSearchSpecification implements Specification<Organizati
         predicates.add(cb.isNull(root.get("deletedBy")));
         predicates.add(cb.isNull(root.get("deletedAt")));
         predicates.add(cb.equal(root.get("status"), OrganizationStatus.VISIBLE));
+        predicates.add(cb.isNotNull(root.get("name")));
+        predicates.add(cb.notEqual(cb.trim(root.get("name")), ""));
+        predicates.add(cb.isNotNull(root.get("image")));
+        predicates.add(cb.notEqual(cb.trim(root.get("image")), ""));
+        predicates.add(cb.isNotNull(root.get("description")));
+        predicates.add(cb.notEqual(cb.trim(root.get("description")), ""));
+
+        Join<Organization, Product> productJoin = root.join("products", JoinType.INNER);
+        predicates.add(cb.isNotNull(productJoin.get("id")));
+        query.distinct(true);
 
         Optional.ofNullable(filter.getQ()).filter(s -> !s.isBlank()).ifPresent(search -> {
             predicates.add(cb.like(cb.lower(root.get("concat")), "%" + search.toLowerCase() + "%"));

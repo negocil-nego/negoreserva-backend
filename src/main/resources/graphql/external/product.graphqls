@@ -26,6 +26,7 @@ type ProductPriceGetOrgResponse {
 type ProductDetailResponse {
     uuid: String!
     name: String!
+    slug: String
     description: String!
     image: String
     organization: OrganizationResponse

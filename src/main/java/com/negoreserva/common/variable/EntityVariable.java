@@ -14,7 +14,6 @@ public final class EntityVariable {
     public final static String TRANSACTION = "TB_TRANSACTIONS";
     public final static String PAYMENT_FILE_RECEIPT = "TB_PAYMENT_FILE_RECEIPTS";
     public final static String CATALOG = "TB_CATALOGS";
-    public final static String ORG_ROLE = "TB_ORG_ROLES";
     public final static String ORG_PERMISSION = "TB_ORG_PERMISSIONS";
     public final static String PROVINCE = "TB_PROVINCES";
     public final static String MUNICIPALITY = "TB_MUNICIPALITIES";

@@ -24,16 +24,16 @@ public class AdminProvinceService extends ConcreteService<Province> {
         this.repository = repository;
     }
 
-    public ProvincePaginate paginate(Pageable pageable) {
+    public ProvincePaginate findAll(Pageable pageable) {
         var page = repository.findAll(pageable);
         return ProvincePaginate.of(page);
     }
 
-    public ProvincePaginate paginate(PaginateRequest paginateRequest) {
-        return paginate(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
+    public ProvincePaginate findAll(PaginateRequest paginateRequest) {
+        return this.findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
     }
 
-    public ProvincePaginate paginate(ProvinceFilterQueryParam filter) {
+    public ProvincePaginate findAll(ProvinceFilterQueryParam filter) {
         var pageRequest = PageRequest.of(
                 Optional.of(filter.getPageNumber()).orElse(0),
                 Optional.of(filter.getPageSize()).orElse(10)

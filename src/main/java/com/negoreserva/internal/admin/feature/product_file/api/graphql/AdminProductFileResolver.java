@@ -28,7 +28,7 @@ public class AdminProductFileResolver {
 
     @QueryMapping
     public ProductFilePaginate adminPaginateProductFile(@Argument PaginateRequest paginateRequest) {
-        return service.paginate(paginateRequest);
+        return service.findAll(paginateRequest);
     }
 
     @MutationMapping

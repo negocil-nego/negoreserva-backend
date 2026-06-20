@@ -34,7 +34,7 @@ import com.negoreserva.common.feature.general.user_forget_password.exception.Pas
 import com.negoreserva.common.feature.concrete.user_otp_verification.exception.UserOtpVerificationConfirmException;
 import com.negoreserva.common.feature.concrete.user_otp_verification.exception.UserOtpVerificationNotExpiredException;
 import com.negoreserva.common.util.ConstraintUniqueList;
-import com.negoreserva.internal.organization.feature.organization.exception.UserWithoutOrganizationException;
+import com.negoreserva.common.feature.concrete.organization.exception.UserWithoutOrganizationException;
 import graphql.GraphQLError;
 import graphql.GraphqlErrorBuilder;
 import graphql.schema.DataFetchingEnvironment;

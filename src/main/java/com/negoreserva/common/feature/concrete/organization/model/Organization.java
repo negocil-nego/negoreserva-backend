@@ -18,10 +18,10 @@ import com.negoreserva.common.variable.EntityPivotVariable;
 import com.negoreserva.common.variable.EntityVariable;
 import com.negoreserva.common.util.UniqueFieldUtil;
 import com.negoreserva.common.feature.core.model.ConcreteModel;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.*;
 import lombok.experimental.SuperBuilder;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,7 +115,6 @@ public class Organization extends ConcreteModel implements Sluggable, Searchable
     @ToString.Exclude
     @OneToMany(mappedBy = "organization", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrganizationUpdateData> organizationUpdateData = new ArrayList<>();
-
 
     @ToString.Exclude
     @OneToOne(mappedBy = "organization", cascade = CascadeType.ALL, orphanRemoval = true)

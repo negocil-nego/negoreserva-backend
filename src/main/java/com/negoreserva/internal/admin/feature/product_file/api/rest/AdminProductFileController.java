@@ -29,7 +29,7 @@ public class AdminProductFileController {
     @GetMapping
     @Operation(summary = "Get all product files")
     public ResponseEntity<ProductFilePaginate> findAll(@ParameterObject Pageable page) {
-        return ResponseEntity.ok(service.paginate(page));
+        return ResponseEntity.ok(service.findAll(page));
     }
 
     @GetMapping("/{uuid}")

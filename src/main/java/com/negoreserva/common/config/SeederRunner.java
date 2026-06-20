@@ -4,8 +4,6 @@ import com.negoreserva.common.feature.concrete.address.component.AddressSeeder;
 import com.negoreserva.common.feature.concrete.catalog.component.CatalogSeeder;
 import com.negoreserva.common.feature.concrete.category.component.CategorySeeder;
 import com.negoreserva.common.feature.concrete.municipality.component.MunicipalitySeeder;
-import com.negoreserva.common.feature.concrete.org_permission.component.OrgPermissionSeeder;
-import com.negoreserva.common.feature.concrete.org_role.component.OrgRoleSeeder;
 import com.negoreserva.common.feature.concrete.organization.component.OrganizationSeeder;
 import com.negoreserva.common.feature.concrete.organization_social_media.component.OrganizationSocialMediaSeeder;
 import com.negoreserva.common.feature.concrete.product.component.ProductSeeder;
@@ -39,10 +37,8 @@ public class SeederRunner implements CommandLineRunner {
     private final ProductFileSeeder productFileSeeder;
     private final ProvinceSeeder provinceSeeder;
 
-    private final OrgPermissionSeeder orgPermissionSeeder;
     private final OrganizationSeeder organizationSeeder;
     private final CategorySeeder categorySeeder;
-    private final OrgRoleSeeder orgRoleSeeder;
     private final CatalogSeeder catalogSeeder;
     private final ProductSeeder productSeeder;
     private final AddressSeeder addressSeeder;
@@ -71,8 +67,6 @@ public class SeederRunner implements CommandLineRunner {
         userOrganizationSeeder.seed();
 
         var categories = categorySeeder.seed();
-        orgPermissionSeeder.seed();
-        orgRoleSeeder.seed();
 
         productSeeder.setOrganizations(organizations);
         var products = productSeeder.seed();

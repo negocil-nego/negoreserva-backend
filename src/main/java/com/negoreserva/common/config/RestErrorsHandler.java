@@ -33,7 +33,7 @@ import com.negoreserva.common.feature.concrete.user_otp_verification.exception.U
 import com.negoreserva.common.util.ConstraintUniqueList;
 import com.negoreserva.internal.admin.util.AdminProblemDetailHelpers;
 import com.negoreserva.common.feature.core.util.ProblemDetailHelpers;
-import com.negoreserva.internal.organization.feature.organization.exception.UserWithoutOrganizationException;
+import com.negoreserva.common.feature.concrete.organization.exception.UserWithoutOrganizationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
