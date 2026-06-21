@@ -1,4 +1,4 @@
-package com.negoreserva.common.feature.concrete.role.enums;
+package com.negoreserva.internal.admin.feature.role.enums;
 
 import lombok.Getter;
 

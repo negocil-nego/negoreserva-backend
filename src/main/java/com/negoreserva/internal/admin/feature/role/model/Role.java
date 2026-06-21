@@ -1,8 +1,7 @@
 package com.negoreserva.internal.admin.feature.role.model;
 
-import com.negoreserva.common.feature.concrete.organization.model.Organization;
-import com.negoreserva.common.feature.concrete.role.dto.request.RoleRequest;
-import com.negoreserva.common.feature.concrete.role.dto.response.RoleResponse;
+import com.negoreserva.internal.admin.feature.role.dto.request.RoleRequest;
+import com.negoreserva.internal.admin.feature.role.dto.response.RoleResponse;
 import com.negoreserva.common.feature.core.model.ConcreteModel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

@@ -1,7 +1,7 @@
 package com.negoreserva.internal.admin.feature.permission.component;
 
 import com.negoreserva.common.feature.concrete.permission.model.Permission;
-import com.negoreserva.internal.admin.feature.permission.enums.AdminPermissionFaker;
+import com.negoreserva.internal.admin.feature.permission.enums.AdminPermissionData;
 import com.negoreserva.internal.admin.feature.permission.service.AdminPermissionService;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,8 +19,8 @@ public class AdminPermissionSeeder {
 
     @Transactional
     public List<Permission> seed() {
-        return  Arrays.stream(AdminPermissionFaker.values())
-                .map(AdminPermissionFaker::getPermission)
+        return  Arrays.stream(AdminPermissionData.values())
+                .map(AdminPermissionData::getPermission)
                 .map(service::findOrCreate).toList();
     }
 }

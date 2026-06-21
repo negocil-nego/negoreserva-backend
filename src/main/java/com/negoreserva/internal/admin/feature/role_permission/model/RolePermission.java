@@ -3,7 +3,6 @@ package com.negoreserva.internal.admin.feature.role_permission.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.negoreserva.common.feature.concrete.permission.model.Permission;
 import com.negoreserva.internal.admin.feature.role.model.Role;
-import com.negoreserva.common.variable.EntityPivotVariable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -20,7 +19,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
+@Entity(name = "AdminRolePermission")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)

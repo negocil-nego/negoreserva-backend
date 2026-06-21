@@ -1,7 +1,6 @@
 package com.negoreserva.internal.admin.feature.product.service;
 
 import com.negoreserva.internal.admin.feature.organization.service.AdminOrganizationService;
-import com.negoreserva.common.feature.concrete.product.dto.response.ProductPaginate;
 import com.negoreserva.common.feature.concrete.product.exception.notfound.ProductNameNotFoundException;
 import com.negoreserva.common.feature.concrete.product.exception.notfound.ProductNotFoundException;
 import com.negoreserva.internal.admin.feature.product.dto.queryparam.ProductFilterQueryParam;
@@ -11,6 +10,7 @@ import com.negoreserva.common.feature.concrete.organization.model.Organization;
 import com.negoreserva.common.feature.concrete.product.model.Product;
 import com.negoreserva.common.feature.core.dto.request.PaginateRequest;
 import com.negoreserva.common.feature.core.service.ConcreteService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -29,23 +29,22 @@ public class AdminProductService extends ConcreteService<Product> {
         this.productRepository = productRepository;
     }
 
-    public ProductPaginate findAll(Pageable pageable) {
-        var page = productRepository.findAll(pageable);
-        return ProductPaginate.of(page);
+    @Override
+    public Page<Product> findAll(Pageable pageable) {
+        return productRepository.findAll(pageable);
     }
 
-    public ProductPaginate findAll(PaginateRequest paginateRequest) {
+    public Page<Product> findAll(PaginateRequest paginateRequest) {
         return findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
     }
 
-    public ProductPaginate findAll(ProductFilterQueryParam filter) {
+    public Page<Product> findAll(ProductFilterQueryParam filter) {
         var pageRequest = PageRequest.of(
                 Optional.of(filter.getPageNumber()).orElse(0),
                 Optional.of(filter.getPageSize()).orElse(10)
         );
         var spec = new ProductFilterSpecification(filter);
-        var page = findAll(spec, pageRequest);
-        return ProductPaginate.of(page);
+        return findAll(spec, pageRequest);
     }
 
     public Product findByName(String name) {

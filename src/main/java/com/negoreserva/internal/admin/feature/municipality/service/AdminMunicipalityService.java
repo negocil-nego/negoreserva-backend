@@ -8,6 +8,7 @@ import com.negoreserva.common.feature.concrete.municipality.repository.Municipal
 import com.negoreserva.common.feature.concrete.municipality.model.Municipality;
 import com.negoreserva.common.feature.core.dto.request.PaginateRequest;
 import com.negoreserva.common.feature.core.service.ConcreteService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -24,23 +25,17 @@ public class AdminMunicipalityService extends ConcreteService<Municipality> {
         this.repository = repository;
     }
 
-    public MunicipalityPaginate findAll(Pageable pageable) {
-        var page = repository.findAll(pageable);
-        return MunicipalityPaginate.of(page);
+    public Page<Municipality> findAll(PaginateRequest paginateRequest) {
+        return findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
     }
 
-    public MunicipalityPaginate findAll(PaginateRequest paginateRequest) {
-        return this.findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
-    }
-
-    public MunicipalityPaginate findAll(MunicipalityFilterQueryParam filter) {
+    public Page<Municipality> findAll(MunicipalityFilterQueryParam filter) {
         var pageRequest = PageRequest.of(
                 Optional.of(filter.getPageNumber()).orElse(0),
                 Optional.of(filter.getPageSize()).orElse(10)
         );
         var spec = new MunicipalityFilterSpecification(filter);
-        var page = findAll(spec, pageRequest);
-        return MunicipalityPaginate.of(page);
+        return findAll(spec, pageRequest);
     }
 
     @Override

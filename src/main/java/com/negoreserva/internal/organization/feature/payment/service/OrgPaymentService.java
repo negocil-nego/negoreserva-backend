@@ -7,9 +7,9 @@ import com.negoreserva.common.feature.concrete.payment.exception.notfound.Paymen
 import com.negoreserva.common.feature.concrete.payment.model.Payment;
 import com.negoreserva.common.feature.concrete.transaction.service.TransactionService;
 import com.negoreserva.internal.organization.feature.payment.dto.queryparam.PaymentFilterQueryParam;
-import com.negoreserva.internal.organization.feature.payment.dto.response.OrgPaymentPaginate;
 import com.negoreserva.internal.organization.feature.payment.query.PaymentFilterSpecification;
 import com.negoreserva.internal.organization.feature.payment.repository.OrgPaymentRepo;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -30,18 +30,17 @@ public class OrgPaymentService extends ConcreteService<Payment> {
         this.transactionService = transactionService;
     }
 
+    @Override
     @Transactional(readOnly = true)
-    public OrgPaymentPaginate findAll(Pageable pageable) {
-        var page = orgPaymentRepo.findAll(pageable);
-        return OrgPaymentPaginate.of(page);
+    public Page<Payment> findAll(Pageable pageable) {
+        return orgPaymentRepo.findAll(pageable);
     }
 
     @Transactional(readOnly = true)
-    public OrgPaymentPaginate findAll(PaymentFilterQueryParam filter) {
+    public Page<Payment> findAll(PaymentFilterQueryParam filter) {
         var pageRequest = PageRequest.of(Optional.of(filter.getPageNumber()).orElse(0), Optional.of(filter.getPageSize()).orElse(10));
         var spec = new PaymentFilterSpecification(filter);
-        var page = orgPaymentRepo.findAll(spec, pageRequest);
-        return OrgPaymentPaginate.of(page);
+        return orgPaymentRepo.findAll(spec, pageRequest);
     }
 
     @Override

@@ -10,7 +10,7 @@ import java.util.random.RandomGenerator;
 
 @Getter
 @AllArgsConstructor
-public enum OrganizationFaker {
+public enum OrganizationData {
     ACME(Organization.builder()
             .name("Acme Corporation")
             .email("acmecorparation@gmail.com")
@@ -101,7 +101,7 @@ public enum OrganizationFaker {
     private final Organization organization;
 
     public static List<Organization> listOrganizations() {
-        return Arrays.stream(OrganizationFaker.values()).map(OrganizationFaker::getOrganization).toList();
+        return Arrays.stream(OrganizationData.values()).map(OrganizationData::getOrganization).toList();
     }
 
     public static Organization random() {

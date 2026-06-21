@@ -1,5 +1,7 @@
 package com.negoreserva.internal.organization.feature.user_role.service;
 
+import com.negoreserva.common.feature.concrete.user.model.User;
+import com.negoreserva.internal.organization.feature.role.model.OrgRole;
 import com.negoreserva.internal.organization.feature.user_role.model.UserRole;
 import com.negoreserva.internal.organization.feature.user_role.repository.OrgUserRoleRepository;
 import org.springframework.stereotype.Service;
@@ -13,9 +15,17 @@ public class OrgUserRoleService {
     }
 
     public UserRole findOrCreate(UserRole userRole) {
-        return orgUserRoleRepository.findByUserAndRole(
+        return orgUserRoleRepository.findByUserAndOrgRole(
                 userRole.getUser(),
-                userRole.getRole()
+                userRole.getOrgRole()
         ).orElseGet(() -> orgUserRoleRepository.save(userRole));
+    }
+
+    public UserRole sync(User user, OrgRole orgRole) {
+        var userRole = orgUserRoleRepository.findByUserAndOrgRole(user, orgRole)
+                .orElseGet(() -> orgUserRoleRepository.save(
+                        UserRole.builder().user(user).orgRole(orgRole).build()
+                ));
+        return userRole;
     }
 }

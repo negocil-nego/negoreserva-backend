@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class RegisterClientFacade {
+public class RegisterClientService {
     private final SmsCreateAccountOtpVerificationDispatcher smsCreateAccountOtpVerificationDispatcher;
     private final UserOtpVerificationFacade userOtpVerificationFacade;
     private final CryptoFacade cryptoFacade;

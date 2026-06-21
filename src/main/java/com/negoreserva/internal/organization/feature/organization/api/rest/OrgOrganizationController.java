@@ -5,18 +5,17 @@ import com.negoreserva.common.feature.concrete.organization.dto.response.Organiz
 import com.negoreserva.internal.organization.feature.organization.dto.response.OrgOrganizationProfile;
 import com.negoreserva.internal.organization.feature.organization.service.OrgOrganizationService;
 import com.negoreserva.internal.organization.feature.organization.util.OrgOrganizationRouteNamed;
+import com.negoreserva.internal.organization.feature.permission.enums.OrgPermissionData;
+import com.negoreserva.internal.organization.componet.OrgControlAccess;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,16 +23,19 @@ import java.util.UUID;
 @RequestMapping(OrgOrganizationRouteNamed.PATH)
 public class OrgOrganizationController {
     private final OrgOrganizationService organizationService;
+    private final OrgControlAccess controlAccess;
 
     @GetMapping(OrgOrganizationRouteNamed.ME)
     @Operation(summary = "Return user logged")
     public ResponseEntity<OrgOrganizationProfile> orgProfileOrganization(Authentication authentication) {
+        controlAccess.canPermission(OrgPermissionData.READ_ORGANIZATION, authentication);
         return ResponseEntity.ok(organizationService.orgProfileOrganization(authentication));
     }
 
-    @GetMapping(OrgOrganizationRouteNamed.UPDATE)
+    @PutMapping
     @Operation(summary = "Edit organization")
     public ResponseEntity<OrganizationResponse> orOrganizationUpdate(@RequestBody @Valid OrganizationEditProfileRequest request, Authentication authentication) {
+        controlAccess.canPermission(OrgPermissionData.UPDATE_ORGANIZATION, authentication);
         var organization = organizationService.update(request, authentication);
         return ResponseEntity.ok(OrganizationResponse.of(organization));
     }
@@ -44,6 +46,7 @@ public class OrgOrganizationController {
             @RequestPart("file") MultipartFile file,
             Authentication authentication
     ) {
+        controlAccess.canPermission(OrgPermissionData.UPDATE_ORGANIZATION, authentication);
         var organization = organizationService.updateImageOrganization(file, authentication);
         return ResponseEntity.ok(OrganizationResponse.of(organization));
     }
@@ -54,6 +57,7 @@ public class OrgOrganizationController {
             @RequestPart("file") MultipartFile file,
             Authentication authentication
     ) {
+        controlAccess.canPermission(OrgPermissionData.UPDATE_ORGANIZATION, authentication);
         var organization = organizationService.updateVideoOrganization(file, authentication);
         return ResponseEntity.ok(OrganizationResponse.of(organization));
     }
@@ -64,6 +68,7 @@ public class OrgOrganizationController {
             @RequestPart("file") MultipartFile file,
             Authentication authentication
     ) {
+        controlAccess.canPermission(OrgPermissionData.UPDATE_ORGANIZATION, authentication);
         var organization = organizationService.updateLogoOrganization(file, authentication);
         return ResponseEntity.ok(OrganizationResponse.of(organization));
     }

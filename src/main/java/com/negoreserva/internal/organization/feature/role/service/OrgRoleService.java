@@ -1,12 +1,12 @@
 package com.negoreserva.internal.organization.feature.role.service;
 
-import com.negoreserva.common.feature.concrete.role.dto.queryparam.RoleFilterQueryParam;
+import com.negoreserva.internal.admin.feature.role.query.RoleFilterQueryParam;
 import com.negoreserva.internal.organization.feature.role.query.OrgRoleFilterSpecification;
 import com.negoreserva.internal.organization.feature.role.repository.OrgRoleRepository;
-import com.negoreserva.internal.organization.feature.role.dto.response.RolePaginate;
-import com.negoreserva.internal.organization.feature.role.model.Role;
+import com.negoreserva.internal.organization.feature.role.model.OrgRole;
 import com.negoreserva.common.feature.core.dto.request.PaginateRequest;
 import com.negoreserva.common.feature.core.service.ConcreteService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class OrgRoleService extends ConcreteService<Role> {
+public class OrgRoleService extends ConcreteService<OrgRole> {
     private final OrgRoleRepository repository;
 
     public OrgRoleService(OrgRoleRepository repository) {
@@ -22,29 +22,26 @@ public class OrgRoleService extends ConcreteService<Role> {
         this.repository = repository;
     }
 
-    public RolePaginate findAll(Pageable pageable) {
-        var page = repository.findAll(pageable);
-        return RolePaginate.of(page);
+    @Override
+    public Page<OrgRole> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
-    public RolePaginate findAll(PaginateRequest paginateRequest) {
+    public Page<OrgRole> findAll(PaginateRequest paginateRequest) {
         return findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
     }
 
-    public RolePaginate findAll(RoleFilterQueryParam filter) {
+    public Page<OrgRole> findAll(RoleFilterQueryParam filter) {
         var pageRequest = PageRequest.of(
                 Optional.of(filter.getPageNumber()).orElse(0),
                 Optional.of(filter.getPageSize()).orElse(10)
         );
         var spec = new OrgRoleFilterSpecification(filter);
-        var page = findAll(spec, pageRequest);
-        return RolePaginate.of(page);
+        return findAll(spec, pageRequest);
     }
 
-    public Role findOrCreate(Role role) {
-        return repository.findByName(role.getName()).map(item -> {
-            item.setName(role.getName());
-            return repository.save(item);
-        }).orElseGet(() -> repository.save(role));
+    public OrgRole findOrCreate(OrgRole orgRole) {
+        return repository.findByNameAndOrganization(orgRole.getName(), orgRole.getOrganization())
+                .orElseGet(() -> repository.save(orgRole));
     }
 }

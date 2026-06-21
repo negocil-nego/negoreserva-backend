@@ -1,11 +1,10 @@
 package com.negoreserva.internal.organization.feature.role.model;
 
 import com.negoreserva.common.feature.concrete.organization.model.Organization;
-import com.negoreserva.common.feature.concrete.role.dto.request.RoleRequest;
-import com.negoreserva.common.feature.concrete.role.dto.response.RoleResponse;
+import com.negoreserva.internal.admin.feature.role.dto.request.RoleRequest;
+import com.negoreserva.internal.admin.feature.role.dto.response.RoleResponse;
 import com.negoreserva.common.feature.core.model.ConcreteModel;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -25,7 +24,7 @@ import lombok.experimental.SuperBuilder;
                 columnNames = {"name", "code", "organization_id"}
         )}
 )
-public class Role extends ConcreteModel {
+public class OrgRole extends ConcreteModel {
     private String name;
 
     private String code;

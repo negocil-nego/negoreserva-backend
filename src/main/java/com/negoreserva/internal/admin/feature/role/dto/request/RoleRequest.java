@@ -1,6 +1,6 @@
-package com.negoreserva.common.feature.concrete.role.dto.request;
+package com.negoreserva.internal.admin.feature.role.dto.request;
 
-import com.negoreserva.common.feature.concrete.role.model.Role;
+import com.negoreserva.internal.admin.feature.role.model.Role;
 import jakarta.validation.constraints.NotBlank;
 
 public record RoleRequest(

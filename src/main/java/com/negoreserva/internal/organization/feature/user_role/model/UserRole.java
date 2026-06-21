@@ -1,13 +1,13 @@
 package com.negoreserva.internal.organization.feature.user_role.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.negoreserva.internal.organization.feature.role.model.Role;
+import com.negoreserva.internal.organization.feature.role.model.OrgRole;
 import com.negoreserva.common.feature.concrete.user.model.User;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Data
-@Entity
+@Entity(name = "OrgUserRole")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
@@ -31,5 +31,5 @@ public class UserRole {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id", nullable = false)
-    private Role role;
+    private OrgRole orgRole;
 }

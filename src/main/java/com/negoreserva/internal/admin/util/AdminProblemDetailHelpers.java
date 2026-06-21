@@ -10,9 +10,7 @@ import org.springframework.web.context.request.WebRequest;
 public final class AdminProblemDetailHelpers {
 
     public static ResponseEntity<ProblemDetail> handleDataIntegrityViolation(DataIntegrityViolationException ex) {
-        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
-        problemDetail.setTitle("Data Integrity Violation");
-        return ResponseEntity.status(HttpStatus.CONFLICT).body(problemDetail);
+        return ProblemDetailHelpers.handleDataIntegrityViolation(ex);
     }
 
     public static ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, @NonNull HttpHeaders headers, @NonNull HttpStatusCode status, @NonNull WebRequest request) {

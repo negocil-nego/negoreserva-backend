@@ -9,8 +9,8 @@ import com.negoreserva.common.feature.concrete.category.repository.CategoryRepo;
 import com.negoreserva.common.feature.concrete.category.model.Category;
 import com.negoreserva.common.feature.core.dto.request.PaginateRequest;
 import com.negoreserva.common.feature.core.service.ConcreteService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -25,23 +25,17 @@ public class AdminCategoryService extends ConcreteService<Category> {
         this.repository = repository;
     }
 
-    public CategoryPaginate findAll(Pageable pageable) {
-        var page = repository.findAll(pageable);
-        return CategoryPaginate.of(page);
+    public Page<Category> findAll(PaginateRequest paginateRequest) {
+        return findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
     }
 
-    public CategoryPaginate findAll(PaginateRequest paginateRequest) {
-        return this.findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
-    }
-
-    public CategoryPaginate findAll(CategoryFilterQueryParam filter) {
+    public Page<Category> findAll(CategoryFilterQueryParam filter) {
         var pageRequest = PageRequest.of(
                 Optional.of(filter.getPageNumber()).orElse(0),
                 Optional.of(filter.getPageSize()).orElse(10)
         );
         var spec = new CategoryFilterSpecification(filter);
-        var page = findAll(spec, pageRequest);
-        return CategoryPaginate.of(page);
+        return findAll(spec, pageRequest);
     }
 
     public Category findByName(String name) {

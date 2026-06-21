@@ -20,6 +20,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.function.BiConsumer;
@@ -27,7 +28,6 @@ import java.util.function.BiConsumer;
 @Service
 public class OrgOrganizationService extends ConcreteService<Organization> {
     private final OrganizationRepository organizationRepository;
-
     private final UserOrganizationService userOrganizationService;
     private final StorageService storageService;
     private final UserService userService;
@@ -114,5 +114,9 @@ public class OrgOrganizationService extends ConcreteService<Organization> {
         urlSetter.accept(organization, url);
         save(organization);
         return organization;
+    }
+
+    public List<Organization> findByNameIn(List<String> names) {
+        return organizationRepository.findByNameIn(names);
     }
 }

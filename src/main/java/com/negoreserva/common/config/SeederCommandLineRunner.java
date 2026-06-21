@@ -17,15 +17,19 @@ import com.negoreserva.common.feature.pivot.organization_address.component.Organ
 import com.negoreserva.common.feature.pivot.organization_category.component.OrganizationCategorySeeder;
 import com.negoreserva.common.feature.pivot.user_organization.component.UserOrganizationSeeder;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.jspecify.annotations.NonNull;
 import org.springframework.context.annotation.Profile;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+@Slf4j
+@Order(1)
 @Component
 @Profile({"!test", "!prod"})
 @RequiredArgsConstructor
-public class SeederRunner implements CommandLineRunner {
+public class SeederCommandLineRunner implements CommandLineRunner {
     private final OrganizationSocialMediaSeeder organizationSocialMediaSeeder;
     private final OrganizationCategorySeeder organizationCategorySeeder;
     private final OrganizationAddressSeeder organizationAddressSeeder;
@@ -46,6 +50,8 @@ public class SeederRunner implements CommandLineRunner {
 
     @Override
     public void run(String @NonNull ... args) {
+        log.info("[SEEDER/Commom] Execute...");
+
         var provinces = provinceSeeder.seed();
 
         municipalitySeeder.setProvinces(provinces);

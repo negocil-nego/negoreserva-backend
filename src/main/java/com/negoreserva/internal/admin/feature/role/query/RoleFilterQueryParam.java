@@ -1,6 +1,6 @@
-package com.negoreserva.common.feature.concrete.role.dto.queryparam;
+package com.negoreserva.internal.admin.feature.role.query;
 
-import com.negoreserva.common.feature.concrete.role.enums.RoleFilterQueryParamType;
+import com.negoreserva.internal.admin.feature.role.enums.RoleFilterQueryParamType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

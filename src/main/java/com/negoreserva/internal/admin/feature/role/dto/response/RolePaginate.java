@@ -1,6 +1,5 @@
 package com.negoreserva.internal.admin.feature.role.dto.response;
 
-import com.negoreserva.common.feature.concrete.role.dto.response.RoleResponse;
 import com.negoreserva.internal.admin.feature.role.model.Role;
 import com.negoreserva.common.feature.core.dto.response.PageResponse;
 import lombok.NoArgsConstructor;

@@ -6,6 +6,8 @@ import com.negoreserva.internal.organization.feature.catalog.dto.response.OrgCat
 import com.negoreserva.internal.organization.feature.catalog.dto.response.OrgCatalogResponse;
 import com.negoreserva.internal.organization.feature.catalog.service.OrgCatalogService;
 import com.negoreserva.internal.organization.feature.catalog.util.OrgCatalogRouteNamed;
+import com.negoreserva.internal.organization.feature.permission.enums.OrgPermissionData;
+import com.negoreserva.internal.organization.componet.OrgControlAccess;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -26,12 +28,13 @@ import java.util.UUID;
 @RequestMapping(OrgCatalogRouteNamed.PATH)
 @Tag(name = "Org - Catalog", description = "Endpoints for catalog management")
 public class OrgCatalogController {
-
+    private final OrgControlAccess controlAccess;
     private final OrgCatalogService service;
 
     @GetMapping
     @Operation(summary = "Get all catalogs")
     public ResponseEntity<OrgCatalogPaginate> findAll(@ParameterObject Pageable page, Authentication authentication) {
+        controlAccess.canPermission(OrgPermissionData.READ_ORGANIZATION, authentication);
         return ResponseEntity.ok(service.paginate(page, authentication));
     }
 
@@ -42,6 +45,7 @@ public class OrgCatalogController {
             @RequestPart(value = "image", required = false) MultipartFile image,
             Authentication authentication
     ) {
+        controlAccess.canPermission(OrgPermissionData.CREATE_ORGANIZATION, authentication);
         var saved = service.create(catalogDto, image, authentication);
         return new ResponseEntity<>(OrgCatalogResponse.toResponse(saved), HttpStatus.CREATED);
     }
@@ -50,8 +54,10 @@ public class OrgCatalogController {
     @Operation(summary = "Update catalog data")
     public ResponseEntity<OrgCatalogResponse> update(
             @PathVariable UUID uuid,
-            @RequestBody @Valid OrgCatalogUpdateRequest catalogDto
+            @RequestBody @Valid OrgCatalogUpdateRequest catalogDto,
+            Authentication authentication
     ) {
+        controlAccess.canPermission(OrgPermissionData.UPDATE_ORGANIZATION, authentication);
         var updated = service.update(uuid, catalogDto);
         return ResponseEntity.ok(OrgCatalogResponse.toResponse(updated));
     }
@@ -60,15 +66,18 @@ public class OrgCatalogController {
     @Operation(summary = "Update catalog image")
     public ResponseEntity<OrgCatalogResponse> updateImage(
             @RequestParam UUID uuid,
-            @RequestPart("image") MultipartFile image
+            @RequestPart("image") MultipartFile image,
+            Authentication authentication
     ) {
+        controlAccess.canPermission(OrgPermissionData.UPDATE_ORGANIZATION, authentication);
         var updated = service.updateImage(uuid, image);
         return ResponseEntity.ok(OrgCatalogResponse.toResponse(updated));
     }
 
     @DeleteMapping("/{uuid}")
     @Operation(summary = "Delete catalog by uuid")
-    public ResponseEntity<Void> deleteByUuid(@PathVariable UUID uuid) {
+    public ResponseEntity<Void> deleteByUuid(@PathVariable UUID uuid, Authentication authentication) {
+        controlAccess.canPermission(OrgPermissionData.DELETE_ORGANIZATION, authentication);
         service.delete(uuid);
         return ResponseEntity.noContent().build();
     }

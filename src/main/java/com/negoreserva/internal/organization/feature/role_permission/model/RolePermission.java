@@ -2,7 +2,7 @@ package com.negoreserva.internal.organization.feature.role_permission.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.negoreserva.common.feature.concrete.permission.model.Permission;
-import com.negoreserva.internal.organization.feature.role.model.Role;
+import com.negoreserva.internal.organization.feature.role.model.OrgRole;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,13 +13,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
-@Entity
+@Entity(name = "OrgRolePermission")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
@@ -38,10 +35,12 @@ public class RolePermission {
     protected long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
     @JoinColumn(name = "role_id", nullable = false)
-    private Role role;
+    private OrgRole orgRole;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
     @JoinColumn(name = "permission_id", nullable = false)
     private Permission permission;
 }

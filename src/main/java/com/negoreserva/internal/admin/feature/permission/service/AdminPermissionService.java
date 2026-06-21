@@ -47,9 +47,6 @@ public class AdminPermissionService extends ConcreteService<Permission> {
     }
 
     public Permission findOrCreate(Permission permission) {
-        return repository.findByName(permission.getName()).map(item -> {
-            item.setDescription(permission.getDescription());
-            return repository.save(item);
-        }).orElseGet(() -> repository.save(permission));
+        return repository.findByName(permission.getName()).orElseGet(() -> repository.save(permission));
     }
 }

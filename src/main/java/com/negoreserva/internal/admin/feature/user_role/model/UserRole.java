@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Data
-@Entity
+@Entity(name = "AdminUserRole")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)

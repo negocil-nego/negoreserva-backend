@@ -27,6 +27,14 @@ input ResendUserOtpVerificationInput {
     userId: String
 }
 
+input CreateAccountClientInput {
+    name: String!
+    email: String!
+    phone: String!
+    password: String!
+    confirm: String!
+}
+
 input CreateAccountOrganizationInput {
     name: String!
     email: String!
@@ -34,16 +42,8 @@ input CreateAccountOrganizationInput {
     password: String!
     confirm: String!
     categories: [String!]!
-    province: String
-    municipality: String
-}
-
-input CreateAccountClientInput {
-    name: String!
-    email: String!
-    phone: String!
-    password: String!
-    confirm: String!
+    provinceUuid: String
+    municipalityUuid: String
 }
 
 extend type Mutation {

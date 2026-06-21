@@ -20,7 +20,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder(toBuilder = true)
 @EqualsAndHashCode(callSuper = true)
-@Table(name = EntityVariable.ORG_PERMISSION)
+@Table(name = EntityVariable.PERMISSION)
 public class Permission extends ConcreteModel {
     @NotBlank
     @Column(unique = true)

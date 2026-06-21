@@ -21,7 +21,7 @@ import java.time.Instant;
 
 @Service
 @RequiredArgsConstructor
-public class RegisterFacade {
+public class RegisterService {
     private final UserOtpVerificationFacade userOtpVerificationFacade;
     private final CryptoFacade cryptoFacade;
     private final TokenFacade tokenFacade;

@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum AdminPermissionFaker {
+public enum AdminPermissionData {
     // Address
     CREATE_ADDRESS(Permission.builder().name("Criar endereço").description("Permite criar nova endereço").build()),
     UPDATE_ADDRESS(Permission.builder().name("Editar endereço").description("Permite editar endereço").build()),

@@ -5,6 +5,7 @@ import com.negoreserva.common.component.TokenFacade;
 import com.negoreserva.common.feature.concrete.municipality.service.MunicipalityService;
 import com.negoreserva.common.feature.concrete.province.service.ProvinceService;
 import com.negoreserva.common.feature.core.enums.OtpVerificationType;
+import com.negoreserva.common.feature.core.event.OrganizationCreatedEvent;
 import com.negoreserva.common.feature.general.sms.model.SmsCreateAccountOtpVerification;
 import com.negoreserva.common.feature.general.sms.service.SmsCreateAccountOtpVerificationDispatcher;
 import com.negoreserva.common.feature.concrete.user.enums.UserType;
@@ -23,6 +24,7 @@ import com.negoreserva.common.feature.concrete.address.model.Address;
 import com.negoreserva.common.feature.concrete.address.repository.AddressRepo;
 import com.negoreserva.common.feature.concrete.category.repository.CategoryRepo;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
@@ -32,13 +34,17 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class RegisterOrganizationFacade {
+public class RegisterOrganizationService {
     private final SmsCreateAccountOtpVerificationDispatcher smsCreateAccountOtpVerificationDispatcher;
     private final UserOtpVerificationFacade userOtpVerificationFacade;
+
     private final UserOrganizationService userOrganizationService;
     private final OrganizationService organizationService;
     private final MunicipalityService municipalityService;
     private final ProvinceService provinceService;
+
+    private final ApplicationEventPublisher eventPublisher;
+
     private final CryptoFacade cryptoFacade;
     private final TokenFacade tokenFacade;
     private final UserService userService;
@@ -64,9 +70,7 @@ public class RegisterOrganizationFacade {
                 .build()
         );
 
-        var categoryIds = request.categories().stream()
-                .map(UUID::fromString)
-                .toList();
+        var categoryIds = request.categories().stream().map(UUID::fromString).toList();
         
         var categories = categoryRepo.findByUuidIn(categoryIds);
         organization.setCategories(categories);
@@ -88,18 +92,19 @@ public class RegisterOrganizationFacade {
 
         var userOtpVerification = userOtpVerificationFacade.save(UserOtpVerification.builder()
                 .type(OtpVerificationType.CREATE_ACCOUNT)
-                .expiredAt(expiredAt)                                         
-                .code(otp)
+                .expiredAt(expiredAt)
                 .user(user)
+                .code(otp)
                 .build()
         );
 
         var otpToken = cryptoFacade.encrypt(String.valueOf(userOtpVerification.getId()));
 
-        smsCreateAccountOtpVerificationDispatcher.dispatch(SmsCreateAccountOtpVerification.builder()
-                .recept(user.getEmail())
-                .otp(otp)
-                .build());
+        smsCreateAccountOtpVerificationDispatcher.dispatch(
+                SmsCreateAccountOtpVerification.builder().recept(user.getEmail()).otp(otp).build()
+        );
+
+        eventPublisher.publishEvent(new OrganizationCreatedEvent(organization.getUuid()));
 
         return new CreateAccountResponse(
                 otpToken,

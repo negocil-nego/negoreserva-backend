@@ -1,6 +1,6 @@
 package com.negoreserva.common.feature.concrete.organization_social_media.enums;
 
-import com.negoreserva.common.feature.concrete.organization.enums.OrganizationFaker;
+import com.negoreserva.common.feature.concrete.organization.enums.OrganizationData;
 import com.negoreserva.common.feature.concrete.organization.model.Organization;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum OrganizationSocialMediaData {
     ACME(
-            OrganizationFaker.ACME.getOrganization(),
+            OrganizationData.ACME.getOrganization(),
             "https://facebook.com/acmecorp",
             "https://instagram.com/acmecorp",
             "https://youtube.com/@acmecorp",
@@ -17,7 +17,7 @@ public enum OrganizationSocialMediaData {
             "https://linkedin.com/company/acmecorp"
     ),
     TECHCORP(
-            OrganizationFaker.TECHCORP.getOrganization(),
+            OrganizationData.TECHCORP.getOrganization(),
             "https://facebook.com/techcorp",
             "https://instagram.com/techcorp",
             "https://youtube.com/@techcorp",
@@ -25,7 +25,7 @@ public enum OrganizationSocialMediaData {
             "https://linkedin.com/company/techcorp"
     ),
     GLOBAL(
-            OrganizationFaker.GLOBAL.getOrganization(),
+            OrganizationData.GLOBAL.getOrganization(),
             "https://facebook.com/globalsolutions",
             "https://instagram.com/globalsolutions",
             "https://youtube.com/@globalsolutions",
@@ -33,7 +33,7 @@ public enum OrganizationSocialMediaData {
             "https://linkedin.com/company/globalsolutions"
     ),
     POUSADA_RECANTO(
-            OrganizationFaker.POUSADA_RECANTO.getOrganization(),
+            OrganizationData.POUSADA_RECANTO.getOrganization(),
             "https://facebook.com/pousadarecantoverde",
             "https://instagram.com/pousadarecantoverde",
             "https://youtube.com/@pousadarecantoverde",
@@ -41,7 +41,7 @@ public enum OrganizationSocialMediaData {
             "https://linkedin.com/company/pousadarecantoverde"
     ),
     PENSAO_FAMILIAR(
-            OrganizationFaker.PENSAO_FAMILIAR.getOrganization(),
+            OrganizationData.PENSAO_FAMILIAR.getOrganization(),
             "https://facebook.com/pensaofamiliar",
             "https://instagram.com/pensaofamiliar",
             "https://youtube.com/@pensaofamiliar",
@@ -49,7 +49,7 @@ public enum OrganizationSocialMediaData {
             "https://linkedin.com/company/pensaofamiliar"
     ),
     RESTAURANTE_SABOR(
-            OrganizationFaker.RESTAURANT_SABER.getOrganization(),
+            OrganizationData.RESTAURANT_SABER.getOrganization(),
             "https://facebook.com/saborearterestaurante",
             "https://instagram.com/saborearterestaurante",
             "https://youtube.com/@saborearterestaurante",
@@ -57,7 +57,7 @@ public enum OrganizationSocialMediaData {
             "https://linkedin.com/company/saborearterestaurante"
     ),
     LOJA_BAIRRO(
-            OrganizationFaker.LOJA_BAIRR0.getOrganization(),
+            OrganizationData.LOJA_BAIRR0.getOrganization(),
             "https://facebook.com/lojadobairro",
             "https://instagram.com/lojadobairro",
             "https://youtube.com/@lojadobairro",

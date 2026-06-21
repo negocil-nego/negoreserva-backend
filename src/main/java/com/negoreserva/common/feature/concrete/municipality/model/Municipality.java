@@ -33,6 +33,6 @@ public class Municipality extends ConcreteModel {
     private Province province;
 
     public MunicipalityResponse toResponse() {
-        return new MunicipalityResponse(uuid, value, label, province.toResponse());
+        return new MunicipalityResponse(uuid, value, label);
     }
 }

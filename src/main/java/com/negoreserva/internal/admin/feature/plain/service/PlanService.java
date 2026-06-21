@@ -1,7 +1,6 @@
 package com.negoreserva.internal.admin.feature.plain.service;
 
 import com.negoreserva.internal.admin.feature.plain.dto.queryparam.PlanFilterQueryParam;
-import com.negoreserva.internal.admin.feature.plain.dto.response.PlanPaginate;
 import com.negoreserva.internal.admin.feature.plain.exception.PlanNameNotFoundException;
 import com.negoreserva.internal.admin.feature.plain.exception.PlanNotFoundException;
 import com.negoreserva.internal.admin.feature.plain.query.PlanFilterSpecification;
@@ -9,6 +8,7 @@ import com.negoreserva.internal.admin.feature.plain.repository.AdminPlanRepo;
 import com.negoreserva.internal.admin.feature.plain.model.Plan;
 import com.negoreserva.common.feature.core.dto.request.PaginateRequest;
 import com.negoreserva.common.feature.core.service.ConcreteService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -25,23 +25,22 @@ public class PlanService extends ConcreteService<Plan> {
         this.repository = repository;
     }
 
-    public PlanPaginate findAll(Pageable pageable) {
-        var page = repository.findAll(pageable);
-        return PlanPaginate.of(page);
+    @Override
+    public Page<Plan> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
-    public PlanPaginate findAll(PaginateRequest paginateRequest) {
-        return this.findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
+    public Page<Plan> findAll(PaginateRequest paginateRequest) {
+        return findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
     }
 
-    public PlanPaginate findAll(PlanFilterQueryParam filter) {
+    public Page<Plan> findAll(PlanFilterQueryParam filter) {
         var pageRequest = PageRequest.of(
                 Optional.of(filter.getPageNumber()).orElse(0),
                 Optional.of(filter.getPageSize()).orElse(10)
         );
         var spec = new PlanFilterSpecification(filter);
-        var page = findAll(spec, pageRequest);
-        return PlanPaginate.of(page);
+        return findAll(spec, pageRequest);
     }
 
     public Plan findByName(String name) {

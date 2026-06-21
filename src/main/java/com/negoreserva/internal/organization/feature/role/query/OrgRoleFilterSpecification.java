@@ -1,8 +1,8 @@
 package com.negoreserva.internal.organization.feature.role.query;
 
-import com.negoreserva.common.feature.concrete.role.dto.queryparam.RoleFilterQueryParam;
-import com.negoreserva.common.feature.concrete.role.enums.RoleFilterQueryParamType;
-import com.negoreserva.internal.organization.feature.role.model.Role;
+import com.negoreserva.internal.admin.feature.role.query.RoleFilterQueryParam;
+import com.negoreserva.internal.admin.feature.role.enums.RoleFilterQueryParamType;
+import com.negoreserva.internal.organization.feature.role.model.OrgRole;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class OrgRoleFilterSpecification implements Specification<Role> {
+public class OrgRoleFilterSpecification implements Specification<OrgRole> {
 
     private final RoleFilterQueryParam filter;
 
@@ -23,7 +23,7 @@ public class OrgRoleFilterSpecification implements Specification<Role> {
     }
 
     @Override
-    public Predicate toPredicate(@NonNull Root<Role> root, @NonNull CriteriaQuery<?> query, @NonNull CriteriaBuilder cb) {
+    public Predicate toPredicate(@NonNull Root<OrgRole> root, @NonNull CriteriaQuery<?> query, @NonNull CriteriaBuilder cb) {
         List<Predicate> predicates = new ArrayList<>();
         predicates.add(cb.isNull(root.get("deletedBy")));
         predicates.add(cb.isNull(root.get("deletedAt")));

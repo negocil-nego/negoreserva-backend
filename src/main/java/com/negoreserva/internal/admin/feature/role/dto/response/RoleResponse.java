@@ -1,4 +1,4 @@
-package com.negoreserva.common.feature.concrete.role.dto.response;
+package com.negoreserva.internal.admin.feature.role.dto.response;
 
 import java.util.UUID;
 

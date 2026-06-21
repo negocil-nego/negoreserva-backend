@@ -18,11 +18,11 @@ public class CategoryGraphql {
 
     @QueryMapping
     public CategoryPaginate pubPaginateCategory(@Argument PaginateRequest paginateRequest) {
-        return service.findAll(paginateRequest);
+        return CategoryPaginate.of(service.findAll(paginateRequest));
     }
 
     @QueryMapping
     public CategoryPaginate pubPaginateCategoryFilter(@Argument CategoryFilterQueryParam filter) {
-        return service.findAll(filter);
+        return CategoryPaginate.of(service.findAll(filter));
     }
 }

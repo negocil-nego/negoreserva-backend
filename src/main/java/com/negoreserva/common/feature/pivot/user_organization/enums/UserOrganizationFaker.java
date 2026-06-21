@@ -1,6 +1,6 @@
 package com.negoreserva.common.feature.pivot.user_organization.enums;
 
-import com.negoreserva.common.feature.concrete.organization.enums.OrganizationFaker;
+import com.negoreserva.common.feature.concrete.organization.enums.OrganizationData;
 import com.negoreserva.common.feature.pivot.user_organization.model.UserOrganization;
 import com.negoreserva.common.feature.concrete.user.enums.UserFaker;
 import lombok.Getter;
@@ -12,49 +12,49 @@ public enum UserOrganizationFaker {
     BOB_ACME(UserOrganization.builder()
             .type(UserOrganizationType.CREATED)
             .active(true)
-            .organization(OrganizationFaker.ACME.getOrganization())
+            .organization(OrganizationData.ACME.getOrganization())
             .user(UserFaker.BOB.getUser())
             .build()
     ),
     JANE_GLOBAL(UserOrganization.builder()
             .type(UserOrganizationType.CREATED)
             .active(true)
-            .organization(OrganizationFaker.GLOBAL.getOrganization())
+            .organization(OrganizationData.GLOBAL.getOrganization())
             .user(UserFaker.JANE.getUser())
             .build()
     ),
     JOHN_TECHCORP(UserOrganization.builder()
             .type(UserOrganizationType.CREATED)
             .active(true)
-            .organization(OrganizationFaker.TECHCORP.getOrganization())
+            .organization(OrganizationData.TECHCORP.getOrganization())
             .user(UserFaker.JOHN.getUser())
             .build()
     ),
     MARIA_POUSADA(UserOrganization.builder()
             .type(UserOrganizationType.CREATED)
             .active(true)
-            .organization(OrganizationFaker.POUSADA_RECANTO.getOrganization())
+            .organization(OrganizationData.POUSADA_RECANTO.getOrganization())
             .user(UserFaker.MARIA.getUser())
             .build()
     ),
     PEDRO_PENSAO(UserOrganization.builder()
             .type(UserOrganizationType.CREATED)
             .active(true)
-            .organization(OrganizationFaker.PENSAO_FAMILIAR.getOrganization())
+            .organization(OrganizationData.PENSAO_FAMILIAR.getOrganization())
             .user(UserFaker.PEDRO.getUser())
             .build()
     ),
     ANA_RESTAURANTE(UserOrganization.builder()
             .type(UserOrganizationType.CREATED)
             .active(true)
-            .organization(OrganizationFaker.RESTAURANT_SABER.getOrganization())
+            .organization(OrganizationData.RESTAURANT_SABER.getOrganization())
             .user(UserFaker.ANA.getUser())
             .build()
     ),
     CARLOS_LOJA(UserOrganization.builder()
             .type(UserOrganizationType.CREATED)
             .active(true)
-            .organization(OrganizationFaker.LOJA_BAIRR0.getOrganization())
+            .organization(OrganizationData.LOJA_BAIRR0.getOrganization())
             .user(UserFaker.CARLOS.getUser())
             .build()
     );

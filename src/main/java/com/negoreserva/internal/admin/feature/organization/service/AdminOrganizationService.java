@@ -10,6 +10,7 @@ import com.negoreserva.common.feature.concrete.organization.repository.Organizat
 import com.negoreserva.common.feature.core.dto.request.PaginateRequest;
 import com.negoreserva.common.feature.concrete.organization.model.Organization;
 import com.negoreserva.common.feature.core.service.ConcreteService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -26,23 +27,17 @@ public class AdminOrganizationService extends ConcreteService<Organization> {
         this.repository = repository;
     }
 
-    public OrganizationPaginate findAll(Pageable pageable) {
-        var page = repository.findAll(pageable);
-        return OrganizationPaginate.of(page);
+    public Page<Organization> findAll(PaginateRequest paginateRequest) {
+        return findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
     }
 
-    public OrganizationPaginate findAll(PaginateRequest paginateRequest) {
-        return this.findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
-    }
-
-    public OrganizationPaginate findAll(OrganizationFilterQueryParam filter) {
+    public  Page<Organization> findAll(OrganizationFilterQueryParam filter) {
         var pageRequest = PageRequest.of(
                 Optional.of(filter.getPageNumber()).orElse(0),
                 Optional.of(filter.getPageSize()).orElse(10)
         );
         var spec = new OrganizationFilterSpecification(filter);
-        var page = findAll(spec, pageRequest);
-        return OrganizationPaginate.of(page);
+        return findAll(spec, pageRequest);
     }
 
     public Organization findByName(String name) {

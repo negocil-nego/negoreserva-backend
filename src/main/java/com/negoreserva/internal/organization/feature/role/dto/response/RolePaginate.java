@@ -1,8 +1,8 @@
 package com.negoreserva.internal.organization.feature.role.dto.response;
 
-import com.negoreserva.common.feature.concrete.role.dto.response.RoleResponse;
+import com.negoreserva.internal.admin.feature.role.dto.response.RoleResponse;
 import com.negoreserva.common.feature.core.dto.response.PageResponse;
-import com.negoreserva.internal.organization.feature.role.model.Role;
+import com.negoreserva.internal.organization.feature.role.model.OrgRole;
 import lombok.NoArgsConstructor;
 import org.springframework.data.domain.Page;
 
@@ -20,9 +20,9 @@ public class RolePaginate extends PageResponse<RoleResponse> {
         super(content, empty, first, last, number, numberOfElements, size, totalElements, totalPages);
     }
 
-    public static RolePaginate of(Page<Role> page) {
+    public static RolePaginate of(Page<OrgRole> page) {
         return new RolePaginate(
-                page.getContent().stream().map(Role::toResponse).toList(),
+                page.getContent().stream().map(OrgRole::toResponse).toList(),
                 page.isEmpty(), page.isFirst(), page.isLast(),
                 page.getNumber(), page.getNumberOfElements(), page.getSize(),
                 page.getTotalElements(), page.getTotalPages()

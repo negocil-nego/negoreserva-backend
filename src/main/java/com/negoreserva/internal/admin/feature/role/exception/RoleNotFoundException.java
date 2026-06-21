@@ -1,4 +1,4 @@
-package com.negoreserva.common.feature.concrete.role.exception.notfound;
+package com.negoreserva.internal.admin.feature.role.exception;
 
 import com.negoreserva.common.exception.NotFoundException;
 import org.springframework.http.HttpStatus;

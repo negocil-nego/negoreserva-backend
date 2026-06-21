@@ -8,6 +8,7 @@ import com.negoreserva.common.feature.concrete.product_file.exception.notfound.P
 import com.negoreserva.common.feature.concrete.product_file.model.ProductFile;
 import com.negoreserva.common.feature.core.dto.request.PaginateRequest;
 import com.negoreserva.common.feature.core.service.ConcreteService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -28,13 +29,8 @@ public class ProductFileService extends ConcreteService<ProductFile> {
         this.productService = productService;
     }
 
-    public ProductFilePaginate findAll(Pageable pageable) {
-        var page = repository.findAll(pageable);
-        return ProductFilePaginate.of(page);
-    }
-
-    public ProductFilePaginate findAll(PaginateRequest paginateRequest) {
-        return this.findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
+    public Page<ProductFile> findAll(PaginateRequest paginateRequest) {
+        return findAll(PageRequest.of(paginateRequest.pageNumber(), paginateRequest.pageSize()));
     }
 
     @Override
@@ -47,7 +43,7 @@ public class ProductFileService extends ConcreteService<ProductFile> {
             Product product = productService.findByUuid(productUuid);
             productFile.setProduct(product);
         }
-        return save(productFile);
+        return super.save(productFile);
     }
 
     public ProductFile update(UUID uuid, ProductFile productFile, UUID productUuid) {

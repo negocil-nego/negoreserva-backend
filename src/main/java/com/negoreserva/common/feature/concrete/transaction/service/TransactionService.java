@@ -5,7 +5,6 @@ import com.negoreserva.common.feature.concrete.transaction.exception.notfound.Tr
 import com.negoreserva.common.feature.concrete.transaction.repository.TransactionRepo;
 import com.negoreserva.common.feature.concrete.transaction.model.Transaction;
 import com.negoreserva.common.feature.core.service.ConcreteService;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +19,6 @@ public class TransactionService extends ConcreteService<Transaction> {
         this.repository = repository;
     }
 
-    public TransactionPaginate findAll(Pageable pageable) {
-        var page = repository.findAll(pageable);
-        return TransactionPaginate.of(page);
-    }
 
     @Override
     public Transaction findByUuid(UUID uuid) {

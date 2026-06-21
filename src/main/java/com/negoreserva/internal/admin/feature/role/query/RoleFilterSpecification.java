@@ -1,7 +1,6 @@
 package com.negoreserva.internal.admin.feature.role.query;
 
-import com.negoreserva.common.feature.concrete.role.dto.queryparam.RoleFilterQueryParam;
-import com.negoreserva.common.feature.concrete.role.enums.RoleFilterQueryParamType;
+import com.negoreserva.internal.admin.feature.role.enums.RoleFilterQueryParamType;
 import com.negoreserva.internal.admin.feature.role.model.Role;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;

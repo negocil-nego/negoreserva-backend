@@ -8,33 +8,6 @@ type CatalogResponse {
     organization: OrganizationResponse!
 }
 
-type OrganizationDetailResponse {
-    uuid: ID
-    name: String
-    slug: String
-    description: String
-    address: String
-    rating: String
-    logo: String
-    image: String
-    video: String
-    email: String
-    phone: String
-    categories: [CategoryResponse!]!
-    products: [ProductDetailResponse!]!
-    catalogs: [CatalogResponse!]!
-    socialsMedia: OrganizationSocialMediaDetailResponse
-    addresses: [AddressResponse!]!
-}
-
-extend type Query {
-    pubOrganizationDetail(uuidOrSlug: String): OrganizationDetailResponse
-    pubSearchOrganization(q: String!, paginateRequest: PaginateRequest): OrganizationPaginate!
-    pubSearchOrganizationFilter(filter: OrganizationSearchFilterParamInput!, paginateRequest: PaginateRequest): OrganizationPaginate!
-    pubSearchCatalogFilter(filter: CatalogSearchFilterParamInput!, paginateRequest: PaginateRequest): CatalogPaginate!
-    pubCatalogProducts(uuidOrSlug: String!): [ProductDetailResponse!]!
-}
-
 input OrganizationSearchFilterParamInput {
     q: String
     categoriesUuid: [ID!]
@@ -64,4 +37,31 @@ enum CatalogType {
     NONE
     DRIK
     FOOD
+}
+
+type OrganizationDetailResponse {
+    uuid: ID
+    name: String
+    slug: String
+    description: String
+    address: String
+    rating: String
+    logo: String
+    image: String
+    video: String
+    email: String
+    phone: String
+    categories: [CategoryResponse!]!
+    products: [ProductDetailResponse!]!
+    catalogs: [CatalogResponse!]!
+    socialsMedia: OrganizationSocialMediaDetailResponse
+    addresses: [AddressResponse!]!
+}
+
+extend type Query {
+    pubOrganizationDetail(uuidOrSlug: String): OrganizationDetailResponse
+    pubSearchOrganization(q: String!, paginateRequest: PaginateRequest): OrganizationPaginate!
+    pubSearchOrganizationFilter(filter: OrganizationSearchFilterParamInput!, paginateRequest: PaginateRequest): OrganizationPaginate!
+    pubSearchCatalogFilter(filter: CatalogSearchFilterParamInput!, paginateRequest: PaginateRequest): CatalogPaginate!
+    pubCatalogProducts(uuidOrSlug: String!): [ProductDetailResponse!]!
 }

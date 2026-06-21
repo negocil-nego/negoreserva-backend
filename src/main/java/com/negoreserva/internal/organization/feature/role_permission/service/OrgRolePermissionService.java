@@ -13,8 +13,8 @@ public class OrgRolePermissionService {
     }
 
     public RolePermission findOrCreate(RolePermission rolePermission) {
-        return orgRolePermissionRepository.findByRoleAndPermission(
-                rolePermission.getRole(),
+        return orgRolePermissionRepository.findByOrgRoleAndPermission(
+                rolePermission.getOrgRole(),
                 rolePermission.getPermission()
         ).orElseGet(() -> orgRolePermissionRepository.save(rolePermission));
     }
