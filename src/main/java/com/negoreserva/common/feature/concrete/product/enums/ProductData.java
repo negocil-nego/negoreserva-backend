@@ -12,7 +12,7 @@ import java.util.random.RandomGenerator;
 
 @Getter
 @AllArgsConstructor
-public enum ProductFaker {
+public enum ProductData {
     // --- ACME Products ---
     HOTEL_STANDARD_1(
             Product.builder()
@@ -263,7 +263,7 @@ public enum ProductFaker {
     private final Product product;
 
     public static List<Product> listProducts() {
-        return Arrays.stream(ProductFaker.values()).map(ProductFaker::getProduct).toList();
+        return Arrays.stream(ProductData.values()).map(ProductData::getProduct).toList();
     }
 
     public static Product random() {

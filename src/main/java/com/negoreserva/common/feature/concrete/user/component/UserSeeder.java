@@ -3,7 +3,7 @@ package com.negoreserva.common.feature.concrete.user.component;
 import com.negoreserva.common.feature.concrete.user.model.User;
 import com.negoreserva.common.feature.concrete.user.service.UserService;
 import com.negoreserva.common.util.PasswordEncoderGenerator;
-import com.negoreserva.common.feature.concrete.user.enums.UserFaker;
+import com.negoreserva.common.feature.concrete.user.enums.UserData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ public class UserSeeder {
     @Transactional
     public List<User> seed() {
         List<User> items = new ArrayList<>();
-        for (UserFaker uf : UserFaker.values()) {
+        for (UserData uf : UserData.values()) {
             var user = uf.getUser();
             user.setPassword(PasswordEncoderGenerator.encode(user.getPassword()));
             items.add(userService.findOrCreate(user));

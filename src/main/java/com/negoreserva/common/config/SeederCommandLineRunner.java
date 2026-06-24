@@ -6,11 +6,13 @@ import com.negoreserva.common.feature.concrete.category.component.CategorySeeder
 import com.negoreserva.common.feature.concrete.municipality.component.MunicipalitySeeder;
 import com.negoreserva.common.feature.concrete.organization.component.OrganizationSeeder;
 import com.negoreserva.common.feature.concrete.organization_social_media.component.OrganizationSocialMediaSeeder;
+import com.negoreserva.common.feature.concrete.payment.component.PaymentSeeder;
 import com.negoreserva.common.feature.concrete.product.component.ProductSeeder;
 import com.negoreserva.common.feature.concrete.product_file.component.ProductFileSeeder;
 import com.negoreserva.common.feature.concrete.product_price.component.ProductPriceSeeder;
 import com.negoreserva.common.feature.concrete.product_tag_info.component.ProductTagInfoSeeder;
 import com.negoreserva.common.feature.concrete.province.component.ProvinceSeeder;
+import com.negoreserva.common.feature.concrete.transaction.component.TransactionSeeder;
 import com.negoreserva.common.feature.concrete.user.component.UserSeeder;
 import com.negoreserva.common.feature.pivot.catalog_products.component.CatalogProductsSeeder;
 import com.negoreserva.common.feature.pivot.organization_address.component.OrganizationAddressSeeder;
@@ -42,10 +44,12 @@ public class SeederCommandLineRunner implements CommandLineRunner {
     private final ProvinceSeeder provinceSeeder;
 
     private final OrganizationSeeder organizationSeeder;
+    private final TransactionSeeder transactionSeeder;
     private final CategorySeeder categorySeeder;
     private final CatalogSeeder catalogSeeder;
     private final ProductSeeder productSeeder;
     private final AddressSeeder addressSeeder;
+    private final PaymentSeeder paymentSeeder;
     private final UserSeeder userSeeder;
 
     @Override
@@ -99,5 +103,12 @@ public class SeederCommandLineRunner implements CommandLineRunner {
         catalogProductsSeeder.setCatalogs(catalogs);
         catalogProductsSeeder.setProducts(products);
         catalogProductsSeeder.seed();
+
+        transactionSeeder.setProducts(products);
+        transactionSeeder.setUsers(users);
+        var transactions = transactionSeeder.seed();
+
+        paymentSeeder.setTransactions(transactions);
+        paymentSeeder.seed();
     }
 }

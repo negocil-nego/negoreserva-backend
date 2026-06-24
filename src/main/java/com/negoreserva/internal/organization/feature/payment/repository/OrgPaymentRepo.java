@@ -24,4 +24,10 @@ public interface OrgPaymentRepo extends ConcreteRepository<Payment> {
 
     @Query("SELECT p.type, COUNT(p) FROM Payment p JOIN p.transaction t JOIN t.product pr WHERE pr.organization = :organization GROUP BY p.type")
     List<Object[]> countByMethodGroupedByOrganization(@Param("organization") Organization organization);
+
+    @Query("SELECT MONTH(p.createdAt), COUNT(p) FROM Payment p JOIN p.transaction t JOIN t.product pr WHERE pr.organization = :organization AND YEAR(p.createdAt) = :year GROUP BY MONTH(p.createdAt)")
+    List<Object[]> countMonthlyByOrganizationAndYear(@Param("organization") Organization organization, @Param("year") int year);
+
+    @Query("SELECT MONTH(p.createdAt), SUM(t.price) FROM Payment p JOIN p.transaction t JOIN t.product pr WHERE pr.organization = :organization AND YEAR(p.createdAt) = :year GROUP BY MONTH(p.createdAt)")
+    List<Object[]> totalMonthlyByOrganizationAndYear(@Param("organization") Organization organization, @Param("year") int year);
 }

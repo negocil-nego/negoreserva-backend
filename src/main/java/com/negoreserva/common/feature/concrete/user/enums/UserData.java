@@ -4,11 +4,9 @@ import com.negoreserva.common.feature.concrete.user.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.time.LocalDate;
-
 @Getter
 @AllArgsConstructor
-public enum UserFaker {
+public enum UserData {
     BOB(User.builder()
             .name("Bob Silva")
             .username("bob.silva")

@@ -1,94 +1,37 @@
 package com.negoreserva.common.feature.concrete.payment.service;
 
-import com.negoreserva.common.enums.StoragePathNamed;
-import com.negoreserva.common.feature.concrete.payment.enums.PaymentMethod;
+import com.negoreserva.common.feature.concrete.payment.exception.notfound.PaymentNotFoundException;
 import com.negoreserva.common.feature.concrete.payment.repository.PaymentRepo;
 import com.negoreserva.common.feature.concrete.payment.model.Payment;
-import com.negoreserva.common.feature.concrete.payment_file_receipt.model.PaymentFileReceipt;
-import com.negoreserva.common.feature.concrete.payment_file_receipt.repository.PaymentFileReceiptService;
-import com.negoreserva.common.feature.concrete.product.service.ProductService;
-import com.negoreserva.common.feature.concrete.product_price.service.ProductPriceService;
 import com.negoreserva.common.feature.concrete.transaction.model.Transaction;
-import com.negoreserva.common.feature.concrete.transaction.service.TransactionService;
-import com.negoreserva.common.feature.concrete.user.service.UserService;
 import com.negoreserva.common.feature.core.service.ConcreteService;
-import com.negoreserva.common.feature.general.storage.service.StorageService;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.math.BigDecimal;
-import java.util.UUID;
+import java.util.List;
+
 
 @Service
-public class PaymentReceiptService extends ConcreteService<Payment> {
-    private final PaymentFileReceiptService paymentFileReceiptService;
-    private final ProductPriceService productPriceService;
-    private final TransactionService transactionService;
-    private final ProductService productService;
-    private final StorageService storageService;
-    private final UserService userService;
+public class PaymentService extends ConcreteService<Payment> {
+    private final PaymentRepo repository;
 
-    public PaymentReceiptService(
-            PaymentRepo repository,
-            UserService userService,
-            StorageService storageService,
-            ProductService productService,
-            TransactionService transactionService,
-            ProductPriceService productPriceService,
-            PaymentFileReceiptService paymentFileReceiptService
-    ) {
+    public PaymentService(PaymentRepo repository) {
         super(repository);
-        this.productService = productService;
-        this.productPriceService = productPriceService;
-        this.userService = userService;
-        this.storageService = storageService;
-        this.paymentFileReceiptService = paymentFileReceiptService;
-        this.transactionService = transactionService;
+        this.repository = repository;
     }
 
-    @Transactional
-    public Payment createPaymentWithReceipt(
-            MultipartFile file,
-            UUID productUuid,
-            UUID priceUuid,
-            Integer amount,
-            Authentication authentication
-    ) {
-        var product = productService.findByUuid(productUuid);
-        var user = userService.findBy(authentication);
-        var price = productPriceService.findByUuid(priceUuid);
+    public boolean existsByTransaction_Code(String code) {
+        return repository.findByTransaction_Code(code).isPresent();
+    }
 
-        var total = price.getValue().multiply(BigDecimal.valueOf(amount));
+    public Payment findByTransaction_Code(String code) {
+        return repository.findByTransaction_Code(code).orElseThrow(PaymentNotFoundException::new);
+    }
 
-        var transaction = Transaction.builder()
-                .product(product)
-                .user(user)
-                .amount(amount)
-                .price(total)
-                .build();
+    public List<Payment> findByTransaction(Transaction transaction) {
+        return repository.findByTransaction(transaction);
+    }
 
-        transaction = transactionService.save(transaction);
-
-        var payment = Payment.builder()
-                .transaction(transaction)
-                .type(PaymentMethod.RECEIPT)
-                .build();
-        payment = super.save(payment);
-
-        var path = StoragePathNamed.PAYMENT_RECEIPT.suffix(payment.getUuid());
-        var fileUrl = storageService.uploadFile(file, path);
-
-        var receipt = PaymentFileReceipt.builder()
-                .payment(payment)
-                .fileUrl(fileUrl)
-                .type(file.getContentType())
-                .size(file.getSize())
-                .build();
-        
-        paymentFileReceiptService.save(receipt);
-
-        return payment;
+    public Payment findOrCreate(Payment payment) {
+        return repository.findByTransaction_Code(payment.getTransaction().getCode()).orElseGet(() -> super.save(payment));
     }
 }

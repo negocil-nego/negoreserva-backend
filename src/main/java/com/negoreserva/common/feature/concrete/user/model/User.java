@@ -9,9 +9,9 @@ import com.negoreserva.common.feature.concrete.user_update_data.model.UserUpdate
 import com.negoreserva.common.feature.pivot.user_organization.model.UserOrganization;
 import com.negoreserva.common.util.ConstraintUniqueKey;
 import com.negoreserva.common.util.UniqueFieldUtil;
-import com.negoreserva.internal.client.util.ClientEntityNamed;
 import com.negoreserva.common.contract.UniqueFieldSanitizer;
 import com.negoreserva.common.feature.core.model.ConcreteModel;
+import com.negoreserva.common.variable.EntityVariable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
@@ -31,7 +31,7 @@ import java.util.List;
 @SuperBuilder(toBuilder = true)
 @EqualsAndHashCode(callSuper = true)
 @Table(
-        name = ClientEntityNamed.USER,
+        name = EntityVariable.USER,
         uniqueConstraints = {
                 @UniqueConstraint(name = ConstraintUniqueKey.USER_USERNAME, columnNames = "username"),
                 @UniqueConstraint(name = ConstraintUniqueKey.USER_EMAIL,    columnNames = "email"),
@@ -71,15 +71,6 @@ public class User extends ConcreteModel implements UserDetails, UniqueFieldSanit
     public UserResponse toResponse() {
         return new UserResponse(uuid, name, email, phone);
     }
-
-    public UserCreateRequest toUserCreateRequest() {
-        return  new UserCreateRequest(name, email, phone, birthday);
-    }
-
-    public UserUpdateRequest toUserUpdateRequest() {
-        return new UserUpdateRequest(name, birthday);
-    }
-
     @Override
     public void sanitizeUniqueFields() {
         username = UniqueFieldUtil.fieldDelete(username, id);

@@ -64,11 +64,10 @@ public class UserService extends ConcreteService<User> {
 
     public User findBy(String text) {
         if (UserValidators.isEmail(text))  return findByEmail(text);
-        if (UserValidators.isUsername(text)) return findByUsername(text);
         if (UserValidators.isDigit(text))  return findById(Long.parseLong(text));
         if (UserValidators.isPhone(text))  return findByPhone(text);
         if (RegexValidators.isUuid(text)) return findByUuid(text);
-        throw new UserNotFoundException();
+        return findByUsername(text);
     }
 
     public User findByEmailOrPhone(String text) {

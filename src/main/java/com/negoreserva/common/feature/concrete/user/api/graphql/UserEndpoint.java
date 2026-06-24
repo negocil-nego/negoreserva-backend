@@ -7,6 +7,7 @@ import com.negoreserva.common.feature.concrete.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 
@@ -14,6 +15,11 @@ import org.springframework.stereotype.Controller;
 @RequiredArgsConstructor
 public class UserEndpoint {
     private final UserService userService;
+
+    @QueryMapping
+    public UserResponse profileUser(Authentication authentication) {
+        return userService.findBy(authentication).toResponse();
+    }
 
     @MutationMapping
     public UserResponse userUpdate(@Argument UserEditProfileRequest request, Authentication authentication) {

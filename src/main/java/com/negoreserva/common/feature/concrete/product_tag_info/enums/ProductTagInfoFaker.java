@@ -1,7 +1,7 @@
 package com.negoreserva.common.feature.concrete.product_tag_info.enums;
 
 import com.negoreserva.common.enums.HugeiconNamed;
-import com.negoreserva.common.feature.concrete.product.enums.ProductFaker;
+import com.negoreserva.common.feature.concrete.product.enums.ProductData;
 import com.negoreserva.common.feature.concrete.product_tag_info.model.ProductTagInfo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +13,7 @@ public enum ProductTagInfoFaker {
     // --- HOTEL DELUXE 1 ---
     HOTEL_DELUXE_1_QUARTO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_DELUXE_1.getProduct())
+                    .product(ProductData.HOTEL_DELUXE_1.getProduct())
                     .icon(HugeiconNamed.CURTAINS.getWeb())
                     .title("Quarto")
                     .value("3")
@@ -21,7 +21,7 @@ public enum ProductTagInfoFaker {
     ),
     HOTEL_DELUXE_1_BANHEIRO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_DELUXE_1.getProduct())
+                    .product(ProductData.HOTEL_DELUXE_1.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Casa de Banho")
                     .value("2")
@@ -29,7 +29,7 @@ public enum ProductTagInfoFaker {
     ),
     HOTEL_DELUXE_1_SALA(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_DELUXE_1.getProduct())
+                    .product(ProductData.HOTEL_DELUXE_1.getProduct())
                     .icon(HugeiconNamed.SOFA_02.getWeb())
                     .title("Sala de Estar")
                     .value("1")
@@ -39,7 +39,7 @@ public enum ProductTagInfoFaker {
     // --- HOTEL DELUXE 2 ---
     HOTEL_DELUXE_2_QUARTO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_DELUXE_2.getProduct())
+                    .product(ProductData.HOTEL_DELUXE_2.getProduct())
                     .icon(HugeiconNamed.CURTAINS.getWeb())
                     .title("Quarto")
                     .value("3")
@@ -47,7 +47,7 @@ public enum ProductTagInfoFaker {
     ),
     HOTEL_DELUXE_2_BANHEIRO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_DELUXE_2.getProduct())
+                    .product(ProductData.HOTEL_DELUXE_2.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Casa de Banho")
                     .value("1")
@@ -57,7 +57,7 @@ public enum ProductTagInfoFaker {
     // --- HOTEL DELUXE 3 ---
     HOTEL_DELUXE_3_QUARTO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_DELUXE_3.getProduct())
+                    .product(ProductData.HOTEL_DELUXE_3.getProduct())
                     .icon(HugeiconNamed.CURTAINS.getWeb())
                     .title("Quarto")
                     .value("3")
@@ -65,7 +65,7 @@ public enum ProductTagInfoFaker {
     ),
     HOTEL_DELUXE_3_BANHEIRO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_DELUXE_3.getProduct())
+                    .product(ProductData.HOTEL_DELUXE_3.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Casa de Banho")
                     .value("2")
@@ -75,7 +75,7 @@ public enum ProductTagInfoFaker {
     // --- HOTEL STANDARD 1 ---
     HOTEL_STANDARD_1_QUARTO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_STANDARD_1.getProduct())
+                    .product(ProductData.HOTEL_STANDARD_1.getProduct())
                     .icon(HugeiconNamed.CURTAINS.getWeb())
                     .title("Quarto")
                     .value("3")
@@ -83,7 +83,7 @@ public enum ProductTagInfoFaker {
     ),
     HOTEL_STANDARD_1_BANHEIRO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_STANDARD_1.getProduct())
+                    .product(ProductData.HOTEL_STANDARD_1.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Casa de Banho")
                     .value("1")
@@ -93,7 +93,7 @@ public enum ProductTagInfoFaker {
     // --- HOTEL STANDARD 2 ---
     HOTEL_STANDARD_2_QUARTO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_STANDARD_2.getProduct())
+                    .product(ProductData.HOTEL_STANDARD_2.getProduct())
                     .icon(HugeiconNamed.CURTAINS.getWeb())
                     .title("Quarto")
                     .value("3")
@@ -101,7 +101,7 @@ public enum ProductTagInfoFaker {
     ),
     HOTEL_STANDARD_2_BANHEIRO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_STANDARD_2.getProduct())
+                    .product(ProductData.HOTEL_STANDARD_2.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Casa de Banho")
                     .value("1")
@@ -111,7 +111,7 @@ public enum ProductTagInfoFaker {
     // --- HOTEL STANDARD 3 ---
     HOTEL_STANDARD_3_QUARTO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_STANDARD_3.getProduct())
+                    .product(ProductData.HOTEL_STANDARD_3.getProduct())
                     .icon(HugeiconNamed.CURTAINS.getWeb())
                     .title("Quarto")
                     .value("3")
@@ -119,7 +119,7 @@ public enum ProductTagInfoFaker {
     ),
     HOTEL_STANDARD_3_BANHEIRO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_STANDARD_3.getProduct())
+                    .product(ProductData.HOTEL_STANDARD_3.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Casa de Banho")
                     .value("2")
@@ -129,7 +129,7 @@ public enum ProductTagInfoFaker {
     // --- HOTEL TECHCORP 1 ---
     HOTEL_TECHCORP_1_QUARTO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_TECHCORP_1.getProduct())
+                    .product(ProductData.HOTEL_TECHCORP_1.getProduct())
                     .icon(HugeiconNamed.CURTAINS.getWeb())
                     .title("Quarto")
                     .value("3")
@@ -137,7 +137,7 @@ public enum ProductTagInfoFaker {
     ),
     HOTEL_TECHCORP_1_BANHEIRO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_TECHCORP_1.getProduct())
+                    .product(ProductData.HOTEL_TECHCORP_1.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Casa de Banho")
                     .value("1")
@@ -145,7 +145,7 @@ public enum ProductTagInfoFaker {
     ),
     HOTEL_TECHCORP_1_SALA(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_TECHCORP_1.getProduct())
+                    .product(ProductData.HOTEL_TECHCORP_1.getProduct())
                     .icon(HugeiconNamed.SOFA_02.getWeb())
                     .title("Sala de Estar")
                     .value("1")
@@ -155,7 +155,7 @@ public enum ProductTagInfoFaker {
     // --- HOTEL TECHCORP 2 ---
     HOTEL_TECHCORP_2_QUARTO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_TECHCORP_2.getProduct())
+                    .product(ProductData.HOTEL_TECHCORP_2.getProduct())
                     .icon(HugeiconNamed.CURTAINS.getWeb())
                     .title("Quarto")
                     .value("3")
@@ -163,7 +163,7 @@ public enum ProductTagInfoFaker {
     ),
     HOTEL_TECHCORP_2_BANHEIRO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_TECHCORP_2.getProduct())
+                    .product(ProductData.HOTEL_TECHCORP_2.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Casa de Banho")
                     .value("2")
@@ -173,7 +173,7 @@ public enum ProductTagInfoFaker {
     // --- HOTEL TECHCORP 3 ---
     HOTEL_TECHCORP_3_QUARTO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_TECHCORP_3.getProduct())
+                    .product(ProductData.HOTEL_TECHCORP_3.getProduct())
                     .icon(HugeiconNamed.CURTAINS.getWeb())
                     .title("Quarto")
                     .value("3")
@@ -181,7 +181,7 @@ public enum ProductTagInfoFaker {
     ),
     HOTEL_TECHCORP_3_BANHEIRO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.HOTEL_TECHCORP_3.getProduct())
+                    .product(ProductData.HOTEL_TECHCORP_3.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Casa de Banho")
                     .value("1")
@@ -191,7 +191,7 @@ public enum ProductTagInfoFaker {
     // --- ACME PRESIDENTIAL ---
     ACME_PRESIDENTIAL_QUARTO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.ACME_PRESIDENTIAL.getProduct())
+                    .product(ProductData.ACME_PRESIDENTIAL.getProduct())
                     .icon(HugeiconNamed.CURTAINS.getWeb())
                     .title("Quarto")
                     .value("2")
@@ -199,7 +199,7 @@ public enum ProductTagInfoFaker {
     ),
     ACME_PRESIDENTIAL_BANHEIRO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.ACME_PRESIDENTIAL.getProduct())
+                    .product(ProductData.ACME_PRESIDENTIAL.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Casa de Banho")
                     .value("3")
@@ -207,7 +207,7 @@ public enum ProductTagInfoFaker {
     ),
     ACME_PRESIDENTIAL_SALA(
             ProductTagInfo.builder()
-                    .product(ProductFaker.ACME_PRESIDENTIAL.getProduct())
+                    .product(ProductData.ACME_PRESIDENTIAL.getProduct())
                     .icon(HugeiconNamed.SOFA_02.getWeb())
                     .title("Sala de Estar")
                     .value("2")
@@ -215,7 +215,7 @@ public enum ProductTagInfoFaker {
     ),
     ACME_PRESIDENTIAL_PISCINA(
             ProductTagInfo.builder()
-                    .product(ProductFaker.ACME_PRESIDENTIAL.getProduct())
+                    .product(ProductData.ACME_PRESIDENTIAL.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Piscina Privativa")
                     .value("1")
@@ -225,7 +225,7 @@ public enum ProductTagInfoFaker {
     // --- TECHCORP COWORKING ---
     TECHCORP_COWORKING_MESA(
             ProductTagInfo.builder()
-                    .product(ProductFaker.TECHCORP_COWORKING.getProduct())
+                    .product(ProductData.TECHCORP_COWORKING.getProduct())
                     .icon(HugeiconNamed.SOFA_02.getWeb())
                     .title("Estações de Trabalho")
                     .value("20")
@@ -233,7 +233,7 @@ public enum ProductTagInfoFaker {
     ),
     TECHCORP_COWORKING_SALA(
             ProductTagInfo.builder()
-                    .product(ProductFaker.TECHCORP_COWORKING.getProduct())
+                    .product(ProductData.TECHCORP_COWORKING.getProduct())
                     .icon(HugeiconNamed.HOTEL_01.getWeb())
                     .title("Salas de Reunião")
                     .value("4")
@@ -243,7 +243,7 @@ public enum ProductTagInfoFaker {
     // --- GLOBAL EVENT SPACE ---
     GLOBAL_EVENT_CAPACIDADE(
             ProductTagInfo.builder()
-                    .product(ProductFaker.GLOBAL_EVENT_SPACE.getProduct())
+                    .product(ProductData.GLOBAL_EVENT_SPACE.getProduct())
                     .icon(HugeiconNamed.SOFA_02.getWeb())
                     .title("Capacidade")
                     .value("300 pessoas")
@@ -251,7 +251,7 @@ public enum ProductTagInfoFaker {
     ),
     GLOBAL_EVENT_PALCO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.GLOBAL_EVENT_SPACE.getProduct())
+                    .product(ProductData.GLOBAL_EVENT_SPACE.getProduct())
                     .icon(HugeiconNamed.RESTAURANT_01.getWeb())
                     .title("Palco Profissional")
                     .value("1")
@@ -261,7 +261,7 @@ public enum ProductTagInfoFaker {
     // --- POUSADA RECANTO VERDE ---
     POUSADA_RUSTICO_QUARTO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.POUSADA_QUARTO_RUSTICO.getProduct())
+                    .product(ProductData.POUSADA_QUARTO_RUSTICO.getProduct())
                     .icon(HugeiconNamed.CURTAINS.getWeb())
                     .title("Quarto")
                     .value("1")
@@ -269,7 +269,7 @@ public enum ProductTagInfoFaker {
     ),
     POUSADA_RUSTICO_BANHEIRO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.POUSADA_QUARTO_RUSTICO.getProduct())
+                    .product(ProductData.POUSADA_QUARTO_RUSTICO.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Casa de Banho")
                     .value("1")
@@ -277,7 +277,7 @@ public enum ProductTagInfoFaker {
     ),
     POUSADA_RUSTICO_LAREIRA(
             ProductTagInfo.builder()
-                    .product(ProductFaker.POUSADA_QUARTO_RUSTICO.getProduct())
+                    .product(ProductData.POUSADA_QUARTO_RUSTICO.getProduct())
                     .icon(HugeiconNamed.HOTEL_02.getWeb())
                     .title("Lareira")
                     .value("1")
@@ -286,7 +286,7 @@ public enum ProductTagInfoFaker {
 
     POUSADA_SUITE_QUARTO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.POUSADA_SUITE_MASTER.getProduct())
+                    .product(ProductData.POUSADA_SUITE_MASTER.getProduct())
                     .icon(HugeiconNamed.CURTAINS.getWeb())
                     .title("Quarto")
                     .value("1")
@@ -294,7 +294,7 @@ public enum ProductTagInfoFaker {
     ),
     POUSADA_SUITE_BANHEIRO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.POUSADA_SUITE_MASTER.getProduct())
+                    .product(ProductData.POUSADA_SUITE_MASTER.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Casa de Banho")
                     .value("2")
@@ -302,7 +302,7 @@ public enum ProductTagInfoFaker {
     ),
     POUSADA_SUITE_HIDRO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.POUSADA_SUITE_MASTER.getProduct())
+                    .product(ProductData.POUSADA_SUITE_MASTER.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Hidromassagem")
                     .value("1")
@@ -311,7 +311,7 @@ public enum ProductTagInfoFaker {
 
     POUSADA_CHALE_QUARTO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.POUSADA_CHALE.getProduct())
+                    .product(ProductData.POUSADA_CHALE.getProduct())
                     .icon(HugeiconNamed.CURTAINS.getWeb())
                     .title("Quartos")
                     .value("2")
@@ -319,7 +319,7 @@ public enum ProductTagInfoFaker {
     ),
     POUSADA_CHALE_BANHEIRO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.POUSADA_CHALE.getProduct())
+                    .product(ProductData.POUSADA_CHALE.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Casa de Banho")
                     .value("2")
@@ -327,7 +327,7 @@ public enum ProductTagInfoFaker {
     ),
     POUSADA_CHALE_SALA(
             ProductTagInfo.builder()
-                    .product(ProductFaker.POUSADA_CHALE.getProduct())
+                    .product(ProductData.POUSADA_CHALE.getProduct())
                     .icon(HugeiconNamed.SOFA_02.getWeb())
                     .title("Sala de Estar")
                     .value("1")
@@ -335,7 +335,7 @@ public enum ProductTagInfoFaker {
     ),
     POUSADA_CHALE_COZINHA(
             ProductTagInfo.builder()
-                    .product(ProductFaker.POUSADA_CHALE.getProduct())
+                    .product(ProductData.POUSADA_CHALE.getProduct())
                     .icon(HugeiconNamed.HOTEL_01.getWeb())
                     .title("Cozinha")
                     .value("1")
@@ -343,7 +343,7 @@ public enum ProductTagInfoFaker {
     ),
     POUSADA_CHALE_OFURO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.POUSADA_CHALE.getProduct())
+                    .product(ProductData.POUSADA_CHALE.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Ofurô")
                     .value("1")
@@ -353,7 +353,7 @@ public enum ProductTagInfoFaker {
     // --- PENSAO FAMILIAR ---
     PENSAO_SIMPLES_QUARTO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.PENSAO_QUARTO_SIMPLES.getProduct())
+                    .product(ProductData.PENSAO_QUARTO_SIMPLES.getProduct())
                     .icon(HugeiconNamed.CURTAINS.getWeb())
                     .title("Quarto")
                     .value("1")
@@ -362,7 +362,7 @@ public enum ProductTagInfoFaker {
 
     PENSAO_DUPLO_QUARTO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.PENSAO_QUARTO_DUPLO.getProduct())
+                    .product(ProductData.PENSAO_QUARTO_DUPLO.getProduct())
                     .icon(HugeiconNamed.CURTAINS.getWeb())
                     .title("Quarto")
                     .value("1")
@@ -370,7 +370,7 @@ public enum ProductTagInfoFaker {
     ),
     PENSAO_DUPLO_BANHEIRO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.PENSAO_QUARTO_DUPLO.getProduct())
+                    .product(ProductData.PENSAO_QUARTO_DUPLO.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Casa de Banho")
                     .value("1")
@@ -379,7 +379,7 @@ public enum ProductTagInfoFaker {
 
     PENSAO_SUITE_QUARTO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.PENSAO_SUITE.getProduct())
+                    .product(ProductData.PENSAO_SUITE.getProduct())
                     .icon(HugeiconNamed.CURTAINS.getWeb())
                     .title("Quarto")
                     .value("1")
@@ -387,7 +387,7 @@ public enum ProductTagInfoFaker {
     ),
     PENSAO_SUITE_BANHEIRO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.PENSAO_SUITE.getProduct())
+                    .product(ProductData.PENSAO_SUITE.getProduct())
                     .icon(HugeiconNamed.HOT_TUB.getWeb())
                     .title("Casa de Banho")
                     .value("1")
@@ -395,7 +395,7 @@ public enum ProductTagInfoFaker {
     ),
     PENSAO_SUITE_VARANDA(
             ProductTagInfo.builder()
-                    .product(ProductFaker.PENSAO_SUITE.getProduct())
+                    .product(ProductData.PENSAO_SUITE.getProduct())
                     .icon(HugeiconNamed.GUESTHOUSE.getWeb())
                     .title("Varanda")
                     .value("1")
@@ -405,7 +405,7 @@ public enum ProductTagInfoFaker {
     // --- RESTAURANTE SABOR & ARTE ---
     RESTAURANTE_JANTAR_TEMPOS(
             ProductTagInfo.builder()
-                    .product(ProductFaker.RESTAURANTE_JANTAR_EXECUTIVO.getProduct())
+                    .product(ProductData.RESTAURANTE_JANTAR_EXECUTIVO.getProduct())
                     .icon(HugeiconNamed.RESTAURANT.getWeb())
                     .title("Menu")
                     .value("4 tempos")
@@ -413,7 +413,7 @@ public enum ProductTagInfoFaker {
     ),
     RESTAURANTE_JANTAR_BEBIDA(
             ProductTagInfo.builder()
-                    .product(ProductFaker.RESTAURANTE_JANTAR_EXECUTIVO.getProduct())
+                    .product(ProductData.RESTAURANTE_JANTAR_EXECUTIVO.getProduct())
                     .icon(HugeiconNamed.RESTAURANT_01.getWeb())
                     .title("Bebida Inclusa")
                     .value("Sim")
@@ -422,7 +422,7 @@ public enum ProductTagInfoFaker {
 
     RESTAURANTE_CHEF_TEMPOS(
             ProductTagInfo.builder()
-                    .product(ProductFaker.RESTAURANTE_CHEF_TABLE.getProduct())
+                    .product(ProductData.RESTAURANTE_CHEF_TABLE.getProduct())
                     .icon(HugeiconNamed.RESTAURANT.getWeb())
                     .title("Menu")
                     .value("7 tempos")
@@ -430,7 +430,7 @@ public enum ProductTagInfoFaker {
     ),
     RESTAURANTE_CHEF_VINHOS(
             ProductTagInfo.builder()
-                    .product(ProductFaker.RESTAURANTE_CHEF_TABLE.getProduct())
+                    .product(ProductData.RESTAURANTE_CHEF_TABLE.getProduct())
                     .icon(HugeiconNamed.RESTAURANT_01.getWeb())
                     .title("Harmonização")
                     .value("Vinhos selecionados")
@@ -438,7 +438,7 @@ public enum ProductTagInfoFaker {
     ),
     RESTAURANTE_CHEF_PESSOAS(
             ProductTagInfo.builder()
-                    .product(ProductFaker.RESTAURANTE_CHEF_TABLE.getProduct())
+                    .product(ProductData.RESTAURANTE_CHEF_TABLE.getProduct())
                     .icon(HugeiconNamed.SOFA_02.getWeb())
                     .title("Capacidade")
                     .value("Até 12 pessoas")
@@ -447,7 +447,7 @@ public enum ProductTagInfoFaker {
 
     RESTAURANTE_EVENTO_CAPACIDADE(
             ProductTagInfo.builder()
-                    .product(ProductFaker.RESTAURANTE_EVENTO.getProduct())
+                    .product(ProductData.RESTAURANTE_EVENTO.getProduct())
                     .icon(HugeiconNamed.SOFA_02.getWeb())
                     .title("Capacidade")
                     .value("80 pessoas")
@@ -457,7 +457,7 @@ public enum ProductTagInfoFaker {
     // --- LOJA DO BAIRRO ---
     LOJA_CESTA_ITENS(
             ProductTagInfo.builder()
-                    .product(ProductFaker.LOJA_CESTA_BASICA.getProduct())
+                    .product(ProductData.LOJA_CESTA_BASICA.getProduct())
                     .icon(HugeiconNamed.SHOPPING_BAG_03.getWeb())
                     .title("Itens")
                     .value("15 produtos")
@@ -465,7 +465,7 @@ public enum ProductTagInfoFaker {
     ),
     LOJA_CESTA_ENTREGA(
             ProductTagInfo.builder()
-                    .product(ProductFaker.LOJA_CESTA_BASICA.getProduct())
+                    .product(ProductData.LOJA_CESTA_BASICA.getProduct())
                     .icon(HugeiconNamed.AIR_PLANE_TAKE_OFF_01.getWeb())
                     .title("Entrega")
                     .value("Grátis no bairro")
@@ -474,7 +474,7 @@ public enum ProductTagInfoFaker {
 
     LOJA_HORTIFRUTI_ITENS(
             ProductTagInfo.builder()
-                    .product(ProductFaker.LOJA_HORTIFRUTI.getProduct())
+                    .product(ProductData.LOJA_HORTIFRUTI.getProduct())
                     .icon(HugeiconNamed.RESTAURANT.getWeb())
                     .title("Itens")
                     .value("10 variedades")
@@ -482,7 +482,7 @@ public enum ProductTagInfoFaker {
     ),
     LOJA_HORTIFRUTI_CERTIFICACAO(
             ProductTagInfo.builder()
-                    .product(ProductFaker.LOJA_HORTIFRUTI.getProduct())
+                    .product(ProductData.LOJA_HORTIFRUTI.getProduct())
                     .icon(HugeiconNamed.SHOPPING_BAG_03.getWeb())
                     .title("Certificação")
                     .value("Orgânico")
@@ -491,7 +491,7 @@ public enum ProductTagInfoFaker {
 
     LOJA_PRESENTES_ITENS(
             ProductTagInfo.builder()
-                    .product(ProductFaker.LOJA_PRESENTES.getProduct())
+                    .product(ProductData.LOJA_PRESENTES.getProduct())
                     .icon(HugeiconNamed.SHOPPING_BAG_03.getWeb())
                     .title("Tipo")
                     .value("Kit luxo")
@@ -499,7 +499,7 @@ public enum ProductTagInfoFaker {
     ),
     LOJA_PRESENTES_EMBALAGEM(
             ProductTagInfo.builder()
-                    .product(ProductFaker.LOJA_PRESENTES.getProduct())
+                    .product(ProductData.LOJA_PRESENTES.getProduct())
                     .icon(HugeiconNamed.SHOPPING_BAG_03.getWeb())
                     .title("Embalagem")
                     .value("Presente")

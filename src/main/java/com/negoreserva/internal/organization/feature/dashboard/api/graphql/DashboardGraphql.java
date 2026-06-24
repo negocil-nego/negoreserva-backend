@@ -4,6 +4,8 @@ import com.negoreserva.internal.organization.feature.catalog.dto.response.OrgCat
 import com.negoreserva.internal.organization.feature.dashboard.dto.response.DashboardCatalogWithProductCount;
 import com.negoreserva.internal.organization.feature.dashboard.dto.response.DashboardPaymentByMethod;
 import com.negoreserva.internal.organization.feature.dashboard.dto.response.DashboardPaymentByStatus;
+import com.negoreserva.internal.organization.feature.dashboard.dto.response.DashboardPaymentMonthly;
+import com.negoreserva.internal.organization.feature.dashboard.dto.response.DashboardPaymentMonthlyFilter;
 import com.negoreserva.internal.organization.feature.dashboard.dto.response.DashboardTotals;
 import com.negoreserva.internal.organization.feature.dashboard.service.DashboardService;
 import com.negoreserva.internal.organization.feature.payment.dto.response.OrgPaymentResponse;
@@ -64,5 +66,11 @@ public class DashboardGraphql {
     public List<DashboardPaymentByMethod> orgDashboardPaymentsByMethod(Authentication authentication) {
         controlAccess.canPermission(OrgPermissionData.READ_ORGANIZATION, authentication);
         return service.paymentsByMethod(authentication);
+    }
+
+    @QueryMapping
+    public DashboardPaymentMonthly orgDashboardPaymentsMonthly(@Argument DashboardPaymentMonthlyFilter filter, Authentication authentication) {
+        controlAccess.canPermission(OrgPermissionData.READ_ORGANIZATION, authentication);
+        return service.paymentsMonthly(filter, authentication);
     }
 }

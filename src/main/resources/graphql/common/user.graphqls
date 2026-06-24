@@ -46,6 +46,10 @@ input UserResetPasswordCurrentRequest {
     confirm: String
 }
 
+extend type Query {
+    profileUser: UserResponse
+}
+
 extend type Mutation {
     userUpdate(request: UserEditProfileRequest): UserResponse
     userRestPassword(request: UserResetPasswordCurrentRequest): UserResponse

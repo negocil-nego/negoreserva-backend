@@ -17,4 +17,6 @@ public final class EntityVariable {
     public final static String PROVINCE = "TB_PROVINCES";
     public final static String MUNICIPALITY = "TB_MUNICIPALITIES";
     public final static String ROLE = "TB_ROLES";
+
+    public final static String USER = "TB_USERS";
 }

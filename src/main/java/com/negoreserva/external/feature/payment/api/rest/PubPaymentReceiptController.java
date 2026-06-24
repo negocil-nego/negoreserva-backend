@@ -1,6 +1,6 @@
 package com.negoreserva.external.feature.payment.api.rest;
 
-import com.negoreserva.common.feature.concrete.payment.service.PaymentService;
+import com.negoreserva.common.feature.concrete.payment.service.PaymentReceiptService;
 import com.negoreserva.external.feature.payment.dto.response.PaymentReceiptResponse;
 import com.negoreserva.external.feature.payment.util.PaymentRouteNamed;
 import io.swagger.v3.oas.annotations.Operation;
@@ -20,7 +20,7 @@ import java.util.UUID;
 @Tag(name = "Public - Payment", description = "Endpoints for public payments")
 public class PubPaymentReceiptController {
 
-    private final PaymentService paymentService;
+    private final PaymentReceiptService paymentReceiptService;
 
     @PostMapping(value = PaymentRouteNamed.RECEIPT, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @Operation(summary = "Create payment with receipt comprovativo")
@@ -31,7 +31,7 @@ public class PubPaymentReceiptController {
             @RequestParam("amount") Integer amount,
             Authentication authentication
     ) {
-        var payment = paymentService.createPaymentWithReceipt(file, productUuid, priceUuid, amount, authentication);
+        var payment = paymentReceiptService.createPaymentWithReceipt(file, productUuid, priceUuid, amount, authentication);
         return ResponseEntity.ok(PaymentReceiptResponse.of(payment));
     }
 }

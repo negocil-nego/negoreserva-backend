@@ -23,11 +23,32 @@ type DashboardPaymentByMethod {
     count: Int!
 }
 
+type DashboardPaymentMonthly {
+    january: Float!
+    february: Float!
+    march: Float!
+    april: Float!
+    may: Float!
+    june: Float!
+    july: Float!
+    august: Float!
+    september: Float!
+    october: Float!
+    november: Float!
+    december: Float!
+}
+
+input DashboardPaymentMonthlyFilter {
+    year: Int
+    type: String
+}
+
 extend type Query {
     orgDashboardTotals: DashboardTotals!
     orgDashboardCatalogsWithProductCount: [DashboardCatalogWithProductCount]!
     orgDashboardPaymentsByStatus: [DashboardPaymentByStatus]!
     orgDashboardPaymentsByMethod: [DashboardPaymentByMethod]!
+    orgDashboardPaymentsMonthly(filter: DashboardPaymentMonthlyFilter): DashboardPaymentMonthly!
     orgDashboardRecentPayments(pageSize: Int = 5): [OrgPaymentResponse]!
     orgDashboardRecentProducts(pageSize: Int = 5): [OrgProductResponse]!
     orgDashboardRecentCatalogs(pageSize: Int = 5): [OrgCatalogResponse]!

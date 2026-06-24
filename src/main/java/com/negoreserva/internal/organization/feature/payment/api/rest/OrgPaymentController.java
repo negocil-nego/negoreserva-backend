@@ -28,7 +28,6 @@ import java.util.UUID;
 @RequestMapping(OrgPaymentRouteNamed.PATH)
 @Tag(name = "Org - Payment", description = "Endpoints for payments management")
 public class OrgPaymentController {
-
     private final OrgControlAccess controlAccess;
     private final OrgPaymentService service;
 

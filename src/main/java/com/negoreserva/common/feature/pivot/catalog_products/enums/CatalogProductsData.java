@@ -1,8 +1,6 @@
 package com.negoreserva.common.feature.pivot.catalog_products.enums;
 
-import com.negoreserva.common.feature.concrete.catalog.enums.CatalogFaker;
 import com.negoreserva.common.feature.concrete.catalog.model.Catalog;
-import com.negoreserva.common.feature.concrete.product.enums.ProductFaker;
 import com.negoreserva.common.feature.concrete.product.model.Product;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

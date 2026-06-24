@@ -1,13 +1,10 @@
 package com.negoreserva.internal.organization.feature.dashboard.service;
 
-import com.negoreserva.common.feature.concrete.catalog.model.Catalog;
 import com.negoreserva.common.feature.concrete.catalog.repository.CatalogRepo;
 import com.negoreserva.common.feature.concrete.organization.model.Organization;
 import com.negoreserva.common.feature.concrete.organization.usecase.OrgOrganizationUseCase;
-import com.negoreserva.common.feature.concrete.product.model.Product;
 import com.negoreserva.common.feature.concrete.product.repository.ProductRepository;
 import com.negoreserva.common.feature.concrete.user.service.UserService;
-import com.negoreserva.common.feature.pivot.catalog_products.model.CatalogProducts;
 import com.negoreserva.common.feature.pivot.catalog_products.service.CatalogProductsService;
 import com.negoreserva.internal.organization.feature.catalog.dto.response.OrgCatalogResponse;
 import com.negoreserva.internal.organization.feature.dashboard.dto.response.DashboardCatalogWithProductCount;
@@ -24,21 +21,24 @@ import org.springframework.stereotype.Service;
 
 import com.negoreserva.internal.organization.feature.dashboard.dto.response.DashboardPaymentByMethod;
 import com.negoreserva.internal.organization.feature.dashboard.dto.response.DashboardPaymentByStatus;
-import java.util.ArrayList;
+import com.negoreserva.internal.organization.feature.dashboard.dto.response.DashboardPaymentMonthly;
+import com.negoreserva.internal.organization.feature.dashboard.dto.response.DashboardPaymentMonthlyFilter;
+import java.math.BigDecimal;
+import java.time.Year;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class DashboardService {
-    private final ProductRepository productRepository;
-    private final CatalogRepo catalogRepo;
-    private final OrgPaymentRepo orgPaymentRepo;
     private final CatalogProductsService catalogProductsService;
+    private final ProductRepository productRepository;
+    private final OrgPaymentRepo orgPaymentRepo;
+    private final CatalogRepo catalogRepo;
     private final UserService userService;
 
     public Organization find(Authentication authentication) {
-        var usecase = new OrgOrganizationUseCase(authentication, userService);
-        return usecase.applyUseCase();
+        var because = new OrgOrganizationUseCase(authentication, userService);
+        return because.applyUseCase();
     }
 
     public DashboardTotals totals(Authentication authentication) {
@@ -107,5 +107,34 @@ public class DashboardService {
                 (long) row[1]
             ))
             .toList();
+    }
+
+    public DashboardPaymentMonthly paymentsMonthly(DashboardPaymentMonthlyFilter filter, Authentication authentication) {
+        var org = find(authentication);
+        var year = filter.year() != null ? filter.year() : Year.now().getValue();
+        var isCount = "QUANTIDADE".equalsIgnoreCase(filter.type());
+
+        BigDecimal[] months = new BigDecimal[12];
+        for (int i = 0; i < 12; i++) {
+            months[i] = BigDecimal.ZERO;
+        }
+
+        if (isCount) {
+            orgPaymentRepo.countMonthlyByOrganizationAndYear(org, year).forEach(row -> {
+                int monthIndex = ((Number) row[0]).intValue() - 1;
+                months[monthIndex] = BigDecimal.valueOf(((Number) row[1]).longValue());
+            });
+        } else {
+            orgPaymentRepo.totalMonthlyByOrganizationAndYear(org, year).forEach(row -> {
+                int monthIndex = ((Number) row[0]).intValue() - 1;
+                months[monthIndex] = (BigDecimal) row[1];
+            });
+        }
+
+        return new DashboardPaymentMonthly(
+            months[0], months[1], months[2], months[3],
+            months[4], months[5], months[6], months[7],
+            months[8], months[9], months[10], months[11]
+        );
     }
 }
