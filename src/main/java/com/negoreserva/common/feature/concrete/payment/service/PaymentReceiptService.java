@@ -5,11 +5,11 @@ import com.negoreserva.common.feature.concrete.payment.enums.PaymentMethod;
 import com.negoreserva.common.feature.concrete.payment.repository.PaymentRepo;
 import com.negoreserva.common.feature.concrete.payment.model.Payment;
 import com.negoreserva.common.feature.concrete.payment_file_receipt.model.PaymentFileReceipt;
-import com.negoreserva.common.feature.concrete.payment_file_receipt.repository.PaymentFileReceiptService;
+import com.negoreserva.common.feature.concrete.payment_file_receipt.repository.PaymentFileReceiptRepo;
 import com.negoreserva.common.feature.concrete.product.service.ProductService;
 import com.negoreserva.common.feature.concrete.product_price.service.ProductPriceService;
 import com.negoreserva.common.feature.concrete.transaction.model.Transaction;
-import com.negoreserva.common.feature.concrete.transaction.service.TransactionService;
+import com.negoreserva.common.feature.concrete.transaction.repository.TransactionRepo;
 import com.negoreserva.common.feature.concrete.user.service.UserService;
 import com.negoreserva.common.feature.core.service.ConcreteService;
 import com.negoreserva.common.feature.general.storage.service.StorageService;
@@ -22,30 +22,32 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Service
-public class PaymentReceiptService extends ConcreteService<Payment> {
-    private final PaymentFileReceiptService paymentFileReceiptService;
-    private final ProductPriceService productPriceService;
-    private final TransactionService transactionService;
+public class PaymentService extends ConcreteService<Payment> {
+    private final PaymentRepo repository;
     private final ProductService productService;
-    private final StorageService storageService;
+    private final ProductPriceService productPriceService;
     private final UserService userService;
+    private final StorageService storageService;
+    private final PaymentFileReceiptRepo paymentFileReceiptRepo;
+    private final TransactionRepo transactionRepo;
 
-    public PaymentReceiptService(
+    public PaymentService(
             PaymentRepo repository,
+            ProductService productService,
+            ProductPriceService productPriceService,
             UserService userService,
             StorageService storageService,
-            ProductService productService,
-            TransactionService transactionService,
-            ProductPriceService productPriceService,
-            PaymentFileReceiptService paymentFileReceiptService
+            PaymentFileReceiptRepo paymentFileReceiptRepo,
+            TransactionRepo transactionRepo
     ) {
         super(repository);
+        this.repository = repository;
         this.productService = productService;
         this.productPriceService = productPriceService;
         this.userService = userService;
         this.storageService = storageService;
-        this.paymentFileReceiptService = paymentFileReceiptService;
-        this.transactionService = transactionService;
+        this.paymentFileReceiptRepo = paymentFileReceiptRepo;
+        this.transactionRepo = transactionRepo;
     }
 
     @Transactional
@@ -68,8 +70,7 @@ public class PaymentReceiptService extends ConcreteService<Payment> {
                 .amount(amount)
                 .price(total)
                 .build();
-
-        transaction = transactionService.save(transaction);
+        transaction = transactionRepo.save(transaction);
 
         var payment = Payment.builder()
                 .transaction(transaction)
@@ -86,8 +87,7 @@ public class PaymentReceiptService extends ConcreteService<Payment> {
                 .type(file.getContentType())
                 .size(file.getSize())
                 .build();
-        
-        paymentFileReceiptService.save(receipt);
+        paymentFileReceiptRepo.save(receipt);
 
         return payment;
     }
