@@ -1,6 +1,6 @@
 package com.negoreserva.external.feature.product_price.mapper;
 
-import com.negoreserva.common.feature.concrete.product_price.model.ProductPrice;
+import com.negoreserva.common.feature.concrete.product.model.ProductPrice;
 import com.negoreserva.external.feature.product_price.dto.response.ProductPriceGetOrgResponse;
 import lombok.AllArgsConstructor;
 

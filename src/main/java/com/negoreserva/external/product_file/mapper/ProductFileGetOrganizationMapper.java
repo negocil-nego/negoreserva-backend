@@ -1,6 +1,6 @@
 package com.negoreserva.external.feature.product_file.mapper;
 
-import com.negoreserva.common.feature.concrete.product_file.model.ProductFile;
+import com.negoreserva.common.feature.concrete.product.model.ProductFile;
 import com.negoreserva.external.feature.product_file.dto.response.ProductFileGetOrgResponse;
 import lombok.AllArgsConstructor;
 

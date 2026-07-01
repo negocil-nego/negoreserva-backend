@@ -3,7 +3,7 @@ package com.negoreserva.external.feature.organization.dto.response;
 import com.negoreserva.common.feature.concrete.address.dto.response.AddressResponse;
 import com.negoreserva.common.feature.concrete.category.dto.response.CategoryResponse;
 import com.negoreserva.common.feature.concrete.organization.model.Organization;
-import com.negoreserva.common.feature.concrete.organization_social_media.dto.response.OrganizationSocialMediaDetailResponse;
+import com.negoreserva.common.feature.concrete.organization.dto.response.OrganizationSocialMediaDetailResponse;
 import com.negoreserva.common.feature.concrete.catalog.dto.response.CatalogResponse;
 import com.negoreserva.external.feature.product.dto.response.ProductDetailResponse;
 

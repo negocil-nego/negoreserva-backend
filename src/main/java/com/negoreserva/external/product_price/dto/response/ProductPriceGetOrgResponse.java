@@ -1,7 +1,7 @@
 package com.negoreserva.external.feature.product_price.dto.response;
 
-import com.negoreserva.common.feature.concrete.product_price.enums.ProductPriceType;
-import com.negoreserva.common.feature.concrete.product_price.model.ProductPrice;
+import com.negoreserva.common.feature.concrete.product.enums.ProductPriceType;
+import com.negoreserva.common.feature.concrete.product.model.ProductPrice;
 
 import java.math.BigDecimal;
 import java.util.UUID;

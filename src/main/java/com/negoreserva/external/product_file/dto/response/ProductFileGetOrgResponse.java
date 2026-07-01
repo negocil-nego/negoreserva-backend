@@ -1,7 +1,7 @@
 package com.negoreserva.external.feature.product_file.dto.response;
 
-import com.negoreserva.common.feature.concrete.product_file.enums.ProductFileType;
-import com.negoreserva.common.feature.concrete.product_file.model.ProductFile;
+import com.negoreserva.common.feature.concrete.product.enums.ProductFileType;
+import com.negoreserva.common.feature.concrete.product.model.ProductFile;
 
 import java.util.UUID;
 

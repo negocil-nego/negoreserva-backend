@@ -1,6 +1,6 @@
 package com.negoreserva.external.feature.product_tag_info.response;
 
-import com.negoreserva.common.feature.concrete.product_tag_info.model.ProductTagInfo;
+import com.negoreserva.common.feature.concrete.product.model.ProductTagInfo;
 
 import java.util.UUID;
 
