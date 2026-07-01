@@ -24,31 +24,31 @@ public class AdminPermissionResolver {
     private final AdminPermissionService service;
 
     @QueryMapping
-    public PermissionPaginate orgPaginatePermission(@Argument PaginateRequest paginateRequest, Authentication authentication) {
+    public PermissionPaginate adminPaginatePermission(@Argument PaginateRequest paginateRequest, Authentication authentication) {
         controlAccess.canPermission(AdminPermissionData.READ_PERMISSION, authentication);
         return service.paginate(paginateRequest);
     }
 
     @QueryMapping
-    public PermissionResponse orgFindByUuidPermission(@Argument String uuid, Authentication authentication) {
+    public PermissionResponse adminFindByUuidPermission(@Argument String uuid, Authentication authentication) {
         controlAccess.canPermission(AdminPermissionData.READ_PERMISSION, authentication);
         return service.findByUuid(UUID.fromString(uuid)).toResponse();
     }
 
     @MutationMapping
-    public PermissionResponse orgSavePermission(@Argument @Valid PermissionRequest permissionRequest, Authentication authentication) {
+    public PermissionResponse adminSavePermission(@Argument @Valid PermissionRequest permissionRequest, Authentication authentication) {
         controlAccess.canPermission(AdminPermissionData.CREATE_PERMISSION, authentication);
         return service.save(permissionRequest.toModel()).toResponse();
     }
 
     @MutationMapping
-    public PermissionResponse orgUpdatePermission(@Argument String uuid, @Argument @Valid PermissionRequest permissionRequest, Authentication authentication) {
+    public PermissionResponse adminUpdatePermission(@Argument String uuid, @Argument @Valid PermissionRequest permissionRequest, Authentication authentication) {
         controlAccess.canPermission(AdminPermissionData.UPDATE_PERMISSION, authentication);
         return service.update(UUID.fromString(uuid), permissionRequest.toModel()).toResponse();
     }
 
     @MutationMapping
-    public boolean orgDeleteByUuidPermission(@Argument String uuid, Authentication authentication) {
+    public boolean adminDeleteByUuidPermission(@Argument String uuid, Authentication authentication) {
         controlAccess.canPermission(AdminPermissionData.DELETE_PERMISSION, authentication);
         service.deleteByUuid(UUID.fromString(uuid));
         return true;

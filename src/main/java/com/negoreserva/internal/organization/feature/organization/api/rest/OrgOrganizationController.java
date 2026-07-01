@@ -3,10 +3,11 @@ package com.negoreserva.internal.organization.feature.organization.api.rest;
 import com.negoreserva.common.feature.concrete.organization.dto.request.OrganizationEditProfileRequest;
 import com.negoreserva.common.feature.concrete.organization.dto.response.OrganizationResponse;
 import com.negoreserva.internal.organization.feature.organization.dto.response.OrgOrganizationProfile;
+import com.negoreserva.internal.organization.feature.organization.dto.response.OrgSimpleResponse;
 import com.negoreserva.internal.organization.feature.organization.service.OrgOrganizationService;
 import com.negoreserva.internal.organization.feature.organization.util.OrgOrganizationRouteNamed;
 import com.negoreserva.internal.organization.feature.permission.enums.OrgPermissionData;
-import com.negoreserva.internal.organization.componet.OrgControlAccess;
+import com.negoreserva.internal.organization.component.OrgControlAccess;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -71,5 +72,11 @@ public class OrgOrganizationController {
         controlAccess.canPermission(OrgPermissionData.UPDATE_ORGANIZATION, authentication);
         var organization = organizationService.updateLogoOrganization(file, authentication);
         return ResponseEntity.ok(OrganizationResponse.of(organization));
+    }
+
+    @GetMapping(OrgOrganizationRouteNamed.SIMPLE)
+    @Operation(summary = "Return simple organization info by slug")
+    public ResponseEntity<OrgSimpleResponse> orgSimpleInfoBySlug(@PathVariable String slug) {
+        return ResponseEntity.ok(organizationService.findSimpleBySlug(slug));
     }
 }

@@ -6,6 +6,7 @@ type AddressResponse {
     municipality: MunicipalityResponse!
     latitude: Float
     longitude: Float
+    isDefault: Boolean!
 }
 
 type AddressPaginate {

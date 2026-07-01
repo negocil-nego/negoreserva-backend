@@ -17,6 +17,9 @@ public final class EntityVariable {
     public final static String PROVINCE = "TB_PROVINCES";
     public final static String MUNICIPALITY = "TB_MUNICIPALITIES";
     public final static String ROLE = "TB_ROLES";
-
+    public final static String CHAT_CONVERSATION = "TB_CHAT_CONVERSATIONS";
+    public final static String CHAT_MESSAGE = "TB_CHAT_MESSAGES";
+    public final static String CHAT_MESSAGE_FILE = "TB_CHAT_MESSAGE_FILES";
     public final static String USER = "TB_USERS";
+    public final static String NOTIFICATION = "TB_NOTIFICATIONS";
 }

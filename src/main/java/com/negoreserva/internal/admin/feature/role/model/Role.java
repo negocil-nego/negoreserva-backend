@@ -23,14 +23,11 @@ public class Role extends ConcreteModel {
     @Column(unique = true)
     private String name;
 
-    @Column(unique = true)
-    private String code;
-
     public RoleResponse toResponse() {
-        return new RoleResponse(uuid, name, code);
+        return new RoleResponse(uuid, name);
     }
 
     public RoleRequest toRequest() {
-        return new RoleRequest(name, code);
+        return new RoleRequest(name);
     }
 }

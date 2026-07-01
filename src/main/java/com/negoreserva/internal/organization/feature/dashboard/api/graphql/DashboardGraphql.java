@@ -11,7 +11,7 @@ import com.negoreserva.internal.organization.feature.dashboard.service.Dashboard
 import com.negoreserva.internal.organization.feature.payment.dto.response.OrgPaymentResponse;
 import com.negoreserva.internal.organization.feature.permission.enums.OrgPermissionData;
 import com.negoreserva.internal.organization.feature.product.dto.response.OrgProductResponse;
-import com.negoreserva.internal.organization.componet.OrgControlAccess;
+import com.negoreserva.internal.organization.component.OrgControlAccess;
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;

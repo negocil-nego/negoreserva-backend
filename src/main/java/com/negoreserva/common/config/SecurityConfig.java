@@ -1,5 +1,6 @@
 package com.negoreserva.common.config;
 
+import com.negoreserva.common.component.CorsProperties;
 import com.negoreserva.common.component.RsaKeyProperties;
 import com.negoreserva.common.feature.concrete.user.service.UserDetailsFacadeImpl;
 import com.negoreserva.common.util.PasswordEncoderGenerator;
@@ -35,6 +36,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SecurityConfig {
     private final UserDetailsFacadeImpl userDetailsService;
+    private final CorsProperties corsProperties;
     private final RsaKeyProperties rsaKeys;
 
     @Bean
@@ -51,7 +53,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOrigins(List.of("http://localhost:5173", "https://negoreserva-web-377007402492.europe-west1.run.app"));
+        config.setAllowedOrigins(corsProperties.getAllowedOrigins());
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
@@ -82,7 +84,7 @@ public class SecurityConfig {
                 .oauth2ResourceServer(
                         (oauth2) -> oauth2.jwt(Customizer.withDefaults())
                 ).authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/v1/pub/**", "/graphql/**")
+                        .requestMatchers("/api/v1/pub/**", "/graphql/**", "/ws-chat/**")
                         .permitAll()
                         .anyRequest()
                         .authenticated()

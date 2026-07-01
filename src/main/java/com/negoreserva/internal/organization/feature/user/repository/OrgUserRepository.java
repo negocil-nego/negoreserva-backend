@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -29,4 +30,21 @@ public interface OrgUserRepository extends ConcreteRepository<User> {
                     """
     )
     Page<User> findAllByOrganizationId(@Param("organizationId") long organizationId, Pageable pageable);
+
+    @Query("""
+            select distinct u from User u
+            join u.userOrganizations uo
+            where uo.organization.id = :organizationId
+            and u.deletedAt is null
+            """)
+    List<User> findAllUsersByOrganizationId(@Param("organizationId") long organizationId);
+
+    @Query("""
+            select distinct u from User u
+            join u.userOrganizations uo
+            join uo.organization o
+            where o.slug = :slug
+            and u.deletedAt is null
+            """)
+    List<User> findAllByOrganizationSlug(@Param("slug") String slug);
 }

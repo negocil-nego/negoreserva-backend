@@ -1,33 +1,16 @@
-type OrgPermissionResponse {
+type OrgRolePermissionResponse {
     uuid: ID!
     name: String!
     description: String
 }
 
-type OrgPermissionPaginate {
-    content: [OrgPermissionResponse]!
-    empty: Boolean!
-    first: Boolean!
-    last: Boolean!
-    number: Int!
-    numberOfElements: Int!
-    size: Int!
-    totalElements: Int!
-    totalPages: Int!
-}
-
-input OrgPermissionRequest {
-    name: String!
-    description: String
+type OrgRolePermissions {
+    assignedPermissions: [OrgRolePermissionResponse]!
+    availablePermissions: [OrgRolePermissionResponse]!
 }
 
 extend type Query {
-    orgPaginatePermission(paginateRequest: PaginateRequest): OrgPermissionPaginate!
-    orgFindByUuidPermission(uuid: ID!): OrgPermissionResponse
-}
-
-extend type Mutation {
-    orgSavePermission(permissionRequest: OrgPermissionRequest!): OrgPermissionResponse
-    orgUpdatePermission(uuid: ID!, permissionRequest: OrgPermissionRequest!): OrgPermissionResponse
-    orgDeleteByUuidPermission(uuid: ID!): Boolean
+    orgFindAll: [PermissionResponse!]!
+    orgPaginate(paginateRequest: PaginateRequest): PermissionResponsePaginate
+    orgGetRolePermissions(roleUuid: ID!): OrgRolePermissions!
 }

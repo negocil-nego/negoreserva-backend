@@ -1,6 +1,5 @@
 type RoleResponse {
     uuid: ID!
-    code: String!
     name: String!
     description: String
     roleType: String
@@ -19,7 +18,6 @@ type RolePaginate {
 }
 
 input RoleRequest {
-    code: String!
     name: String!
     description: String
     roleType: String

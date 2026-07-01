@@ -12,7 +12,8 @@ public record AddressResponse(
         ProvinceResponse province,
         MunicipalityResponse municipality,
         Double latitude,
-        Double longitude
+        Double longitude,
+        boolean isDefault
 ) {
     public static AddressResponse of(Address address) {
         return new AddressResponse(
@@ -21,7 +22,8 @@ public record AddressResponse(
                 address.getProvince().toResponse(),
                 address.getMunicipality().toResponse(),
                 address.getLatitude(),
-                address.getLongitude()
+                address.getLongitude(),
+                address.isDefault()
         );
     }
 }

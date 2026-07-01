@@ -3,7 +3,12 @@ type OrgPersonResponse {
     name: String!
     email: String!
     phone: String!
-    birthday: String
+    roles: [OrgRoleResponse]!
+}
+
+type OrgPersonRoles {
+    assignedRoles: [OrgRoleResponse]!
+    availableRoles: [OrgRoleResponse]!
 }
 
 type OrgUserPaginate {
@@ -23,18 +28,18 @@ input OrgUserCreateRequest {
     email: String!
     phone: String!
     password: String
-    birthday: String
-    roleUuid: ID
+    roleUuids: [ID!]
 }
 
 input OrgUserUpdateRequest {
     name: String
-    birthday: String
+    roleUuids: [ID!]
 }
 
 extend type Query {
     orgPaginatePerson(paginateRequest: PaginateRequest): OrgUserPaginate!
     orgFindByUuidPerson(uuid: ID!): OrgPersonResponse
+    orgGetPersonRoles(userUuid: ID!): OrgPersonRoles!
 }
 
 extend type Mutation {

@@ -7,4 +7,5 @@ public final class OrgOrganizationRouteNamed {
     public final static String UPDATE_VIDEO = "upload/video";
     public final static String UPDATE_LOGO = "upload/logo";
     public final static String ME = "me";
+    public final static String SIMPLE = "simple/{slug}";
 }

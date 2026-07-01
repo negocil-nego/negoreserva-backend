@@ -7,8 +7,7 @@ import java.util.Arrays;
 @Getter
 public enum RoleFilterQueryParamType {
     ALL("ALL"),
-    NAME("NAME"),
-    CODE("CODE");
+    NAME("NAME");
 
     private final String value;
 

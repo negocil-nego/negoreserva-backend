@@ -6,6 +6,12 @@ type OrgProductResponse {
     files: [OrgProductFileResponse]
 }
 
+type ProductSuggestionResponse {
+    categoryType: String!
+    products: [String!]!
+    tags: [String!]!
+}
+
 type OrgProductPaginate {
     content: [OrgProductResponse]!
     empty: Boolean
@@ -22,6 +28,7 @@ extend type Query {
     orgPaginateProduct(paginateRequest: PaginateRequest): OrgProductPaginate!
     orgPaginateProductFilter(filter: ProductFilterQueryParamInput): OrgProductPaginate!
     orgFindByUuidProduct(uuid: ID!): OrgProductResponse
+    orgProductSuggestions: [ProductSuggestionResponse!]!
 }
 
 extend type Mutation {

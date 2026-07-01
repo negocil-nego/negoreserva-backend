@@ -1,7 +1,6 @@
 type OrgRoleResponse {
     uuid: ID!
     name: String!
-    description: String
 }
 
 type OrgRolePaginate {
@@ -18,13 +17,13 @@ type OrgRolePaginate {
 
 input OrgRoleRequest {
     name: String!
-    description: String
     permissionUuids: [ID!]
 }
 
 extend type Query {
     orgPaginateRole(paginateRequest: PaginateRequest): OrgRolePaginate!
     orgFindByUuidRole(uuid: ID!): OrgRoleResponse
+    orgFindAllRole: [OrgRoleResponse]!
 }
 
 extend type Mutation {

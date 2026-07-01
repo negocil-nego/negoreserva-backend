@@ -13,7 +13,6 @@ type UpdateDataResponse {
     expiredAt: String
 }
 
-
 type OrganizationSocialMediaDetailResponse {
     uuid: ID!
     facebook: String
@@ -49,6 +48,12 @@ input OrganizationAddressEditRequest {
     address: String!
 }
 
+input OrganizationAddressUpsertRequest {
+    complement: String
+    provinceUuid: ID!
+    municipalityUuid: ID!
+}
+
 extend type Query {
     orgProfileOrganization: OrgOrganizationProfile
 }
@@ -57,4 +62,7 @@ extend type Mutation {
     orgOrganizationUpdate(request: OrganizationEditProfileRequest): OrganizationResponse
     orgOrganizationUpdateSocialMedia(request: OrganizationSocialMediaEditRequest!): OrganizationResponse
     orgOrganizationUpdateAddress(request: OrganizationAddressEditRequest!): OrganizationResponse
+    orgOrganizationUpsertAddress(request: OrganizationAddressUpsertRequest!): AddressResponse
+    orgOrganizationSetDefaultAddress(addressUuid: ID!): AddressResponse
+    orgOrganizationRemoveAddress(addressUuid: ID!): OrganizationResponse
 }

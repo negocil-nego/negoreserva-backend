@@ -47,6 +47,6 @@ public class Address extends ConcreteModel {
     private List<OrganizationAddress> organizationAddresses = new ArrayList<>();
 
     public AddressResponse toResponse() {
-        return new AddressResponse(uuid, complement, province.toResponse(), municipality.toResponse(), latitude, longitude);
+        return new AddressResponse(uuid, complement, province.toResponse(), municipality.toResponse(), latitude, longitude, isDefault);
     }
 }

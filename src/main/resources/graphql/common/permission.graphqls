@@ -1,0 +1,22 @@
+type PermissionResponse {
+    uuid: ID!
+    name: String!
+    description: String
+}
+
+type PermissionResponsePaginate {
+    content: [PermissionResponse]!
+    empty: Boolean!
+    first: Boolean!
+    last: Boolean!
+    number: Int!
+    numberOfElements: Int!
+    size: Int!
+    totalElements: Int!
+    totalPages: Int!
+}
+
+input PermissionRequest {
+    name: String
+    description: String
+}

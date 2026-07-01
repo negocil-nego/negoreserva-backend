@@ -17,7 +17,7 @@ public class SmsOrganizationUpdatePhoneDispatcher {
 
     public void dispatch(SmsOrganizationUpdatePhone smsOrganizationUpdatePhone) {
         log.info("[SMS/Organization-update-phone] Disparando para: {}", smsOrganizationUpdatePhone.getRecept());
-        if (SmsInputIdentifier.isPhone(smsOrganizationUpdatePhone.getRecept())) {
+        if (SmsInputIdentifier.isEmail(smsOrganizationUpdatePhone.getRecept())) {
             mailjetForgetPasswordDispatcher.send(smsOrganizationUpdatePhone);
         } else if (SmsInputIdentifier.isPhone(smsOrganizationUpdatePhone.getRecept())) {
             ombalaForgetPasswordDispatcher.send(smsOrganizationUpdatePhone);

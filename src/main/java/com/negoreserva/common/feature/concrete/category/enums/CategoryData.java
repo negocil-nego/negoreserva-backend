@@ -11,7 +11,7 @@ import java.util.random.RandomGenerator;
 
 @Getter
 @AllArgsConstructor
-public enum CategoryFaker {
+public enum CategoryData {
     HOTEL(
             Category.builder()
                     .name("Hotel")
@@ -49,6 +49,7 @@ public enum CategoryFaker {
                     .name("Restaurante")
                     .icon(HugeiconNamed.RESTAURANT_01.getWeb())
                     .description("Estabelecimento especializado no preparo e serviço de refeições e bebidas para consumo.")
+                    .type(CategoryType.RESTAURANT)
                     .build()
     ),
 
@@ -57,14 +58,7 @@ public enum CategoryFaker {
                     .name("Botequim")
                     .icon(HugeiconNamed.RESTAURANT.getWeb())
                     .description("Estabelecimento informal voltado à venda de bebidas, petiscos e refeições rápidas.")
-                    .build()
-    ),
-
-    TOURISM_BOOKING(
-            Category.builder()
-                    .name("Turismo e Reservas")
-                    .icon(HugeiconNamed.AIR_PLANE_TAKE_OFF_01.getWeb())
-                    .description("Serviço voltado para reservas, passeios turísticos, hospedagens e experiências de lazer.")
+                    .type(CategoryType.RESTAURANT)
                     .build()
     ),
 
@@ -73,14 +67,15 @@ public enum CategoryFaker {
                     .name("Loja")
                     .icon(HugeiconNamed.SHOPPING_BAG_03.getWeb())
                     .description("Estabelecimento comercial destinado à venda de produtos e atendimento ao público.")
+                    .type(CategoryType.RESTAURANT)
                     .build()
     );
 
     private final Category category;
 
     public static List<Category> listCategories() {
-        return Arrays.stream(CategoryFaker.values())
-                .map(CategoryFaker::getCategory)
+        return Arrays.stream(CategoryData.values())
+                .map(CategoryData::getCategory)
                 .toList();
     }
 

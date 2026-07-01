@@ -3,6 +3,7 @@ package com.negoreserva.common.feature.concrete.category.model;
 import com.negoreserva.common.contract.Sluggable;
 import com.negoreserva.common.feature.concrete.category.dto.request.CategoryRequest;
 import com.negoreserva.common.feature.concrete.category.dto.response.CategoryResponse;
+import com.negoreserva.common.feature.concrete.category.enums.CategoryType;
 import com.negoreserva.common.feature.concrete.organization.model.Organization;
 import com.negoreserva.common.util.SlugUtils;
 import com.negoreserva.common.util.UniqueFieldUtil;
@@ -40,6 +41,10 @@ public class Category extends ConcreteModel implements Sluggable {
 
     @Size(max = 100)
     private String icon;
+
+    @Builder.Default
+    @Enumerated(EnumType.STRING)
+    private CategoryType type = CategoryType.HOSTING;
 
     @ToString.Exclude
     @ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY)

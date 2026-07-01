@@ -7,7 +7,7 @@ import com.negoreserva.internal.organization.feature.catalog.dto.response.OrgCat
 import com.negoreserva.internal.organization.feature.catalog.service.OrgCatalogService;
 import com.negoreserva.internal.organization.feature.catalog.util.OrgCatalogRouteNamed;
 import com.negoreserva.internal.organization.feature.permission.enums.OrgPermissionData;
-import com.negoreserva.internal.organization.componet.OrgControlAccess;
+import com.negoreserva.internal.organization.component.OrgControlAccess;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

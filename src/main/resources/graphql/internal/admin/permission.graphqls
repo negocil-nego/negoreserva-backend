@@ -1,0 +1,10 @@
+extend type Query {
+    adminPaginatePermission(paginateRequest: PaginateRequest): PermissionResponsePaginate
+    adminFindByUuidPermission(uuid: String!): PermissionResponse
+}
+
+extend type Mutation {
+    adminUpdatePermission(uuid: ID!, permissionRequest: PermissionRequest!): PermissionResponse
+    adminSavePermission(permissionRequest: PermissionRequest!): PermissionResponse
+    adminDeleteByUuidPermission(uuid: ID!): Boolean
+}

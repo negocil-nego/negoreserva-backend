@@ -4,8 +4,10 @@ import com.negoreserva.internal.admin.feature.product.dto.queryparam.ProductFilt
 import com.negoreserva.internal.organization.feature.permission.enums.OrgPermissionData;
 import com.negoreserva.internal.organization.feature.product.dto.response.OrgProductPaginate;
 import com.negoreserva.internal.organization.feature.product.dto.response.OrgProductResponse;
+import com.negoreserva.internal.organization.feature.product.dto.response.ProductSuggestionResponse;
 import com.negoreserva.internal.organization.feature.product.service.OrgProductService;
-import com.negoreserva.internal.organization.componet.OrgControlAccess;
+import com.negoreserva.internal.organization.feature.product.service.OrgProductSuggestionService;
+import com.negoreserva.internal.organization.component.OrgControlAccess;
 import com.negoreserva.common.feature.core.dto.request.PaginateRequest;
 import com.negoreserva.common.feature.concrete.product.dto.request.ProductRequest;
 import jakarta.validation.Valid;
@@ -23,6 +25,7 @@ import java.util.UUID;
 public class OrgProductResolver {
     private final OrgControlAccess controlAccess;
     private final OrgProductService service;
+    private final OrgProductSuggestionService suggestionService;
 
     @QueryMapping
     public OrgProductResponse orgFindByUuidProduct(@Argument UUID uuid, Authentication authentication) {
@@ -40,6 +43,12 @@ public class OrgProductResolver {
     public OrgProductPaginate orgPaginateProductFilter(@Argument ProductFilterQueryParam filter, Authentication authentication) {
         controlAccess.canPermission(OrgPermissionData.READ_PRODUCT, authentication);
         return service.paginate(filter, authentication);
+    }
+
+    @QueryMapping
+    public java.util.List<ProductSuggestionResponse> orgProductSuggestions(Authentication authentication) {
+        controlAccess.canPermission(OrgPermissionData.READ_PRODUCT, authentication);
+        return suggestionService.findBy(authentication);
     }
 
     @MutationMapping

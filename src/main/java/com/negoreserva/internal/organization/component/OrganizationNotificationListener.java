@@ -1,4 +1,4 @@
-package com.negoreserva.internal.organization.componet;
+package com.negoreserva.internal.organization.component;
 
 import com.negoreserva.common.feature.concrete.organization.service.OrganizationService;
 import com.negoreserva.common.feature.core.event.OrganizationCreatedEvent;

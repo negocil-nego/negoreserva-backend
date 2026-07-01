@@ -8,7 +8,7 @@ import com.negoreserva.internal.organization.feature.payment.dto.response.OrgPay
 import com.negoreserva.internal.organization.feature.payment.dto.response.OrgPaymentResponse;
 import com.negoreserva.internal.organization.feature.payment.service.OrgPaymentService;
 import com.negoreserva.internal.organization.feature.permission.enums.OrgPermissionData;
-import com.negoreserva.internal.organization.componet.OrgControlAccess;
+import com.negoreserva.internal.organization.component.OrgControlAccess;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

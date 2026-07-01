@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface AdminRoleRepository extends ConcreteRepository<Role> {
-    Optional<Role> findByCode(String code);
+    Optional<Role> findByName(String name);
 }

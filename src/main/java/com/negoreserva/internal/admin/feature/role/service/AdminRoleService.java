@@ -41,6 +41,6 @@ public class AdminRoleService extends ConcreteService<Role> {
     }
 
     public Role findOrCreate(Role role) {
-        return repository.findByCode(role.getCode()).orElseGet(() -> repository.save(role));
+        return repository.findByName(role.getName()).orElseGet(() -> repository.save(role));
     }
 }

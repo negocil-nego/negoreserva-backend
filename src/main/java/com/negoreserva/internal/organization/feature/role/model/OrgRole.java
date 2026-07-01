@@ -21,13 +21,11 @@ import lombok.experimental.SuperBuilder;
         name = "TB_ORG_ROLES",
         uniqueConstraints = {@UniqueConstraint(
                 name = "uk_admin_role",
-                columnNames = {"name", "code", "organization_id"}
+                columnNames = {"name", "organization_id"}
         )}
 )
 public class OrgRole extends ConcreteModel {
     private String name;
-
-    private String code;
 
     @ManyToOne
     @JoinColumn(name = "organization_id")
@@ -35,10 +33,10 @@ public class OrgRole extends ConcreteModel {
 
 
     public RoleResponse toResponse() {
-        return new RoleResponse(uuid, name, code);
+        return new RoleResponse(uuid, name);
     }
 
     public RoleRequest toRequest() {
-        return new RoleRequest(name, code);
+        return new RoleRequest(name);
     }
 }

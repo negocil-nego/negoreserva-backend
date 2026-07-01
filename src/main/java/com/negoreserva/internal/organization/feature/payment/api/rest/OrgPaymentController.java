@@ -8,7 +8,7 @@ import com.negoreserva.internal.organization.feature.payment.dto.response.OrgPay
 import com.negoreserva.internal.organization.feature.payment.service.OrgPaymentService;
 import com.negoreserva.internal.organization.feature.payment.util.OrgPaymentRouteNamed;
 import com.negoreserva.internal.organization.feature.permission.enums.OrgPermissionData;
-import com.negoreserva.internal.organization.componet.OrgControlAccess;
+import com.negoreserva.internal.organization.component.OrgControlAccess;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

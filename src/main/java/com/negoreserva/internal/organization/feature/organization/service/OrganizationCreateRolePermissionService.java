@@ -12,6 +12,9 @@ import com.negoreserva.common.feature.concrete.permission.model.Permission;
 import org.springframework.stereotype.Component;
 import lombok.RequiredArgsConstructor;
 
+import java.util.Arrays;
+import java.util.concurrent.CompletableFuture;
+
 @Component
 @RequiredArgsConstructor
 public class OrganizationCreateRolePermissionService {
@@ -22,15 +25,16 @@ public class OrganizationCreateRolePermissionService {
     public RolePermission createRoleAdmin(Organization organization) {
         var orgRole = OrgRole.builder()
                 .name(OrgRoleData.ADMIN.getOrgRole().getName())
-                .code(OrgRoleData.ADMIN.getOrgRole().getCode())
                 .organization(organization)
                 .build();
+
         orgRole = orgRoleService.findOrCreate(orgRole);
 
         var permission = Permission.builder()
                 .name(OrgPermissionData.TOTAL.getPermission().getName())
                 .description(OrgPermissionData.TOTAL.getPermission().getDescription())
                 .build();
+
         permission = orgPermissionService.findOrCreate(permission);
 
         var rolePermission = RolePermission
@@ -39,6 +43,25 @@ public class OrganizationCreateRolePermissionService {
                 .permission(permission)
                 .build();
 
+        final OrgRole finalOrgRole = orgRole;
+        CompletableFuture.runAsync(() -> createAllPermission(finalOrgRole));
         return orgRolePermissionService.findOrCreate(rolePermission);
+    }
+
+    private void createAllPermission(OrgRole orgRole) {
+        var permissions = Arrays.stream(OrgPermissionData.values())
+                .filter(it -> !it.equals(OrgPermissionData.TOTAL))
+                .map(OrgPermissionData::getPermission)
+                .toList();
+
+        for (var permission: permissions) {
+            permission = orgPermissionService.findOrCreate(permission);
+            var rolePermission = RolePermission
+                    .builder()
+                    .orgRole(orgRole)
+                    .permission(permission)
+                    .build();
+            orgRolePermissionService.findOrCreate(rolePermission);
+        }
     }
 }

@@ -9,7 +9,7 @@ import com.negoreserva.internal.organization.feature.catalog.service.OrgCatalogS
 import com.negoreserva.internal.organization.feature.permission.enums.OrgPermissionData;
 import com.negoreserva.internal.organization.feature.product.dto.response.OrgProductPaginate;
 import com.negoreserva.common.feature.core.dto.request.PaginateRequest;
-import com.negoreserva.internal.organization.componet.OrgControlAccess;
+import com.negoreserva.internal.organization.component.OrgControlAccess;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.graphql.data.method.annotation.Argument;

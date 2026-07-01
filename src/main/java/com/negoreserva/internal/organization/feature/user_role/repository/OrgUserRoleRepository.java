@@ -6,10 +6,12 @@ import com.negoreserva.internal.organization.feature.user_role.model.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface OrgUserRoleRepository extends JpaRepository<UserRole, Long> {
     Optional<UserRole> findByUserAndOrgRole(User user, OrgRole orgRole);
+    List<UserRole> findByUser(User user);
 }
 

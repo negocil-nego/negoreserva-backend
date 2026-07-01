@@ -9,7 +9,6 @@ import lombok.Getter;
 public enum OrgRoleData {
     ADMIN(OrgRole.builder()
                     .name("Gestor de sistema da organização")
-                    .code("ORG_MANAGER_ORGANIZATION")
                     .build()
     );
     

@@ -1,4 +1,4 @@
-package com.negoreserva.internal.organization.componet;
+package com.negoreserva.internal.organization.component;
 
 import com.negoreserva.internal.organization.feature.permission.enums.OrgPermissionData;
 import org.springframework.security.core.Authentication;

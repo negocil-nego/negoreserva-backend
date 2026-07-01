@@ -1,30 +1,32 @@
 package com.negoreserva.common.component;
 
 import com.negoreserva.common.dto.TokenResponse;
+import com.negoreserva.common.exception.UnauthorizedException;
 import com.negoreserva.common.feature.general.register.util.ExpiredGenerator;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.oauth2.jwt.JwtClaimsSet;
-import org.springframework.security.oauth2.jwt.JwtEncoder;
-import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
+import org.springframework.security.oauth2.jwt.*;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
+@RequiredArgsConstructor
 public class TokenFacade {
     private final JwtEncoder encoder;
-
-    public TokenFacade(JwtEncoder encoder) {
-        this.encoder = encoder;
-    }
+    private final JwtDecoder jwtDecoder;
 
     public void clearTokenCookie(HttpServletResponse response) {
         ResponseCookie expiredCookie = ResponseCookie.from("token", "")

@@ -6,7 +6,7 @@ import com.negoreserva.internal.organization.feature.product.dto.response.OrgPro
 import com.negoreserva.internal.organization.feature.product.dto.response.OrgProductResponse;
 import com.negoreserva.internal.organization.feature.product.service.OrgProductService;
 import com.negoreserva.internal.organization.feature.product.util.OrgProductRouteNamed;
-import com.negoreserva.internal.organization.componet.OrgControlAccess;
+import com.negoreserva.internal.organization.component.OrgControlAccess;
 import com.negoreserva.common.feature.concrete.product.dto.request.ProductRequest;
 import com.negoreserva.internal.organization.feature.product.dto.request.OrgProductCreateRequest;
 import io.swagger.v3.oas.annotations.Operation;
