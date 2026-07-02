@@ -1,7 +1,7 @@
 package com.negoreserva.internal.organization.feature.product.dto.request;
 
-import com.negoreserva.common.feature.concrete.product_price.dto.request.ProductPriceRequest;
-import com.negoreserva.common.feature.concrete.product_tag_info.dto.request.ProductTagInfoRequest;
+import com.negoreserva.common.feature.concrete.product.dto.request.ProductPriceRequest;
+import com.negoreserva.common.feature.concrete.product.dto.request.ProductTagInfoRequest;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

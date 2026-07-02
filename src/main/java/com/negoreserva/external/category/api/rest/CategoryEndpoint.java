@@ -1,9 +1,9 @@
-package com.negoreserva.external.feature.category.api.rest;
+package com.negoreserva.external.category.api.rest;
 
 import com.negoreserva.common.feature.concrete.category.dto.queryparam.CategoryFilterQueryParam;
 import com.negoreserva.common.feature.concrete.category.dto.response.CategoryPaginate;
 import com.negoreserva.common.feature.concrete.category.service.CategoryService;
-import com.negoreserva.external.feature.category.util.CategoryRouteNamed;
+import com.negoreserva.external.category.util.CategoryRouteNamed;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

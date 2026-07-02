@@ -4,13 +4,14 @@ import com.negoreserva.common.feature.concrete.address.component.AddressSeeder;
 import com.negoreserva.common.feature.concrete.catalog.component.CatalogSeeder;
 import com.negoreserva.common.feature.concrete.category.component.CategorySeeder;
 import com.negoreserva.common.feature.concrete.municipality.component.MunicipalitySeeder;
+import com.negoreserva.common.feature.concrete.notification.component.NotificationSeeder;
 import com.negoreserva.common.feature.concrete.organization.component.OrganizationSeeder;
-import com.negoreserva.common.feature.concrete.organization_social_media.component.OrganizationSocialMediaSeeder;
+import com.negoreserva.common.feature.concrete.organization.component.OrganizationSocialMediaSeeder;
 import com.negoreserva.common.feature.concrete.payment.component.PaymentSeeder;
 import com.negoreserva.common.feature.concrete.product.component.ProductSeeder;
-import com.negoreserva.common.feature.concrete.product_file.component.ProductFileSeeder;
-import com.negoreserva.common.feature.concrete.product_price.component.ProductPriceSeeder;
-import com.negoreserva.common.feature.concrete.product_tag_info.component.ProductTagInfoSeeder;
+import com.negoreserva.common.feature.concrete.product.component.ProductFileSeeder;
+import com.negoreserva.common.feature.concrete.product.component.ProductPriceSeeder;
+import com.negoreserva.common.feature.concrete.product.component.ProductTagInfoSeeder;
 import com.negoreserva.common.feature.concrete.province.component.ProvinceSeeder;
 import com.negoreserva.common.feature.concrete.transaction.component.TransactionSeeder;
 import com.negoreserva.common.feature.concrete.user.component.UserSeeder;
@@ -43,6 +44,7 @@ public class SeederCommandLineRunner implements CommandLineRunner {
     private final ProductFileSeeder productFileSeeder;
     private final ProvinceSeeder provinceSeeder;
 
+    private final NotificationSeeder notificationSeeder;
     private final OrganizationSeeder organizationSeeder;
     private final TransactionSeeder transactionSeeder;
     private final CategorySeeder categorySeeder;
@@ -110,5 +112,8 @@ public class SeederCommandLineRunner implements CommandLineRunner {
 
         paymentSeeder.setTransactions(transactions);
         paymentSeeder.seed();
+
+        notificationSeeder.setUsers(users);
+        notificationSeeder.seed();
     }
 }

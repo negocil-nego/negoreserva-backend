@@ -2,6 +2,7 @@ package com.negoreserva.common.feature.concrete.user.service;
 
 import com.negoreserva.common.enums.StoragePathNamed;
 import com.negoreserva.common.exception.UnauthorizedException;
+import com.negoreserva.common.feature.concrete.organization.model.Organization;
 import com.negoreserva.common.feature.concrete.user.dto.request.post.UserResetPasswordCurrentRequest;
 import com.negoreserva.common.feature.concrete.user.exception.notfound.UserEmailNotFoundException;
 import com.negoreserva.common.feature.concrete.user.exception.notfound.UserNotFoundException;
@@ -16,6 +17,8 @@ import com.negoreserva.common.feature.general.storage.service.StorageService;
 import com.negoreserva.common.feature.general.user_forget_password.exception.PasswordsDifferentException;
 import com.negoreserva.common.util.PasswordEncoderGenerator;
 import com.negoreserva.common.util.RegexValidators;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.jwt.Jwt;
@@ -44,6 +47,10 @@ public class UserService extends ConcreteService<User> {
     @Override
     public User findByUuid(UUID uuid) {
         return repository.findByUuid(uuid).orElseThrow(() -> new UserNotFoundException(uuid));
+    }
+
+    public Page<User> findAllByOrganization(Organization organization, Pageable pageable) {
+        return repository.findAllByOrganization(organization, pageable);
     }
 
     public User findByUsername(String username) {
@@ -83,23 +90,22 @@ public class UserService extends ConcreteService<User> {
     }
 
     public User findOrCreate(User user) {
-        return repository.findByEmail(user.getEmail()).orElseGet(() -> save(user));
+        return repository.findByEmail(user.getEmail()).orElseGet(() -> super.save(user));
     }
 
     public User update(UserEditProfileRequest request, Authentication authentication) {
         var user = findBy(authentication);
         Optional.ofNullable(request.getName()).ifPresent(user::setName);
-        return save(user);
+        return super.save(user);
     }
 
     public User update(UserResetPasswordCurrentRequest request, Authentication authentication) {
         if(!request.password().equals(request.confirm())) throw new PasswordsDifferentException();
-
         var user = findBy(authentication);
-        if(!PasswordEncoderGenerator.matches(request.current(), user.getPassword())) throw new PasswordsDifferentException("Not password current");
-
+        if(!PasswordEncoderGenerator.matches(request.current(), user.getPassword()))
+            throw new PasswordsDifferentException("Not password current");
         user.setPassword(PasswordEncoderGenerator.encode(request.password()));
-        return save(user);
+        return super.save(user);
     }
 
     public User updateLogoUser(MultipartFile file, Authentication authentication) {

@@ -14,18 +14,23 @@ import java.util.UUID;
 public interface ChatConversationRepository extends JpaRepository<ChatConversation, Long> {
     Optional<ChatConversation> findByUuid(UUID uuid);
 
-    List<ChatConversation> findByEmissorUuidAndOrganizationSlugOrderByCreatedAtDesc(UUID emissorUuid, String slug);
-
     @Query("""
-            SELECT c FROM ChatConversation c
-            WHERE c.organization.slug = :orgSlug
-            AND ((c.emissor.uuid = :userA AND c.receptor.uuid = :userB)
-                 OR (c.emissor.uuid = :userB AND c.receptor.uuid = :userA))
+            SELECT DISTINCT c FROM ChatConversation c
+            WHERE (c.issuer.uuid = :userA AND c.receptor.uuid = :userB)
+               OR (c.issuer.uuid = :userB AND c.receptor.uuid = :userA)
             ORDER BY c.createdAt DESC
             """)
-    List<ChatConversation> findConversationBetween(
-            @Param("orgSlug") String orgSlug,
+    List<ChatConversation> findConversation(
             @Param("userA") UUID userA,
             @Param("userB") UUID userB
+    );
+
+    @Query("""
+            SELECT DISTINCT c FROM ChatConversation c
+            WHERE c.issuer.uuid = :userUuid OR c.receptor.uuid = :userUuid
+            ORDER BY c.createdAt DESC
+            """)
+    List<ChatConversation> findByUserUuidOrderByCreatedAtDesc(
+            @Param("userUuid") UUID userUuid
     );
 }

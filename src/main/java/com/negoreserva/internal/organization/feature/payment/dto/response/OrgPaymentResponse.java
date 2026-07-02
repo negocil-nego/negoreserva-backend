@@ -3,7 +3,7 @@ package com.negoreserva.internal.organization.feature.payment.dto.response;
 import com.negoreserva.common.feature.concrete.payment.enums.PaymentMethod;
 import com.negoreserva.common.feature.concrete.payment.enums.PaymentStatus;
 import com.negoreserva.common.feature.concrete.payment.model.Payment;
-import com.negoreserva.common.feature.concrete.payment_file_receipt.dto.response.PaymentFileReceiptResponse;
+import com.negoreserva.common.feature.concrete.payment.dto.response.PaymentFileReceiptResponse;
 import com.negoreserva.common.feature.concrete.transaction.dto.response.TransactionResponse;
 
 import java.util.UUID;

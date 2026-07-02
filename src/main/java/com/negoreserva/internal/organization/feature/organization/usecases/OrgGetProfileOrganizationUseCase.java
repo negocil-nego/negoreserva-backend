@@ -5,11 +5,11 @@ import com.negoreserva.common.feature.concrete.address.dto.response.AddressRespo
 import com.negoreserva.common.feature.concrete.organization.dto.response.OrganizationResponse;
 import com.negoreserva.common.feature.concrete.organization.model.Organization;
 import com.negoreserva.common.feature.concrete.organization.usecase.OrgOrganizationUseCase;
-import com.negoreserva.common.feature.concrete.organization_update_data.model.OrganizationUpdateData;
-import com.negoreserva.common.feature.concrete.organization_social_media.dto.response.OrganizationSocialMediaDetailResponse;
+import com.negoreserva.common.feature.concrete.organization.model.OrganizationUpdateData;
+import com.negoreserva.common.feature.concrete.organization.dto.response.OrganizationSocialMediaDetailResponse;
 import com.negoreserva.common.feature.concrete.user.model.User;
 import com.negoreserva.common.feature.concrete.user.service.UserService;
-import com.negoreserva.common.feature.concrete.user_update_data.model.UserUpdateSensitiveData;
+import com.negoreserva.common.feature.concrete.user.model.UserUpdateSensitiveData;
 import com.negoreserva.internal.organization.feature.organization.dto.response.OrgOrganizationProfile;
 import com.negoreserva.internal.organization.feature.organization.dto.response.OrgUserResponse;
 import org.springframework.security.core.Authentication;

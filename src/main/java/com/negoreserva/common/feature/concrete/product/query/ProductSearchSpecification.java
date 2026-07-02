@@ -3,7 +3,7 @@ package com.negoreserva.common.feature.concrete.product.query;
 import com.negoreserva.common.feature.concrete.organization.model.Organization;
 import com.negoreserva.common.feature.concrete.product.dto.queryparam.ProductSearchFilterParam;
 import com.negoreserva.common.feature.concrete.product.model.Product;
-import com.negoreserva.common.feature.concrete.product_price.model.ProductPrice;
+import com.negoreserva.common.feature.concrete.product.model.ProductPrice;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Join;

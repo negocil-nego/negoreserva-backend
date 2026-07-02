@@ -1,4 +1,4 @@
-package com.negoreserva.external.feature.payment.util;
+package com.negoreserva.external.payment.util;
 
 public final class PaymentRouteNamed {
     public final static String PATH = "/api/v1/pub/payments";

@@ -10,10 +10,10 @@ import com.negoreserva.common.feature.general.sms.model.SmsCreateAccountOtpVerif
 import com.negoreserva.common.feature.general.sms.service.SmsCreateAccountOtpVerificationDispatcher;
 import com.negoreserva.common.feature.concrete.user.enums.UserType;
 import com.negoreserva.common.feature.pivot.user_organization.enums.UserOrganizationType;
-import com.negoreserva.common.feature.concrete.user_otp_verification.service.UserOtpVerificationFacade;
+import com.negoreserva.common.feature.concrete.user.service.UserOtpVerificationFacade;
 import com.negoreserva.common.feature.general.register.dto.request.CreateAccountOrganizationRequest;
 import com.negoreserva.common.feature.pivot.user_organization.service.UserOrganizationService;
-import com.negoreserva.common.feature.concrete.user_otp_verification.model.UserOtpVerification;
+import com.negoreserva.common.feature.concrete.user.model.UserOtpVerification;
 import com.negoreserva.common.feature.general.register.dto.response.CreateAccountResponse;
 import com.negoreserva.common.feature.pivot.user_organization.model.UserOrganization;
 import com.negoreserva.common.feature.concrete.organization.service.OrganizationService;

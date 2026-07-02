@@ -1,4 +1,4 @@
-package com.negoreserva.external.feature.product.dto.response;
+package com.negoreserva.external.product.dto.response;
 
 import java.math.BigDecimal;
 import java.util.UUID;

@@ -18,9 +18,8 @@ public class OrgChatConversationController {
 
     @GetMapping("/user/{userUuid}")
     public ResponseEntity<List<ChatConversationResponse>> findByUser(
-            @PathVariable UUID userUuid,
-            @RequestParam String slug
+            @PathVariable UUID userUuid
     ) {
-        return ResponseEntity.ok(service.findByUserAndOrg(userUuid, slug));
+        return ResponseEntity.ok(service.findByUser(userUuid));
     }
 }

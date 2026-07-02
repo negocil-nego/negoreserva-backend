@@ -24,4 +24,7 @@ public class Notification extends CommonModel {
     private User user;
 
     private String message;
+
+    @Builder.Default
+    private Boolean ready = false;
 }

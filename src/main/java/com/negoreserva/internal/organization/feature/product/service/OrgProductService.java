@@ -14,8 +14,8 @@ import com.negoreserva.common.feature.core.service.ConcreteService;
 import com.negoreserva.common.feature.concrete.product.model.Product;
 import com.negoreserva.common.feature.general.storage.service.StorageService;
 import com.negoreserva.internal.organization.feature.product.dto.request.OrgProductCreateRequest;
-import com.negoreserva.common.feature.concrete.product_file.model.ProductFile;
-import com.negoreserva.common.feature.concrete.product_file.enums.ProductFileType;
+import com.negoreserva.common.feature.concrete.product.model.ProductFile;
+import com.negoreserva.common.feature.concrete.product.enums.ProductFileType;
 import com.negoreserva.common.enums.StoragePathNamed;
 import org.springframework.web.multipart.MultipartFile;
 

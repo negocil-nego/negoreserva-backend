@@ -14,9 +14,9 @@ public class OrgChatConversationService {
 
     private final ChatConversationRepository conversationRepository;
 
-    public List<ChatConversationResponse> findByUserAndOrg(UUID userUuid, String orgSlug) {
+    public List<ChatConversationResponse> findByUser(UUID userUuid) {
         return conversationRepository
-                .findByEmissorUuidAndOrganizationSlugOrderByCreatedAtDesc(userUuid, orgSlug)
+                .findByUserUuidOrderByCreatedAtDesc(userUuid)
                 .stream()
                 .map(ChatConversationResponse::of)
                 .toList();

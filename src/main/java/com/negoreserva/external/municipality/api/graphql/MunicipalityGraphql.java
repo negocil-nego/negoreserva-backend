@@ -1,4 +1,4 @@
-package com.negoreserva.external.feature.municipality.api.graphql;
+package com.negoreserva.external.municipality.api.graphql;
 
 import com.negoreserva.common.feature.concrete.municipality.dto.response.MunicipalityResponse;
 import com.negoreserva.common.feature.concrete.municipality.service.MunicipalityService;

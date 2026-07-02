@@ -1,4 +1,4 @@
-package com.negoreserva.external.feature.product.util;
+package com.negoreserva.external.product.util;
 
 public final class ProductRouteNamed {
     public final static String PATH = "/api/v1/pub/categories";

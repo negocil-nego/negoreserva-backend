@@ -16,8 +16,8 @@ import com.negoreserva.common.feature.concrete.product.exception.notfound.Produc
 import com.negoreserva.common.feature.concrete.product.exception.notfound.ProductNotFoundException;
 import com.negoreserva.common.feature.concrete.product.exception.notfound.ProductSlugNotFoundException;
 import com.negoreserva.common.feature.concrete.product.exception.unique.ProductNameAlreadyExistsException;
-import com.negoreserva.common.feature.concrete.product_file.exception.notfound.ProductFileNotFoundException;
-import com.negoreserva.common.feature.concrete.user_otp_verification.exception.OtpInvalidException;
+import com.negoreserva.common.feature.concrete.product.exception.notfound.ProductFileNotFoundException;
+import com.negoreserva.common.feature.concrete.user.exception.OtpInvalidException;
 import com.negoreserva.common.feature.general.sms.execption.SmsException;
 import com.negoreserva.common.feature.concrete.user.exception.notfound.UserEmailNotFoundException;
 import com.negoreserva.common.feature.concrete.user.exception.notfound.UserNotFoundException;
@@ -28,8 +28,8 @@ import com.negoreserva.common.feature.concrete.user.exception.unique.UserPhoneAl
 import com.negoreserva.common.feature.concrete.user.exception.unique.UserUsernameAlreadyExistsException;
 import com.negoreserva.common.feature.general.user_forget_password.exception.PasswordRecoveryProcessIsActiveException;
 import com.negoreserva.common.feature.general.user_forget_password.exception.PasswordsDifferentException;
-import com.negoreserva.common.feature.concrete.user_otp_verification.exception.UserOtpVerificationConfirmException;
-import com.negoreserva.common.feature.concrete.user_otp_verification.exception.UserOtpVerificationNotExpiredException;
+import com.negoreserva.common.feature.concrete.user.exception.UserOtpVerificationConfirmException;
+import com.negoreserva.common.feature.concrete.user.exception.UserOtpVerificationNotExpiredException;
 import com.negoreserva.common.util.ConstraintUniqueList;
 import com.negoreserva.internal.admin.util.AdminProblemDetailHelpers;
 import com.negoreserva.common.feature.core.util.ProblemDetailHelpers;

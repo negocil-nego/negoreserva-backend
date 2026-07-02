@@ -1,6 +1,5 @@
 package com.negoreserva.common.feature.concrete.chat.model;
 
-import com.negoreserva.common.feature.concrete.organization.model.Organization;
 import com.negoreserva.common.feature.concrete.user.model.User;
 import com.negoreserva.common.variable.EntityVariable;
 import jakarta.persistence.*;
@@ -28,19 +27,14 @@ public class ChatConversation {
     private UUID uuid;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "emissor_id", nullable = false)
+    @JoinColumn(name = "issuer_id", nullable = false)
     @ToString.Exclude
-    private User emissor;
+    private User issuer;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "receptor_id", nullable = false)
     @ToString.Exclude
     private User receptor;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "organization_id", nullable = false)
-    @ToString.Exclude
-    private Organization organization;
 
     @Column(nullable = false, updatable = false)
     private Instant createdAt;

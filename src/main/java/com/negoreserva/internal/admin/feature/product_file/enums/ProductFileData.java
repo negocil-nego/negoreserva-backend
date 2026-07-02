@@ -1,8 +1,8 @@
 package com.negoreserva.internal.admin.feature.product_file.enums;
 
 import com.negoreserva.common.feature.concrete.product.enums.ProductData;
-import com.negoreserva.common.feature.concrete.product_file.enums.ProductFileType;
-import com.negoreserva.common.feature.concrete.product_file.model.ProductFile;
+import com.negoreserva.common.feature.concrete.product.enums.ProductFileType;
+import com.negoreserva.common.feature.concrete.product.model.ProductFile;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

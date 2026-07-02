@@ -1,0 +1,40 @@
+type NotificationResponse {
+    uuid: ID!
+    type: NotificationType!
+    message: String!
+    ready: Boolean!
+    createdAt: String!
+}
+
+type NotificationPaginate {
+    content: [NotificationResponse]!
+    empty: Boolean!
+    first: Boolean!
+    last: Boolean!
+    number: Int!
+    numberOfElements: Int!
+    size: Int!
+    totalElements: Int!
+    totalPages: Int!
+}
+
+enum NotificationType {
+    NONE
+    SEND_MESSAGE
+}
+
+input NotificationFilterRequest {
+    ready: Boolean
+    search: String
+    pageNumber: Int
+    pageSize: Int
+}
+
+extend type Query {
+    pubNotifications(filter: NotificationFilterRequest): NotificationPaginate!
+}
+
+extend type Mutation {
+    pubMarkNotificationAsRead(uuid: ID!): Boolean!
+    pubMarkAllNotificationsAsRead: Boolean!
+}

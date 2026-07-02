@@ -1,0 +1,24 @@
+type ChatMessageResponse {
+    uuid: ID!
+    message: String!
+    senderName: String!
+    receptorName: String!
+    createdAt: String!
+}
+
+type ChatMessagePaginate {
+    content: [ChatMessageResponse]!
+    empty: Boolean!
+    first: Boolean!
+    last: Boolean!
+    number: Int!
+    numberOfElements: Int!
+    size: Int!
+    totalElements: Int!
+    totalPages: Int!
+}
+
+extend type Query {
+    pubOrgUsers(slug: String!, paginateRequest: PaginateRequest): UserPaginate
+    pubUserConversations(userUuid: ID!, paginateRequest: PaginateRequest): ChatMessagePaginate
+}

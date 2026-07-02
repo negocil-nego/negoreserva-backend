@@ -8,9 +8,9 @@ import com.negoreserva.common.feature.general.user_forget_password.exception.Pas
 import com.negoreserva.common.feature.general.user_forget_password.exception.PasswordRecoveryProcessIsActiveException;
 import com.negoreserva.common.feature.general.user_forget_password.dto.request.UserForgetPasswordRequest;
 import com.negoreserva.common.feature.general.user_forget_password.dto.request.UserForgetResetPasswordRequest;
-import com.negoreserva.common.feature.concrete.user_otp_verification.service.UserOtpVerificationFacade;
+import com.negoreserva.common.feature.concrete.user.service.UserOtpVerificationFacade;
 import com.negoreserva.common.feature.general.user_forget_password.repository.UserForgetPasswordDao;
-import com.negoreserva.common.feature.concrete.user_otp_verification.model.UserOtpVerification;
+import com.negoreserva.common.feature.concrete.user.model.UserOtpVerification;
 import com.negoreserva.common.feature.general.user_forget_password.model.UserForgetPassword;
 import com.negoreserva.common.feature.general.register.util.ExpiredGenerator;
 import com.negoreserva.common.feature.general.register.util.OtpGenerator;

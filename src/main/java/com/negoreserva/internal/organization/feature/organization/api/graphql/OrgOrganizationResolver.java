@@ -4,7 +4,7 @@ import com.negoreserva.common.feature.concrete.address.dto.response.AddressRespo
 import com.negoreserva.common.feature.concrete.organization.dto.request.OrganizationAddressEditRequest;
 import com.negoreserva.common.feature.concrete.organization.dto.request.OrganizationAddressUpsertRequest;
 import com.negoreserva.common.feature.concrete.organization.dto.request.OrganizationEditProfileRequest;
-import com.negoreserva.common.feature.concrete.organization_social_media.dto.request.OrganizationSocialMediaEditRequest;
+import com.negoreserva.common.feature.concrete.organization.dto.request.OrganizationSocialMediaEditRequest;
 import com.negoreserva.internal.organization.feature.organization.dto.response.OrgOrganizationProfile;
 import com.negoreserva.internal.organization.feature.organization.service.OrgOrganizationService;
 import com.negoreserva.internal.organization.feature.permission.enums.OrgPermissionData;

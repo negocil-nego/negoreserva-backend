@@ -1,8 +1,8 @@
-package com.negoreserva.external.feature.payment.api.rest;
+package com.negoreserva.external.payment.api.rest;
 
 import com.negoreserva.common.feature.concrete.payment.service.PaymentReceiptService;
-import com.negoreserva.external.feature.payment.dto.response.PaymentReceiptResponse;
-import com.negoreserva.external.feature.payment.util.PaymentRouteNamed;
+import com.negoreserva.external.payment.dto.response.PaymentReceiptResponse;
+import com.negoreserva.external.payment.util.PaymentRouteNamed;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

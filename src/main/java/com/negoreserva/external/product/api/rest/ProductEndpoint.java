@@ -1,7 +1,7 @@
-package com.negoreserva.external.feature.product.api.rest;
+package com.negoreserva.external.product.api.rest;
 
-import com.negoreserva.external.feature.product.dto.response.ProductDetailResponse;
-import com.negoreserva.external.feature.product.util.ProductRouteNamed;
+import com.negoreserva.external.product.dto.response.ProductDetailResponse;
+import com.negoreserva.external.product.util.ProductRouteNamed;
 import com.negoreserva.common.feature.concrete.product.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

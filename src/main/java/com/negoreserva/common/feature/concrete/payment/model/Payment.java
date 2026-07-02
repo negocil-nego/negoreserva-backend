@@ -2,7 +2,7 @@ package com.negoreserva.common.feature.concrete.payment.model;
 
 import com.negoreserva.common.feature.concrete.payment.enums.PaymentMethod;
 import com.negoreserva.common.feature.concrete.payment.enums.PaymentStatus;
-import com.negoreserva.common.feature.concrete.payment_file_receipt.model.PaymentFileReceipt;
+import com.negoreserva.common.feature.concrete.payment.model.PaymentFileReceipt;
 import com.negoreserva.common.feature.concrete.transaction.model.Transaction;
 import com.negoreserva.common.feature.core.model.ConcreteModel;
 import com.negoreserva.common.variable.EntityVariable;

@@ -1,9 +1,9 @@
-package com.negoreserva.external.feature.organization.api.graphql;
+package com.negoreserva.external.organization.api.graphql;
 
 import com.negoreserva.common.feature.concrete.organization.dto.queryparam.OrganizationSearchFilterParam;
 import com.negoreserva.common.feature.concrete.organization.dto.response.OrganizationResponse;
-import com.negoreserva.external.feature.organization.dto.response.OrganizationDetailResponse;
-import com.negoreserva.external.feature.organization.service.ExOrganizationService;
+import com.negoreserva.external.organization.dto.response.OrganizationDetailResponse;
+import com.negoreserva.external.organization.service.ExOrganizationService;
 import com.negoreserva.common.feature.core.dto.request.PaginateRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

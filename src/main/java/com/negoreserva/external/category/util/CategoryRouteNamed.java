@@ -1,4 +1,4 @@
-package com.negoreserva.external.feature.category.util;
+package com.negoreserva.external.category.util;
 
 public final class CategoryRouteNamed {
     public final static String PATH = "/api/v1/pub/categories";

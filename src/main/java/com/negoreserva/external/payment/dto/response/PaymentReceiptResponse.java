@@ -1,4 +1,4 @@
-package com.negoreserva.external.feature.payment.dto.response;
+package com.negoreserva.external.payment.dto.response;
 
 import com.negoreserva.common.feature.concrete.payment.enums.PaymentMethod;
 import com.negoreserva.common.feature.concrete.payment.enums.PaymentStatus;

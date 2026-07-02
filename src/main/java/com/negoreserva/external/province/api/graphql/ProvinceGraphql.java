@@ -1,4 +1,4 @@
-package com.negoreserva.external.feature.province.api.graphql;
+package com.negoreserva.external.province.api.graphql;
 
 import com.negoreserva.common.feature.concrete.province.dto.response.ProvinceResponse;
 import com.negoreserva.common.feature.concrete.province.service.ProvinceService;

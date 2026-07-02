@@ -1,13 +1,13 @@
 package com.negoreserva.internal.admin.feature.product_file.api.rest;
 
-import com.negoreserva.common.feature.concrete.product_file.dto.request.ProductFileRequest;
-import com.negoreserva.common.feature.concrete.product_file.dto.response.ProductFilePaginate;
-import com.negoreserva.common.feature.concrete.product_file.dto.response.ProductFileResponse;
-import com.negoreserva.common.feature.concrete.product_file.service.ProductFileService;
+import com.negoreserva.common.feature.concrete.product.dto.request.ProductFileRequest;
+import com.negoreserva.common.feature.concrete.product.dto.response.ProductFilePaginate;
+import com.negoreserva.common.feature.concrete.product.dto.response.ProductFileResponse;
+import com.negoreserva.common.feature.concrete.product.service.ProductFileService;
 import com.negoreserva.internal.admin.feature.permission.enums.AdminPermissionData;
 import com.negoreserva.internal.admin.feature.product_file.util.ProductFileRouteNamed;
 import com.negoreserva.internal.admin.component.AdminControlAccess;
-import com.negoreserva.common.feature.concrete.product_file.model.ProductFile;
+import com.negoreserva.common.feature.concrete.product.model.ProductFile;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

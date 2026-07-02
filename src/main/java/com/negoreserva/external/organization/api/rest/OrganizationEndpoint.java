@@ -1,8 +1,8 @@
-package com.negoreserva.external.feature.organization.api.rest;
+package com.negoreserva.external.organization.api.rest;
 
-import com.negoreserva.external.feature.organization.dto.response.OrganizationDetailResponse;
-import com.negoreserva.external.feature.organization.service.ExOrganizationService;
-import com.negoreserva.external.feature.organization.util.OrganizationRouteNamed;
+import com.negoreserva.external.organization.dto.response.OrganizationDetailResponse;
+import com.negoreserva.external.organization.service.ExOrganizationService;
+import com.negoreserva.external.organization.util.OrganizationRouteNamed;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

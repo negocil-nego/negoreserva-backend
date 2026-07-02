@@ -5,7 +5,7 @@ import com.negoreserva.common.feature.concrete.user.enums.UserType;
 import com.negoreserva.common.feature.concrete.user.dto.request.post.UserCreateRequest;
 import com.negoreserva.common.feature.concrete.user.dto.request.put.UserUpdateRequest;
 import com.negoreserva.common.feature.concrete.user.dto.response.UserResponse;
-import com.negoreserva.common.feature.concrete.user_update_data.model.UserUpdateSensitiveData;
+import com.negoreserva.common.feature.concrete.user.model.UserUpdateSensitiveData;
 import com.negoreserva.common.feature.pivot.user_organization.model.UserOrganization;
 import com.negoreserva.common.util.ConstraintUniqueKey;
 import com.negoreserva.common.util.UniqueFieldUtil;

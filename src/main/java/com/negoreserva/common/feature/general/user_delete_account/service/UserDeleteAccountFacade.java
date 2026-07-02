@@ -2,9 +2,9 @@ package com.negoreserva.common.feature.general.user_delete_account.service;
 
 import com.negoreserva.common.exception.NotFoundException;
 import com.negoreserva.common.feature.concrete.user.service.UserService;
-import com.negoreserva.common.feature.concrete.user_otp_verification.exception.OtpInvalidException;
-import com.negoreserva.common.feature.concrete.user_otp_verification.model.UserOtpVerification;
-import com.negoreserva.common.feature.concrete.user_otp_verification.service.UserOtpVerificationFacade;
+import com.negoreserva.common.feature.concrete.user.exception.OtpInvalidException;
+import com.negoreserva.common.feature.concrete.user.model.UserOtpVerification;
+import com.negoreserva.common.feature.concrete.user.service.UserOtpVerificationFacade;
 import com.negoreserva.common.feature.core.enums.OtpVerificationType;
 import com.negoreserva.common.feature.general.register.util.ExpiredGenerator;
 import com.negoreserva.common.feature.general.register.util.OtpGenerator;

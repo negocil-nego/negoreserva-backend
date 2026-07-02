@@ -1,12 +1,12 @@
 package com.negoreserva.common.feature.general.register.service;
 
 import com.negoreserva.common.feature.concrete.user.enums.UserStatus;
-import com.negoreserva.common.feature.concrete.user_otp_verification.exception.UserOtpVerificationNotExpiredException;
-import com.negoreserva.common.feature.concrete.user_otp_verification.exception.UserOtpVerificationConfirmException;
-import com.negoreserva.common.feature.concrete.user_otp_verification.service.UserOtpVerificationFacade;
+import com.negoreserva.common.feature.concrete.user.exception.UserOtpVerificationNotExpiredException;
+import com.negoreserva.common.feature.concrete.user.exception.UserOtpVerificationConfirmException;
+import com.negoreserva.common.feature.concrete.user.service.UserOtpVerificationFacade;
 import com.negoreserva.common.feature.general.register.dto.request.ConfirmUserOtpVerificationRequest;
 import com.negoreserva.common.feature.general.register.dto.request.ResendUserOtpVerificationRequest;
-import com.negoreserva.common.feature.concrete.user_otp_verification.model.UserOtpVerification;
+import com.negoreserva.common.feature.concrete.user.model.UserOtpVerification;
 import com.negoreserva.common.feature.general.register.dto.response.CreateAccountResponse;
 import com.negoreserva.common.feature.general.register.dto.response.UserAuthResponse;
 import com.negoreserva.common.feature.general.register.util.ExpiredGenerator;

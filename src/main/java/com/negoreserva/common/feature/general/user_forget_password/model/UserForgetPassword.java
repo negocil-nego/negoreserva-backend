@@ -1,6 +1,6 @@
 package com.negoreserva.common.feature.general.user_forget_password.model;
 
-import com.negoreserva.common.feature.concrete.user_otp_verification.model.UserOtpVerification;
+import com.negoreserva.common.feature.concrete.user.model.UserOtpVerification;
 import com.negoreserva.common.variable.EntityVariable;
 import jakarta.validation.constraints.Size;
 import jakarta.persistence.*;

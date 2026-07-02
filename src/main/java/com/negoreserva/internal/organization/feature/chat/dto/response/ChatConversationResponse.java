@@ -9,7 +9,7 @@ public record ChatConversationResponse(UUID uuid, String emissorName, Instant cr
     public static ChatConversationResponse of(ChatConversation conversation) {
         return new ChatConversationResponse(
                 conversation.getUuid(),
-                conversation.getEmissor().getName(),
+                conversation.getIssuer().getName(),
                 conversation.getCreatedAt()
         );
     }

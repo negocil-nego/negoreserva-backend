@@ -1,4 +1,4 @@
-package com.negoreserva.external.feature.category.api.graphql;
+package com.negoreserva.external.category.api.graphql;
 
 import com.negoreserva.common.feature.concrete.category.dto.queryparam.CategoryFilterQueryParam;
 import com.negoreserva.common.feature.concrete.category.dto.response.CategoryPaginate;

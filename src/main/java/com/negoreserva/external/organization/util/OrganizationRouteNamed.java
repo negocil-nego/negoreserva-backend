@@ -1,4 +1,4 @@
-package com.negoreserva.external.feature.organization.util;
+package com.negoreserva.external.organization.util;
 
 public final class OrganizationRouteNamed {
     public final static String PATH = "/api/v1/pub/organizations";

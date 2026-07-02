@@ -7,9 +7,9 @@ import com.negoreserva.common.feature.concrete.organization.dto.response.Organiz
 import com.negoreserva.common.feature.concrete.organization.model.Organization;
 import com.negoreserva.common.feature.concrete.product.dto.request.ProductRequest;
 import com.negoreserva.common.feature.concrete.product.dto.response.ProductResponse;
-import com.negoreserva.common.feature.concrete.product_tag_info.model.ProductTagInfo;
-import com.negoreserva.common.feature.concrete.product_file.model.ProductFile;
-import com.negoreserva.common.feature.concrete.product_price.model.ProductPrice;
+import com.negoreserva.common.feature.concrete.product.model.ProductTagInfo;
+import com.negoreserva.common.feature.concrete.product.model.ProductFile;
+import com.negoreserva.common.feature.concrete.product.model.ProductPrice;
 import com.negoreserva.common.util.SearchableUtils;
 import com.negoreserva.common.util.SlugUtils;
 import com.negoreserva.common.util.UniqueFieldUtil;

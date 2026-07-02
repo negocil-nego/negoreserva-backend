@@ -1,4 +1,4 @@
-package com.negoreserva.external.feature.organization.service;
+package com.negoreserva.external.organization.service;
 
 import com.negoreserva.common.feature.concrete.organization.exception.notfound.OrganizationNotFoundException;
 import com.negoreserva.common.feature.concrete.organization.exception.notfound.OrganizationSlugNotFoundException;
@@ -7,7 +7,7 @@ import com.negoreserva.common.feature.concrete.organization.dto.response.Organiz
 import com.negoreserva.common.feature.concrete.organization.model.Organization;
 import com.negoreserva.common.feature.concrete.organization.repository.OrganizationRepository;
 import com.negoreserva.common.util.RegexValidators;
-import com.negoreserva.external.feature.organization.query.OrganizationSearchSpecification;
+import com.negoreserva.external.organization.query.OrganizationSearchSpecification;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

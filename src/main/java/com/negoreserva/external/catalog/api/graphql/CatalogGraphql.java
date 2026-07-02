@@ -1,11 +1,11 @@
-package com.negoreserva.external.feature.catalog.api.graphql;
+package com.negoreserva.external.catalog.api.graphql;
 
 import com.negoreserva.common.feature.concrete.catalog.dto.queryparam.CatalogSearchFilterParam;
 import com.negoreserva.common.feature.concrete.catalog.service.CatalogService;
 import com.negoreserva.common.feature.core.dto.request.PaginateRequest;
 import com.negoreserva.common.feature.pivot.catalog_products.service.CatalogProductsService;
 import com.negoreserva.common.feature.concrete.catalog.dto.response.CatalogResponse;
-import com.negoreserva.external.feature.product.dto.response.ProductDetailResponse;
+import com.negoreserva.external.product.dto.response.ProductDetailResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

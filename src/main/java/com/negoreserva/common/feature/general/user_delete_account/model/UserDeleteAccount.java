@@ -1,7 +1,7 @@
 package com.negoreserva.common.feature.general.user_delete_account.model;
 
 import com.negoreserva.common.feature.concrete.user.model.User;
-import com.negoreserva.common.feature.concrete.user_otp_verification.model.UserOtpVerification;
+import com.negoreserva.common.feature.concrete.user.model.UserOtpVerification;
 import com.negoreserva.common.variable.EntityVariable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;

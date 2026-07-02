@@ -9,8 +9,8 @@ import com.negoreserva.common.feature.concrete.organization.dto.request.Organiza
 import com.negoreserva.common.feature.concrete.organization.dto.request.OrganizationAddressUpsertRequest;
 import com.negoreserva.common.feature.concrete.organization.dto.request.OrganizationEditProfileRequest;
 import com.negoreserva.common.feature.concrete.organization.usecase.OrgOrganizationUseCase;
-import com.negoreserva.common.feature.concrete.organization_social_media.dto.request.OrganizationSocialMediaEditRequest;
-import com.negoreserva.common.feature.concrete.organization_social_media.model.OrganizationSocialMedia;
+import com.negoreserva.common.feature.concrete.organization.dto.request.OrganizationSocialMediaEditRequest;
+import com.negoreserva.common.feature.concrete.organization.model.OrganizationSocialMedia;
 import com.negoreserva.common.feature.concrete.province.model.Province;
 import com.negoreserva.common.feature.concrete.province.service.ProvinceService;
 import com.negoreserva.internal.organization.feature.organization.usecases.OrgGetProfileOrganizationUseCase;

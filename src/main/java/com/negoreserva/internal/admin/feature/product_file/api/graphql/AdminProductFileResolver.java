@@ -1,9 +1,9 @@
 package com.negoreserva.internal.admin.feature.product_file.api.graphql;
 
-import com.negoreserva.common.feature.concrete.product_file.dto.request.ProductFileRequest;
-import com.negoreserva.common.feature.concrete.product_file.dto.response.ProductFilePaginate;
-import com.negoreserva.common.feature.concrete.product_file.dto.response.ProductFileResponse;
-import com.negoreserva.common.feature.concrete.product_file.service.ProductFileService;
+import com.negoreserva.common.feature.concrete.product.dto.request.ProductFileRequest;
+import com.negoreserva.common.feature.concrete.product.dto.response.ProductFilePaginate;
+import com.negoreserva.common.feature.concrete.product.dto.response.ProductFileResponse;
+import com.negoreserva.common.feature.concrete.product.service.ProductFileService;
 import com.negoreserva.internal.admin.feature.permission.enums.AdminPermissionData;
 import com.negoreserva.internal.admin.component.AdminControlAccess;
 import com.negoreserva.common.feature.core.dto.request.PaginateRequest;

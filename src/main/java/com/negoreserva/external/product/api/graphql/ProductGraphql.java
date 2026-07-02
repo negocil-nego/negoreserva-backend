@@ -1,9 +1,9 @@
-package com.negoreserva.external.feature.product.api.graphql;
+package com.negoreserva.external.product.api.graphql;
 
 import com.negoreserva.common.feature.concrete.product.dto.queryparam.ProductSearchFilterParam;
 import com.negoreserva.common.feature.concrete.product.dto.response.ProductResponse;
 import com.negoreserva.common.feature.core.dto.request.PaginateRequest;
-import com.negoreserva.external.feature.product.dto.response.ProductDetailResponse;
+import com.negoreserva.external.product.dto.response.ProductDetailResponse;
 import com.negoreserva.common.feature.concrete.product.service.ProductService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

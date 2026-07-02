@@ -1,10 +1,8 @@
-package com.negoreserva.external.feature.product.dto.response;
+package com.negoreserva.external.product.dto.response;
 
 import com.negoreserva.common.feature.concrete.organization.dto.response.OrganizationResponse;
 import com.negoreserva.common.feature.concrete.product.model.Product;
-import com.negoreserva.external.feature.product_file.dto.response.ProductFileGetOrgResponse;
-import com.negoreserva.external.feature.product_price.dto.response.ProductPriceGetOrgResponse;
-import com.negoreserva.external.feature.product_tag_info.response.ProductTagInfoGetOrgResponse;
+import com.negoreserva.external.product.price.ProductPriceGetOrgResponse;
 
 import java.util.List;
 import java.util.UUID;

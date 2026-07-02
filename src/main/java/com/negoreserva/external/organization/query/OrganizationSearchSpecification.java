@@ -1,4 +1,4 @@
-package com.negoreserva.external.feature.organization.query;
+package com.negoreserva.external.organization.query;
 
 import com.negoreserva.common.feature.concrete.address.model.Address;
 import com.negoreserva.common.feature.concrete.category.model.Category;
